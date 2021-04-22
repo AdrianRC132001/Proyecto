@@ -1,0 +1,404 @@
+.fondo
+{
+	background-image: url("../img/Fondo.jpg");
+  	background-size: cover;
+  	background-position: right bottom;
+}
+.lds-roller
+{
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+.lds-roller div
+{
+    animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    transform-origin: 40px 40px;
+}
+.lds-roller div:after
+{
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background:red;
+    margin: -4px 0 0 -4px;
+}
+.lds-roller div:nth-child(1)
+{
+    animation-delay: -0.036s;
+}
+.lds-roller div:nth-child(1):after
+{
+    top: 63px;
+    left: 63px;
+}
+.lds-roller div:nth-child(2)
+{
+    animation-delay: -0.072s;
+}
+.lds-roller div:nth-child(2):after
+{
+    top: 68px;
+    left: 56px;
+}
+.lds-roller div:nth-child(3)
+{
+    animation-delay: -0.108s;
+}
+.lds-roller div:nth-child(3):after
+{
+    top: 71px;
+    left: 48px;
+}
+.lds-roller div:nth-child(4)
+{
+    animation-delay: -0.144s;
+}
+.lds-roller div:nth-child(4):after
+{
+    top: 72px;
+    left: 40px;
+}
+.lds-roller div:nth-child(5)
+{
+    animation-delay: -0.18s;
+}
+.lds-roller div:nth-child(5):after
+{
+    top: 71px;
+    left: 32px;
+}
+.lds-roller div:nth-child(6)
+{
+    animation-delay: -0.216s;
+}
+.lds-roller div:nth-child(6):after
+{
+    top: 68px;
+    left: 24px;
+}
+.lds-roller div:nth-child(7)
+{
+    animation-delay: -0.252s;
+}
+.lds-roller div:nth-child(7):after
+{
+    top: 63px;
+    left: 17px;
+}
+.lds-roller div:nth-child(8)
+{
+    animation-delay: -0.288s;
+}
+.lds-roller div:nth-child(8):after
+{
+    top: 56px;
+    left: 12px;
+}
+@keyframes lds-roller
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(360deg);
+    }
+}
+.loader
+{
+    background:black;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100000;
+    clip-path: circle(150% at 100% 0);
+    transition: clip-path 0.3s ease-in-out  ;
+}
+.loader2
+{
+    clip-path: circle(0% at 100% 0);
+}
+.loaderText
+{
+    font-family: 'Fredoka One', cursive;
+    color:red; 
+    position: relative; 
+    top: 15%; 
+    left: -0.5%;
+    font-size: 19px;
+}
+.navbar
+{
+    background-color:red;
+    font-family: 'Krona One', sans-serif;
+    font-size: 1rem;
+}
+.logo
+{
+    border-radius: 0.2503128911138924vh;
+    transition: transform(0.5s);
+}
+.logo:hover
+{
+    transform: scale(1.1);
+}
+.pieDePagina
+{
+    padding: 50px 0;
+    color:#f0f9ff;
+    background-color:black;
+}
+.pieDePagina h3 
+{
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-weight: bold;
+    font-size: 16px;
+}
+.pieDePagina ul 
+{
+    padding: 0;
+    list-style: none;
+    line-height: 1.6;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+.pieDePagina ul a 
+{
+    color: inherit;
+    text-decoration: none;
+    opacity: 0.6;
+}
+.pieDePagina ul a:hover 
+{
+    opacity: 0.8;
+}
+@media(max-width: 767px)
+{
+    .pieDePagina .item:not(.social)
+    {
+        text-align: center;
+        padding-bottom: 20px;
+    }
+}
+.pieDePagina .item.text
+{
+    margin-bottom: 36px;
+}
+@media(max-width: 767px)
+{
+    .pieDePagina .item.text
+    {
+        margin-bottom: 0;
+    }
+}
+.pieDePagina .item.text p
+{
+    opacity: 0.6;
+    margin-bottom: 0;
+}
+.pieDePagina .item.social
+{
+    text-align: center;
+}
+@media(max-width: 991px)
+{
+    .pieDePagina .item.social
+    {
+        text-align: center;
+        margin-top: 20px;
+    }
+}
+.pieDePagina .item.social > a
+{
+    font-size: 20px;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.4);
+    margin: 0 8px;
+    color:#fff;
+    opacity: 0.75;
+}
+.pieDePagina .item.social > a:hover
+{
+    opacity: 0.9;
+}
+.pieDePagina .copyright
+{
+    text-align: center;
+    padding-top: 24px;
+    opacity: 0.3;
+    font-size: 13px;
+    margin-bottom: 0;
+}
+.enlaceDesactivado
+{
+    pointer-events: none;
+    cursor: default;
+}
+.listaFooter
+{
+    margin-left: 10px;
+    font-size: 85%;
+}
+.icono-mail
+{
+    background-color:red;
+}
+.icono-steam
+{
+    background-color:black;
+}
+.icono-youtube
+{
+    background-color:red;
+}
+.icono-twitter
+{
+    background-color:#1da1f2;
+}
+.icono-instagram
+{
+    background-color:#d12d8e;
+}
+.rojo
+{
+    color:red;
+}
+.marco
+{
+    background-color:red;
+    width: 20%;
+    height: 100%;
+    text-align: center;
+    border-radius: 10px;
+    margin: 10px;
+}
+.marco a
+{
+    text-decoration: none;
+    font-family: 'Krona One', sans-serif;
+    font-size: 1rem;
+    transition: trasform(0.5);
+    color:black;
+}
+.marco a:hover
+{
+    transform: scale(1.1);
+    color:darkred;
+}
+.contenedor
+{
+    border-radius: 10px;
+    background-color:rgba(0, 0, 0, 0.75);
+}
+.amarillo
+{
+    color:yellow;
+}
+.margen
+{
+    padding: 2%;
+}
+.titulo
+{
+    color:red;
+    text-align: center;
+    font-family: 'Creepster', cursive;
+}
+.link
+{
+    color:red;
+}
+.link:hover
+{
+    color:darkred;
+}
+.tab
+{
+	overflow: hidden;
+	border: 1px solid red;
+	background-color:rgba(0, 0, 0, 0.75);
+}
+.tab button
+{
+	background-color: inherit;
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0.3s;
+	font-size: 17px;
+    color:red;
+}
+.tab button:hover
+{
+    background-color:darkred;
+    color:red;
+}
+.tab button.active
+{
+	background-color:red;
+    color:darkred;
+}
+.tabcontent
+{
+	display: none;
+	padding: 6px 12px;
+	border: 1px solid red;
+	border-top: none;
+}
+.error
+{
+    color:yellow;
+    text-align: center;
+}
+.modal-header
+{
+    font-family: 'Creepster', cursive;
+    background-color:black;
+    color:red;
+}
+.botonClose
+{
+    color:white;
+}
+.tabla
+{
+    color:red;
+    text-align: center;
+}
+.fotoPerfil
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 60vh;
+    border: solid black 2px;
+}
+.tituloPerfil
+{
+    color:red;
+    font-family: 'Creepster', cursive;
+}
+.spanPerfil
+{
+    color:red;
+    font-size: 2.25vh;
+}
