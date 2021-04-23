@@ -65,9 +65,12 @@
                 <div class="col-md-8">
                     <h1 class="titulo"><i>Mi perfil</i></h1>
                     <br>
-                    <h2 class="tituloPerfil"><i>Foto de perfil</i></h2>
+                    <h2 class="tituloPerfil"><i>Acerca de mí</i></h2>
                     <br>
-                    <img class="fotoPerfil" src="../img/Logo.png" alt="Foto de perfil" width="120vh" height="120vh"></img>
+                    <img src="data:image/jpeg;base64,<?php echo base64_encode($_SESSION['Foto']);?>" class="img-responsive fotoPerfil" width="120vh" height="120vh" alt="Foto de perfil"></img>
+                    <br>
+                    <span class="spanPerfil"><u><b>Descripción:</b></u> <?php echo $_SESSION["Descripción"]?></span>
+                    <br>
                     <br>
                     <h2 class="tituloPerfil"><i>Datos personales</i></h2>
                     <br>

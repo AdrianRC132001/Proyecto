@@ -66,6 +66,8 @@
                         $cp = $_POST["cp"];
                         $ca = $_POST["ca"];
                         $provincia = $_POST["provincia"];
+                        $descripcion = $_POST["descripcion"];
+                        $foto = addslashes(file_get_contents($_FILES['foto']['tmp_name']));
                         $rol = "usuario";
                         //Creamos la conexión a la BD.
                         $conexion = conectar(true);
@@ -97,7 +99,7 @@
                         else
                         {
                             //Lanzamos la consulta.
-                            $consulta = insertarUsuarios($conexion, $nick, $password, $nombre, $apellido1, $apellido2, $telefono, $eMail, $cp, $provincia, $ca, $rol, $dni);
+                            $consulta = insertarUsuarios($conexion, $nick, $password, $nombre, $apellido1, $apellido2, $telefono, $eMail, $cp, $provincia, $ca, $rol, $dni, $foto, $descripcion);
                         }
                     ?>
                 </div>

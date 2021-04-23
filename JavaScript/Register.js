@@ -13,6 +13,8 @@ const cp = document.getElementById("cp");
 const ca = document.getElementById("ca");
 const provincia = document.getElementById("provincia");
 const terminos = document.getElementById("terminos");
+const descripcion = document.getElementById("descripcion");
+const caracteres = document.getElementById("caracteres");
 //Errores.
 const errorNick = document.getElementById("errorNick");
 const errorEMail = document.getElementById("errorEMail");
@@ -115,6 +117,28 @@ function validarPassword()
 		errorPassword.style.visibility = "visible";
 	}
 }
+function mostrarPassword()
+{
+    let visibilidad = document.getElementById("password");
+    if(visibilidad.type == "password")
+	{
+        visibilidad.type = "text";
+        $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+    }
+	else
+	{
+        visibilidad.type = "password";
+        $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+    }
+}
+$(document).ready(function()
+{
+    //Botón mostrar contraseña.
+    $('#ShowPassword').click(function()
+	{
+    	$('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
+	});
+});
 function validarPassword2()
 {
 	if(password.value == password2.value)
@@ -130,6 +154,28 @@ function validarPassword2()
 		errorPassword2.style.visibility = "visible";
 	}
 }
+function mostrarPassword2()
+{
+    let visibilidad = document.getElementById("password2");
+    if(visibilidad.type == "password")
+	{
+        visibilidad.type = "text";
+        $('.icon2').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+    }
+	else
+	{
+        visibilidad.type = "password";
+        $('.icon2').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+    }
+}
+$(document).ready(function()
+{
+    //Botón mostrar contraseña.
+    $('#ShowPassword').click(function()
+	{
+    	$('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
+	});
+});
 function validarNombre()
 {
     nombre.value = nombre.value.charAt(0).toUpperCase() + nombre.value.slice(1);
@@ -342,6 +388,18 @@ function validarFormulario()
 		return false;
 	}
 }
+function contarCaracteres()
+{
+	caracteres.innerHTML = 1000 - descripcion.value.length + "/1000 caracteres restantes.";
+	if(descripcion.value.length == 1000)
+	{
+		document.getElementById("caracteres").className = "amarillo";
+	}
+	else
+	{
+		document.getElementById("caracteres").className = "rojo";
+	}
+}
 //Oyentes de eventos.
 nick.addEventListener("keyup", validarNick);
 nick.addEventListener("blur", validarNick);
@@ -369,3 +427,5 @@ ca.addEventListener("keyup", validarCA);
 ca.addEventListener("blur", validarCA);
 provincia.addEventListener("keyup", validarProvincia);
 provincia.addEventListener("blur", validarProvincia);
+descripcion.addEventListener("keyup", contarCaracteres);
+descripcion.addEventListener("blur", contarCaracteres);

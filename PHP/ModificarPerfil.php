@@ -67,7 +67,7 @@
             <div class="row margen">
                 <div class="col-md-8">
                     <h1 class="titulo"><i>Editar perfil</i></h1>
-                    <form id="register" name="register" action="PerfilModificado.php" method="POST" novalidate onsubmit="return validarFormulario();">
+                    <form id="register" name="register" action="PerfilModificado.php" method="POST" enctype="multipart/form-data" novalidate onsubmit="return validarFormulario();">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label class="rojo">Nick:</label>
@@ -81,12 +81,22 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="rojo">Password:</label>
-                                <input class="form-control" type="password" name="password" id="password" minlength="8" maxlength="45" placeholder="Mínimo 8 carácteres y sin espacios" value="<?php echo $mostrar['Password'];?>" required>
+                                <div class="input-group">
+                                    <input class="form-control" type="password" name="password" id="password" minlength="8" maxlength="45" placeholder="Mínimo 8 carácteres y sin espacios" value="<?php echo $mostrar['Password'];?>" required>
+                                    <div class="input-group-append">
+                                        <button id="show_password" class="btn btn-danger" type="button" onclick="mostrarPassword()"><span class="fa fa-eye-slash icon"></span></button>
+                                    </div>
+                                </div>
                                 <span class="amarillo" id="errorPassword">La contraseña debe contener al menos una letra mayúscula, al menos una letra minúscula y al menos un dígito.</span>
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="rojo">Confirm password:</label>
-                                <input class="form-control" type="password" name="password2" id="password2" minlength="8" maxlength="45" placeholder="Mínimo 8 carácteres y sin espacios" value="<?php echo $mostrar['Password'];?>" required>
+                                <div class="input-group">
+                                    <input class="form-control" type="password" name="password2" id="password2" minlength="8" maxlength="45" placeholder="Mínimo 8 carácteres y sin espacios" value="<?php echo $mostrar['Password'];?>" required>
+                                    <div class="input-group-append">
+                                        <button id="show_password2" class="btn btn-danger" type="button" onclick="mostrarPassword2()"><span class="fa fa-eye-slash icon2"></span></button>
+                                    </div>
+                                </div>
                                 <span class="amarillo" id="errorPassword2">Las contraseñas no coinciden.</span>
                             </div>
                             <div class="form-group col-md-6">
@@ -128,6 +138,12 @@
                                 <label class="rojo">Provincia:</label>
                                 <input class="form-control" type="text" name="provincia" id="provincia" minlength="1" maxlength="45" placeholder="Ejemplo: Sevilla" value="<?php echo $mostrar['Provincia'];?>" required>
                                 <span class="amarillo" id="errorProvincia">Provincia no válida.</span>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label class="rojo">Descripción:</label>
+                                <textarea class="form-control" type="text" name="descripcion" id="descripcion" minlength="0" maxlength="1000" placeholder="Introduzca aquí información adicional..." cols="30" rows="5" required><?php echo $mostrar['Descripción'];?></textarea>
+                                <br>
+                                <span class="rojo" id="caracteres"></span>
                             </div>
                             <div>
                                 <label class="rojo">

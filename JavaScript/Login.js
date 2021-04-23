@@ -50,6 +50,28 @@ function validarPassword()
 		errorPassword.style.visibility = "visible";
 	}
 }
+function mostrarPassword()
+{
+    let visibilidad = document.getElementById("password");
+    if(visibilidad.type == "password")
+	{
+        visibilidad.type = "text";
+        $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+    }
+	else
+	{
+        visibilidad.type = "password";
+        $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+    }
+}
+$(document).ready(function()
+{
+    //Botón mostrar contraseña.
+    $('#ShowPassword').click(function()
+	{
+    	$('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
+	});
+});
 function validarFormulario()
 {
 	let login = document.login;	

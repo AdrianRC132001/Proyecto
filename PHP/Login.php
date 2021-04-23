@@ -77,8 +77,13 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="rojo">Password:</label>
-                                <input class="form-control" type="password" name="password" id="password" minlength="8" maxlength="45" placeholder="Mínimo 8 carácteres y sin espacios" required>
-                                <span class="amarillo" id="errorPassword">Contraseña no válida.</span>
+                                <div class="input-group">
+                                    <input class="form-control" type="password" name="password" id="password" minlength="8" maxlength="45" placeholder="Mínimo 8 carácteres y sin espacios" required>
+                                    <div class="input-group-append">
+                                        <button id="show_password" class="btn btn-danger" type="button" onclick="mostrarPassword()"><span class="fa fa-eye-slash icon"></span></button>
+                                    </div>
+                                </div>
+                                <span class="amarillo" id="errorPassword">La contraseña debe contener al menos una letra mayúscula, al menos una letra minúscula y al menos un dígito.</span>
                             </div>
                             <div>
                                 <label class="rojo">
