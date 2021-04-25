@@ -1,7 +1,7 @@
 <?php
     function consultaPlataforma($conexion)
 	{
-		$consulta = "SELECT idPlataforma, Imagen FROM Plataformas ORDER BY rand() LIMIT 3";
+		$consulta = "SELECT idPlataforma, Imagen FROM Plataformas ORDER BY rand() LIMIT 4";
 		$resultado = mysqli_query($conexion, $consulta);
 		return $resultado;
 	}

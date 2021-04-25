@@ -1,4 +1,5 @@
 <?php
+    require "BD/ConectorBD.php";
     session_start();
 ?>
 <!DOCTYPE html>
@@ -63,18 +64,25 @@
                             <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
                         </ol>
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="" class="d-block w-100 rounded" alt="Imagen 1" width="100%" height="400px">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="" class="d-block w-100 rounded" alt="Imagen 2" width="100%" height="400px">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="" class="d-block w-100 rounded" alt="Imagen 3" width="100%" height="400px">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="" class="d-block w-100 rounded" alt="Imagen 4" width="100%" height="400px">
-                            </div>
+                            <?php
+                                require "BD/DAOPlataforma.php";
+                                //Creamos la conexión a la BD.
+                                $conexion = conectar(true);
+                                //Lanzamos la consulta.
+                                $consulta = consultaPlataforma($conexion);
+                                $i = 0;
+                                while($fila = mysqli_fetch_assoc($consulta))
+                                {
+                            ?>
+                                    <div class="item <?php echo ($i == 0) ? 'active' : '';?>">
+                                        <a href="DetallesPlataforma.php?idPlataforma=<?php echo $fila['idPlataforma'];?>">
+                                            <img src="<?php echo $fila['Imagen'];?>" alt="Plataforma" style="width:100%; height:400px;">
+                                        </a>
+                                    </div>
+                            <?php
+                                    $i++;
+                                }
+                            ?>
                         </div>
                         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -99,18 +107,25 @@
                             <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
                         </ol>
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="" class="d-block w-100 rounded" alt="Imagen 1" width="100%" height="400px">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="" class="d-block w-100 rounded" alt="Imagen 2" width="100%" height="400px">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="" class="d-block w-100 rounded" alt="Imagen 3" width="100%" height="400px">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="" class="d-block w-100 rounded" alt="Imagen 4" width="100%" height="400px">
-                            </div>
+                            <?php
+                                require "BD/DAOVideojuego.php";
+                                //Creamos la conexión a la BD.
+                                $conexion = conectar(true);
+                                //Lanzamos la consulta.
+                                $consulta = consultaVideojuego($conexion);
+                                $i = 0;
+                                while($fila = mysqli_fetch_assoc($consulta))
+                                {
+                            ?>
+                                    <div class="item <?php echo ($i == 0) ? 'active' : '';?>">
+                                        <a href="DetallesVideojuego.php?idVideojuego=<?php echo $fila['idVideojuego'];?>">
+                                            <img src="<?php echo $fila['Imagen'];?>" alt="Videojuego" style="width:100%; height:400px;">
+                                        </a>
+                                    </div>
+                            <?php
+                                    $i++;
+                                }
+                            ?>
                         </div>
                         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>

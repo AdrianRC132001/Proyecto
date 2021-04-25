@@ -1,7 +1,7 @@
 <?php
     function consultaVideojuego($conexion)
 	{
-		$consulta = "SELECT idVideojuego, Imagen FROM Videojuegos ORDER BY rand() LIMIT 3";
+		$consulta = "SELECT idVideojuego, Imagen FROM Videojuegos ORDER BY rand() LIMIT 4";
 		$resultado = mysqli_query($conexion, $consulta);
 		return $resultado;
 	}
