@@ -67,7 +67,14 @@
                     <br>
                     <h2 class="tituloPerfil"><i>Acerca de mí</i></h2>
                     <br>
-                    <img src="data:image/jpeg;base64,<?php echo base64_encode($_SESSION['Foto']);?>" class="img-responsive fotoPerfil" width="120vh" height="120vh" alt="Foto de perfil"></img>
+                    <div class="fotoPerfil">
+                        <figure>
+                            <img src="data:image/jpeg;base64,<?php echo base64_encode($_SESSION['Foto']);?>" class="img-responsive" width="120vh" height="120vh" alt="Foto de perfil"></img>
+                            <div class="capa">
+                                <p class="capa"><i class="fas fa-pen"></i>&nbsp;Editar</p>
+                            </div>
+                        </figure>
+                    </div>
                     <br>
                     <span class="spanPerfil"><u><b>Descripción:</b></u> <?php echo $_SESSION["Descripción"]?></span>
                     <br>

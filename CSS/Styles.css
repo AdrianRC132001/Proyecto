@@ -386,11 +386,44 @@
 }
 .fotoPerfil
 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fotoPerfil figure
+{
+    position: relative;
+    cursor: pointer;
+}
+.fotoPerfil figure img
+{
     display: block;
     margin-left: auto;
     margin-right: auto;
     border-radius: 60vh;
     border: solid black 2px;
+}
+.fotoPerfil figure img:hover
+{
+    filter: brightness(40%);
+}
+.fotoPerfil figure > .capa
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.fotoPerfil figure:hover > .capa
+{
+    visibility: visible;
+    color:red;
+    margin-left: auto;
+    margin-right: auto;
 }
 .tituloPerfil
 {
