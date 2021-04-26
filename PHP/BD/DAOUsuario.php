@@ -107,4 +107,10 @@
 		$resultado = mysqli_query($conexion, $consulta);
 		return $resultado;
 	}
+	function modificarFoto($conexion, $foto, $idUsuario)
+	{
+		$consulta = "UPDATE `Proyecto`.`Usuarios` SET `Foto` = '$foto' WHERE(`idUsuario` = '$idUsuario')";
+		$resultado = mysqli_query($conexion, $consulta);
+		return $resultado;
+	}
 ?>
