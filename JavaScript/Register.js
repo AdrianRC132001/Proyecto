@@ -390,7 +390,7 @@ function validarFormulario()
 }
 function contarCaracteres()
 {
-	caracteres.innerHTML = 1000 - descripcion.value.length + "/1000 caracteres restantes.";
+	caracteres.innerHTML = 1000 - descripcion.value.length + "/1000 carácteres restantes.";
 	if(descripcion.value.length == 1000)
 	{
 		document.getElementById("caracteres").className = "amarillo";
