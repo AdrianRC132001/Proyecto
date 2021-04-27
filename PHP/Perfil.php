@@ -69,9 +69,9 @@
                     <br>
                     <div class="fotoPerfil">
                         <figure>
-                            <img src="data:image/jpeg;base64,<?php echo base64_encode($_SESSION['Foto']);?>" class="img-responsive" width="120vh" height="120vh" alt="Foto de perfil"></img>
+                            <a href="#" data-toggle="modal" data-target="#foto"><img src="data:image/jpeg;base64,<?php echo base64_encode($_SESSION['Foto']);?>" class="img-responsive" width="120vh" height="120vh" alt="Foto de perfil"></a>
                             <div class="capa">
-                                <p class="capa"><i class="fas fa-pen"></i>&nbsp;Editar</p>
+                                <a class="link" href="#" data-toggle="modal" data-target="#foto"><p class="capa"><i class="fas fa-pen"></i>&nbsp;Editar</p></a>
                             </div>
                         </figure>
                     </div>
@@ -127,6 +127,7 @@
                 </div>
             </div>
         </div>
+        <?php include_once "VentanaEmergenteFoto.php"?>
         <!--Ventana emergente para confirmar el cierre de la sesión.-->
         <?php include_once "VentanaEmergenteLogout.php"?>
         <br>
