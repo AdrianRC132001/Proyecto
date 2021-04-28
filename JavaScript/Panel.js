@@ -3,7 +3,7 @@ function panel(evt, Panel)
     let i;
     let tabcontent;
     let tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
+    tabcontent = document.getElementsByClassName("container-fluid");
     for(i = 0; i < tabcontent.length; i++)
     {
         tabcontent[i].style.display = "none";

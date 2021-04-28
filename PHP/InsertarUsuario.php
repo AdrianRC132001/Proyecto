@@ -1,6 +1,12 @@
 <?php
     require "BD/ConectorBD.php";
+	require "BD/DAOUsuario.php";
     session_start();
+    $rol = $_SESSION['Rol'];
+    if($rol != "admin")
+    {
+        header("Location: Home.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="es-ES">
@@ -55,8 +61,8 @@
         <div class="container contenedor">
             <div class="row margen">
                 <div class="col-md-8">
-                    <h1 class="titulo"><i>Registro</i></h1>
-                    <form id="register" name="register" action="UsuarioRegistrado.php" method="POST" enctype="multipart/form-data" novalidate onsubmit="return validarFormulario();">
+                    <h1 class="titulo"><i>Nuevo usuario</i></h1>
+                    <form id="register" name="register" action="NuevoUsuario.php" method="POST" enctype="multipart/form-data" novalidate onsubmit="return validarFormulario();">
                         <p>
                             <?php
                                 if(isset($_GET['error']) && $_GET['error'] == "nickExiste")
@@ -189,8 +195,9 @@
                         </div>
                         <br>
                         <div class="form-group">
-                            <button class="btn btn-danger btn-block" type="submit" name="boton" value="Register" id="boton">Register</button>
+                            <button class="btn btn-danger btn-block" type="submit" name="boton" value="Enviar" id="boton">Enviar</button>
                         </div>
+                        <center><a class="link" href="Admin.php">Cancelar</a></center>
                     </form>
                 </div>
                 <div class="col-md-3 marco d-none d-sm-none d-md-block">

@@ -1,6 +1,17 @@
-<?php
+<?php  
     require "BD/ConectorBD.php";
+	require "BD/DAOUsuario.php";
     session_start();
+    //Creamos la conexión a la BD.
+    $conexion = conectar(true);
+    $idUsuario = $_GET["idUsuario"];
+    $rol = $_SESSION['Rol'];
+    if($rol != "admin")
+    {
+        header("Location: Home.php");
+    }
+    $mostrarNick = mostrarPerfil($conexion, $idUsuario);
+    $nickMostrado = mysqli_fetch_assoc($mostrarNick);
 ?>
 <!DOCTYPE html>
 <html lang="es-ES">
@@ -55,57 +66,16 @@
         <div class="container contenedor">
             <div class="row margen">
                 <div class="col-md-8">
-                    <?php
-                        require "BD/ConectorBD.php";
-                        require "BD/DAOUsuario.php";
-                        //Recogemos los valores del formulario.
-                        $nick = $_POST["nick"];
-                        $eMail = $_POST["eMail"];
-                        $password = $_POST["password"];
-                        $nombre = $_POST["nombre"];
-                        $apellido1 = $_POST["apellido1"];
-                        $apellido2 = $_POST["apellido2"];
-                        $telefono = $_POST["telefono"];
-                        $dni = $_POST["dni"];
-                        $cp = $_POST["cp"];
-                        $ca = $_POST["ca"];
-                        $provincia = $_POST["provincia"];
-                        $descripcion = $_POST["descripcion"];
-                        $foto = addslashes(file_get_contents($_FILES['foto']['tmp_name']));
-                        $rol = "usuario";
-                        //Creamos la conexión a la BD.
-                        $conexion = conectar(true);
-                        $consultaNick = consultaNick($conexion, $nick);
-                        $consultaPassword = consultaPassword($conexion, $password);
-                        $consultaEMail = consultaEMail($conexion, $eMail);
-                        $consultaTelefono = consultaTelefono($conexion, $telefono);
-                        $consultaDNI = consultaDNI($conexion, $dni);
-                        if(mysqli_num_rows($consultaNick) != 0)
-                        {
-                            header("Location: Register.php?error=nickExiste");
-                        }
-                        else if(mysqli_num_rows($consultaPassword) != 0)
-                        {
-                            header("Location: Register.php?error=passwordExiste");
-                        }
-                        else if(mysqli_num_rows($consultaEMail) != 0)
-                        {
-                            header("Location: Register.php?error=eMailExiste");
-                        }
-                        else if(mysqli_num_rows($consultaTelefono) != 0)
-                        {
-                            header("Location: Register.php?error=telefonoExiste");
-                        }
-                        else if(mysqli_num_rows($consultaDNI) != 0)
-                        {
-                            header("Location: Register.php?error=dniExiste");
-                        }
-                        else
-                        {
-                            //Lanzamos la consulta.
-                            $consulta = insertarUsuarios($conexion, $nick, $password, $nombre, $apellido1, $apellido2, $telefono, $eMail, $cp, $provincia, $ca, $rol, $dni, $foto, $descripcion);
-                        }
-                    ?>
+                    <h1 class="titulo"><i>¿Desea eliminar al usuario <?php echo $nickMostrado['Nick'];?>?</i></h1>
+                    <br>
+                    <form id="borrar" name="borrar" action="UsuarioBorrado.php" method="POST">
+                        <div class="form-group">
+                            <button class="btn btn-danger btn-block" type="submit" name="boton" value="Aceptar" id="boton">Aceptar</button>
+                        </div>
+                        <input type="hidden" name="idUsuario" value="<?php echo $idUsuario?>">
+                    </form>
+                    <br>
+                    <center><a class="link" href="Admin.php">Cancelar</a></center>
                 </div>
                 <div class="col-md-3 marco d-none d-sm-none d-md-block">
                     <?php include_once "MenúUsuario.php"?>
@@ -126,6 +96,5 @@
         <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
         <!--Script para el footer.-->
 		<script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" data-auto-a11y="true"></script>
-        <script src="../JavaScript/Register.js"></script>
 	</body>
 </html>

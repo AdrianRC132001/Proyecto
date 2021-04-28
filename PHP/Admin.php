@@ -74,23 +74,35 @@
                     <button class="tablinks" onclick="panel(event, 'merchandising')">Merchandising</button>
                     <button class="tablinks" onclick="panel(event, 'usuarios')">Usuarios</button>
                 </div>
-                <div id="plataformas" class="tabcontent">
-                    <?php include 'AdminPlataforma.php';?>
+                <div id="plataformas" class="container-fluid">
+                    <div class="table-responsive">
+                        <?php include 'AdminPlataforma.php';?>
+                    </div>
                 </div>
-                <div id="videojuegos" class="tabcontent">
-                    <?php include 'AdminVideojuego.php';?>
+                <div id="videojuegos" class="container-fluid">
+                    <div class="table-responsive">
+                        <?php include 'AdminVideojuego.php';?>
+                    </div>
                 </div>
-                <div id="mapas" class="tabcontent">
-                    <?php include 'AdminMapa.php';?>
+                <div id="mapas" class="container-fluid">
+                    <div class="table-responsive">
+                        <?php include 'AdminMapa.php';?>
+                    </div>
                 </div>
-                <div id="productos" class="tabcontent">
-                    <?php include 'AdminProducto.php';?>
+                <div id="productos" class="container-fluid">
+                    <div class="table-responsive">
+                        <?php include 'AdminProducto.php';?>
+                    </div>
                 </div>
-                <div id="merchandising" class="tabcontent">
-                    <?php include 'AdminMerchandising.php';?>
+                <div id="merchandising" class="container-fluid">
+                    <div class="table-responsive">
+                        <?php include 'AdminMerchandising.php';?>
+                    </div>
                 </div>
-                <div id="usuarios" class="tabcontent">
-                    <?php include 'AdminUsuario.php';?>
+                <div id="usuarios" class="container-fluid">
+                    <div class="table-responsive">
+                        <?php include 'AdminUsuario.php';?>
+                    </div>
                 </div>
             </div>
         </div>

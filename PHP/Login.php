@@ -1,3 +1,7 @@
+<?php
+    require "BD/ConectorBD.php";
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="es-ES">
 	<!--Cabecera del código.-->
@@ -106,6 +110,8 @@
                 </div>
             </div>
         </div>
+        <!--Ventana emergente para confirmar el cierre de la sesión.-->
+        <?php include_once "VentanaEmergenteLogout.php"?>
         <br>
         <?php include_once "Footer.php"?>
 		<!--Loader.-->
