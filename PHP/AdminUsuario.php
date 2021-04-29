@@ -40,7 +40,16 @@
                         <td><?php echo $mostrar['idUsuario']?></td>
                         <td><?php echo $mostrar['Usuario']?></td>
                         <td><?php echo $mostrar['Password']?></td>
-                        <td><img src="data:image/jpeg;base64,<?php echo base64_encode($mostrar['Foto']);?>" class="img-responsive" width="60vh" height="60vh" alt="Foto de perfil"></td>
+                        <td>
+                            <div class="fotoPerfil">
+                                <figure>
+                                    <a href="VentanaEmergenteFotoAdmin.php?idUsuario=<?php echo $mostrar['idUsuario'];?>"><img src="data:image/jpeg;base64,<?php echo base64_encode($mostrar['Foto']);?>" class="img-responsive" width="60vh" height="60vh" alt="Foto de perfil"></a>
+                                    <div class="capa">
+                                        <a class="link" href="VentanaEmergenteFotoAdmin.php?idUsuario=<?php echo $mostrar['idUsuario'];?>"><p class="capa"><i class="fas fa-pen"></i>&nbsp;Editar</p></a>
+                                    </div>
+                                </figure>
+                            </div>
+                        </td>
                         <td><?php echo $mostrar['Nombre']?></td>
                         <td><?php echo $mostrar['Apellido1']?></td>
                         <td><?php echo $mostrar['Apellido2']?></td>
