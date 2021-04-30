@@ -35,4 +35,10 @@
 		$resultado = mysqli_query($conexion, $consulta);
 		return $resultado;
     }
+    function consultaNombre($conexion, $nombre)
+	{
+		$consulta = "SELECT * FROM Plataformas WHERE Nombre = '$nombre'";
+		$resultado = mysqli_query($conexion, $consulta);
+		return $resultado;
+	}
 ?>
