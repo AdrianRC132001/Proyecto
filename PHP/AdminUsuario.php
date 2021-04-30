@@ -1,4 +1,5 @@
 <?php
+    require "BD/DAOUsuario.php";
     session_start();
 ?>
 <body>
