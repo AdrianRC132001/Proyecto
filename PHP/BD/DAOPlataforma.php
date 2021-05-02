@@ -17,9 +17,9 @@
         $resultado = mysqli_query($conexion, $consulta);
         return $resultado;
     }
-    function modificarPlataforma($conexion, $nombre, $lanzamiento, $precio, $stock, $descripcion, $imagen, $logo, $compania, $idPlataforma)
+    function modificarPlataforma($conexion, $nombre, $lanzamiento, $precio, $stock, $descripcion, $compania, $idPlataforma)
 	{
-        $consulta = "UPDATE `Proyecto`.`Plataformas` SET `Nombre` = '$nombre', `Lanzamiento` = '$lanzamiento', `Precio` = '$precio', `Stock` = '$stock', `Descripción` = '$descripcion', `Imagen` = '$imagen', `Logo` = '$logo', `Compañía` = '$compania' WHERE(`idPlataforma` = '$idPlataforma')";
+        $consulta = "UPDATE `Proyecto`.`Plataformas` SET `Nombre` = '$nombre', `Lanzamiento` = '$lanzamiento', `Precio` = '$precio', `Stock` = '$stock', `Descripción` = '$descripcion', `Compañía` = '$compania' WHERE(`idPlataforma` = '$idPlataforma')";
         $resultado = mysqli_query($conexion, $consulta);
         return $resultado;
     }
@@ -38,6 +38,18 @@
     function consultaNombre($conexion, $nombre)
 	{
 		$consulta = "SELECT * FROM Plataformas WHERE Nombre = '$nombre'";
+		$resultado = mysqli_query($conexion, $consulta);
+		return $resultado;
+	}
+    function modificarImagen($conexion, $imagen, $idPlataforma)
+	{
+		$consulta = "UPDATE `Proyecto`.`Plataformas` SET `Imagen` = '$imagen' WHERE(`idPlataforma` = '$idPlataforma')";
+		$resultado = mysqli_query($conexion, $consulta);
+		return $resultado;
+	}
+    function modificarLogo($conexion, $logo, $idPlataforma)
+	{
+		$consulta = "UPDATE `Proyecto`.`Plataformas` SET `Logo` = '$logo' WHERE(`idPlataforma` = '$idPlataforma')";
 		$resultado = mysqli_query($conexion, $consulta);
 		return $resultado;
 	}

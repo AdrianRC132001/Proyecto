@@ -74,9 +74,9 @@
                                 while($fila = mysqli_fetch_assoc($consulta))
                                 {
                             ?>
-                                    <div class="item <?php echo ($i == 0) ? 'active' : '';?>">
+                                    <div class="carousel-item <?php echo ($i == 0) ? 'active' : '';?>">
                                         <a href="DetallesPlataforma.php?idPlataforma=<?php echo $fila['idPlataforma'];?>">
-                                            <img src="<?php echo $fila['Imagen'];?>" alt="Plataforma" style="width:100%; height:400px;">
+                                            <img class="d-block w-100 rounded" src="data:image/jpeg;base64,<?php echo base64_encode($fila['Imagen']);?>" alt="Plataforma" style="width:100%; height:400px;">
                                         </a>
                                     </div>
                             <?php
@@ -99,12 +99,12 @@
                 </div>
                 <div class="col-md-8">
                     <h1 class="titulo"><i>Videojuegos de la saga</i></h1>
-                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                            <li data-target="#carouselExampleIndicators2" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators2" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators2" data-slide-to="2"></li>
+                            <li data-target="#carouselExampleIndicators2" data-slide-to="3"></li>
                         </ol>
                         <div class="carousel-inner">
                             <?php
@@ -117,9 +117,9 @@
                                 while($fila = mysqli_fetch_assoc($consulta))
                                 {
                             ?>
-                                    <div class="item <?php echo ($i == 0) ? 'active' : '';?>">
+                                    <div class="carousel-item <?php echo ($i == 0) ? 'active' : '';?>">
                                         <a href="DetallesVideojuego.php?idVideojuego=<?php echo $fila['idVideojuego'];?>">
-                                            <img src="<?php echo $fila['Imagen'];?>" alt="Videojuego" style="width:100%; height:400px;">
+                                            <img class="d-block w-100 rounded" src="data:image/jpeg;base64,<?php echo base64_encode($fila['Imagen']);?>" alt="Videojuego" style="width:100%; height:400px;">
                                         </a>
                                     </div>
                             <?php
@@ -127,11 +127,11 @@
                                 }
                             ?>
                         </div>
-                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators2" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="sr-only">Anterior</span>
                         </a>
-                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <a class="carousel-control-next" href="#carouselExampleIndicators2" role="button" data-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="sr-only">Siguiente</span>
                         </a>
@@ -139,12 +139,12 @@
                 </div>
                 <div class="col-md-8">
                     <h1 class="titulo"><i>Mapas de la saga</i></h1>
-                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <div id="carouselExampleIndicators3" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                            <li data-target="#carouselExampleIndicators3" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators3" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators3" data-slide-to="2"></li>
+                            <li data-target="#carouselExampleIndicators3" data-slide-to="3"></li>
                         </ol>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
@@ -160,11 +160,11 @@
                                 <img src="" class="d-block w-100 rounded" alt="Imagen 4" width="100%" height="400px">
                             </div>
                         </div>
-                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators3" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="sr-only">Anterior</span>
                         </a>
-                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <a class="carousel-control-next" href="#carouselExampleIndicators3" role="button" data-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="sr-only">Siguiente</span>
                         </a>
@@ -172,12 +172,12 @@
                 </div>
                 <div class="col-md-8">
                     <h1 class="titulo"><i>Merchandising de la saga</i></h1>
-                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <div id="carouselExampleIndicators4" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                            <li data-target="#carouselExampleIndicators4" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators4" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators4" data-slide-to="2"></li>
+                            <li data-target="#carouselExampleIndicators4" data-slide-to="3"></li>
                         </ol>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
@@ -193,11 +193,11 @@
                                 <img src="" class="d-block w-100 rounded" alt="Imagen 4" width="100%" height="400px">
                             </div>
                         </div>
-                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators4" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="sr-only">Anterior</span>
                         </a>
-                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <a class="carousel-control-next" href="#carouselExampleIndicators4" role="button" data-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="sr-only">Siguiente</span>
                         </a>

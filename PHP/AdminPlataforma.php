@@ -62,7 +62,7 @@
                         <td class="botonesUsuarios">
                             <a class="btn btn-danger" href="BorrarPlataforma.php?idPlataforma=<?php echo $mostrar['idPlataforma'];?>" value="Eliminar" name="borrarPlataforma"><i class="fas fa-trash-alt"></i>&nbsp;Eliminar</a>
                             <a class="btn btn-success" href="ModificarPlataforma.php?idPlataforma=<?php echo $mostrar['idPlataforma'];?>" value="Modificar" name="modificarPlataforma"><i class="fas fa-edit"></i>&nbsp;Modificar</a>
-                            <a class="btn btn-primary" href="#" value="Info" name="infoPlataforma"><i class="fas fa-info-circle"></i></a>
+                            <a class="btn btn-primary" href="DetallesPlataforma.php?idPlataforma=<?php echo $mostrar['idPlataforma'];?>" value="Info" name="infoPlataforma"><i class="fas fa-info-circle"></i></a>
                         </td>
                     </tr>
                 </tbody>
