@@ -123,7 +123,7 @@
                         </div>
                         <br>
                         <div class="form-group">
-                            <inpunt class="btn btn-danger btn-block" type="submit" name="boton" value="Enviar" id="boton">Enviar</button>
+                            <button class="btn btn-danger btn-block" type="submit" name="boton" value="Enviar" id="boton">Enviar</button>
                         </div>
                         <center><a class="link" href="Admin.php">Cancelar</a></center>
                     </form>
