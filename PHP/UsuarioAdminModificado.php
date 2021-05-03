@@ -1,4 +1,4 @@
-<?php  
+<?php
     require "BD/ConectorBD.php";
 	require "BD/DAOUsuario.php";
     //Creamos la conexión a la BD.
