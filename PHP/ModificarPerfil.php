@@ -1,4 +1,4 @@
-<?php  
+<?php
     require "BD/ConectorBD.php";
 	require "BD/DAOUsuario.php";
     session_start();
@@ -142,6 +142,7 @@
                             <div class="form-group col-md-12">
                                 <label class="rojo">Descripción:</label>
                                 <textarea class="form-control" type="text" name="descripcion" id="descripcion" minlength="0" maxlength="1000" placeholder="Introduzca aquí información adicional..." cols="30" rows="5" required><?php echo $mostrar['Descripción'];?></textarea>
+                                <span class="amarillo" id="errorDescripcion">Descripción no válida.</span>
                                 <br>
                                 <span class="rojo" id="caracteres"></span>
                             </div>

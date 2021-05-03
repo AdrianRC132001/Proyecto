@@ -28,6 +28,7 @@ const errorDNI = document.getElementById("errorDNI");
 const errorCP = document.getElementById("errorCP");
 const errorCA = document.getElementById("errorCA");
 const errorProvincia = document.getElementById("errorProvincia");
+const errorDescripcion = document.getElementById("errorDescripcion");
 const errorMensaje = document.getElementById("errorMensaje");
 errorNick.style.visibility = "hidden";
 errorEMail.style.visibility = "hidden";
@@ -41,6 +42,7 @@ errorDNI.style.visibility = "hidden";
 errorCP.style.visibility = "hidden";
 errorCA.style.visibility = "hidden";
 errorProvincia.style.visibility = "hidden";
+errorDescripcion.style.visibility = "hidden";
 errorMensaje.style.visibility = "hidden";
 //Expresiones regulares.
 const expresiones = {
@@ -55,7 +57,8 @@ const expresiones = {
 	dni: /^[0-9]{8}[a-zA-Z]$/,
     cp: /^[0-9]{5}$/,
     ca: /^.{1,45}$/,
-    provincia: /^.{1,45}$/
+    provincia: /^.{1,45}$/,
+	descripcion: /^.+$/
 }
 const campos = {
 	nick: false,
@@ -69,7 +72,8 @@ const campos = {
 	dni: false,
     cp: false,
     ca: false,
-    provincia: false
+    provincia: false,
+	descripcion: false
 }
 //Funciones.
 function validarNick()
@@ -375,10 +379,25 @@ function validarProvincia()
 		errorProvincia.style.visibility = "visible";
 	}
 }
+function validarDescripcion()
+{
+	if(expresiones.descripcion.test(descripcion.value))
+	{
+		document.getElementById("descripcion").className = "form-control is-valid";
+		campos['descripcion'] = true;
+		errorDescripcion.style.visibility = "hidden";
+	}
+	else
+	{
+		document.getElementById("descripcion").className = "form-control is-invalid";
+		campos['descripcion'] = false;
+		errorDescripcion.style.visibility = "visible";
+	}
+}
 function validarFormulario()
 {
 	let register = document.register;	
-	if(campos.nick && campos.eMail && campos.password && campos.password2 && campos.nombre && campos.apellido1 && campos.apellido2 && campos.telefono && campos.dni && campos.cp && campos.ca && campos.provincia && terminos.checked)
+	if(campos.nick && campos.eMail && campos.password && campos.password2 && campos.nombre && campos.apellido1 && campos.apellido2 && campos.telefono && campos.dni && campos.cp && campos.ca && campos.provincia && campos.descripcion && terminos.checked)
 	{
 		register.submit();
 	}
@@ -427,5 +446,7 @@ ca.addEventListener("keyup", validarCA);
 ca.addEventListener("blur", validarCA);
 provincia.addEventListener("keyup", validarProvincia);
 provincia.addEventListener("blur", validarProvincia);
+descripcion.addEventListener("keyup", validarDescripcion);
+descripcion.addEventListener("blur", validarDescripcion);
 descripcion.addEventListener("keyup", contarCaracteres);
 descripcion.addEventListener("blur", contarCaracteres);
