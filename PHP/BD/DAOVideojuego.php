@@ -17,9 +17,9 @@
         $resultado = mysqli_query($conexion, $consulta);
         return $resultado;
     }
-	function modificarVideojuego($conexion, $titulo, $compania, $publicacion, $descripcion, $imagen, $stock, $logo, $precio, $idVideojuego)
+	function modificarVideojuego($conexion, $titulo, $compania, $publicacion, $descripcion, $stock, $precio, $idVideojuego)
 	{
-        $consulta = "UPDATE `Proyecto`.`Videojuegos` SET `Título` = '$titulo', `Compañía` = '$compania', `Publicación` = '$publicacion', `Descripción` = '$descripcion', `Imagen` = '$imagen', `Stock` = '$stock', `Logo` = '$logo', `Precio` = '$precio' WHERE(`idVideojuego` = '$idVideojuego')";
+        $consulta = "UPDATE `Proyecto`.`Videojuegos` SET `Título` = '$titulo', `Compañía` = '$compania', `Publicación` = '$publicacion', `Descripción` = '$descripcion', `Stock` = '$stock', `Precio` = '$precio' WHERE(`idVideojuego` = '$idVideojuego')";
         $resultado = mysqli_query($conexion, $consulta);
         return $resultado;
     }
@@ -41,4 +41,22 @@
         $resultado = mysqli_query($conexion, $consulta);
         return $resultado;
     }
+    function consultaTitulo($conexion, $titulo)
+	{
+		$consulta = "SELECT * FROM Videojuegos WHERE Título = '$titulo'";
+		$resultado = mysqli_query($conexion, $consulta);
+		return $resultado;
+	}
+    function modificarImagenVideojuego($conexion, $imagen, $idVideojuego)
+	{
+		$consulta = "UPDATE `Proyecto`.`Videojuegos` SET `Imagen` = '$imagen' WHERE(`idVideojuego` = '$idVideojuego')";
+		$resultado = mysqli_query($conexion, $consulta);
+		return $resultado;
+	}
+    function modificarLogoVideojuego($conexion, $logo, $idVideojuego)
+	{
+		$consulta = "UPDATE `Proyecto`.`Videojuegos` SET `Logo` = '$logo' WHERE(`idVideojuego` = '$idVideojuego')";
+		$resultado = mysqli_query($conexion, $consulta);
+		return $resultado;
+	}
 ?>
