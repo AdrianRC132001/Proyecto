@@ -41,13 +41,13 @@
 		$resultado = mysqli_query($conexion, $consulta);
 		return $resultado;
 	}
-    function modificarImagen($conexion, $imagen, $idPlataforma)
+    function modificarImagenPlataforma($conexion, $imagen, $idPlataforma)
 	{
 		$consulta = "UPDATE `Proyecto`.`Plataformas` SET `Imagen` = '$imagen' WHERE(`idPlataforma` = '$idPlataforma')";
 		$resultado = mysqli_query($conexion, $consulta);
 		return $resultado;
 	}
-    function modificarLogo($conexion, $logo, $idPlataforma)
+    function modificarLogoPlataforma($conexion, $logo, $idPlataforma)
 	{
 		$consulta = "UPDATE `Proyecto`.`Plataformas` SET `Logo` = '$logo' WHERE(`idPlataforma` = '$idPlataforma')";
 		$resultado = mysqli_query($conexion, $consulta);
