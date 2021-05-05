@@ -25,12 +25,12 @@ errorDescripcion.style.visibility = "hidden";
 errorMensaje.style.visibility = "hidden";
 //Expresiones regulares.
 const expresiones = {
-	titulo: /^.+$/,
+	titulo: /^.{1,45}$/,
     publicacion: /^.+$/,
 	precio: /^.+$/,
     stock: /^[0-9]+$/,
-    compania: /^.+$/,
-    descripcion: /^.+$/
+    compania: /^.{1,45}$/,
+    descripcion: /^.{1,1000}$/
 }
 const campos = {
 	titulo: false,

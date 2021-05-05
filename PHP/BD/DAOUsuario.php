@@ -27,6 +27,7 @@
 		$_SESSION['DNI'] = $nick['DNI'];
 		$_SESSION['Foto'] = $nick['Foto'];
 		$_SESSION['Descripción'] = $nick['Descripción'];
+		$_SESSION['Dirección'] = $nick['Dirección'];
 	}
 	function consultaNick($conexion, $nick)
 	{
@@ -40,9 +41,9 @@
 		$resultado = mysqli_query($conexion, $consulta);
 		return $resultado;
 	}
-	function insertarUsuarios($conexion, $nick, $password, $nombre, $apellido1, $apellido2, $telefono, $eMail, $cp, $provincia, $ca, $rol, $dni, $foto, $descripcion)
+	function insertarUsuarios($conexion, $nick, $password, $nombre, $apellido1, $apellido2, $telefono, $eMail, $cp, $provincia, $ca, $rol, $dni, $foto, $descripcion, $direccion)
     {
-        $sql = "INSERT INTO Usuarios(Nick, Password, Nombre, Apellido1, Apellido2, Teléfono, eMail, CP, Provincia, CA, Rol, DNI, Foto, Descripción) VALUES('$nick', '$password', '$nombre', '$apellido1', '$apellido2', '$telefono', '$eMail', '$cp', '$provincia', '$ca', '$rol', '$dni', '$foto', '$descripcion')";
+        $sql = "INSERT INTO Usuarios(Nick, Password, Nombre, Apellido1, Apellido2, Teléfono, eMail, CP, Provincia, CA, Rol, DNI, Foto, Descripción, Dirección) VALUES('$nick', '$password', '$nombre', '$apellido1', '$apellido2', '$telefono', '$eMail', '$cp', '$provincia', '$ca', '$rol', '$dni', '$foto', '$descripcion', '$direccion')";
         if(mysqli_query($conexion, $sql))
         {
             echo "<h1 class='titulo'><i>¡Registro correcto!</i></h1>";
@@ -71,9 +72,9 @@
 		$resultado = mysqli_query($conexion, $consulta);
 		return $resultado;
 	}
-	function modificarPerfil($conexion, $nick, $password, $nombre, $apellido1, $apellido2, $telefono, $eMail, $cp, $provincia, $ca, $dni, $descripcion, $idUsuario)
+	function modificarPerfil($conexion, $nick, $password, $nombre, $apellido1, $apellido2, $telefono, $eMail, $cp, $provincia, $ca, $dni, $descripcion, $direccion, $idUsuario)
 	{
-		$consulta = "UPDATE `Proyecto`.`Usuarios` SET `Nick` = '$nick', `Password` = '$password', `Nombre` = '$nombre', `Apellido1` = '$apellido1', `Apellido2` = '$apellido2', `Teléfono` = '$telefono', `eMail` = '$eMail', `CP` = '$cp', `Provincia` = '$provincia', `CA` = '$ca', `DNI` = '$dni', `Descripción` = '$descripcion' WHERE(`idUsuario` = '$idUsuario')";
+		$consulta = "UPDATE `Proyecto`.`Usuarios` SET `Nick` = '$nick', `Password` = '$password', `Nombre` = '$nombre', `Apellido1` = '$apellido1', `Apellido2` = '$apellido2', `Teléfono` = '$telefono', `eMail` = '$eMail', `CP` = '$cp', `Provincia` = '$provincia', `CA` = '$ca', `DNI` = '$dni', `Descripción` = '$descripcion', `Dirección` = '$direccion' WHERE(`idUsuario` = '$idUsuario')";
 		$resultado = mysqli_query($conexion, $consulta);
 		return $resultado;
 	}

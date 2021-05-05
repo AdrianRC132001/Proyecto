@@ -15,6 +15,7 @@ const provincia = document.getElementById("provincia");
 const terminos = document.getElementById("terminos");
 const descripcion = document.getElementById("descripcion");
 const caracteres = document.getElementById("caracteres");
+const direccion = document.getElementById("direccion");
 //Errores.
 const errorNick = document.getElementById("errorNick");
 const errorEMail = document.getElementById("errorEMail");
@@ -29,6 +30,7 @@ const errorCP = document.getElementById("errorCP");
 const errorCA = document.getElementById("errorCA");
 const errorProvincia = document.getElementById("errorProvincia");
 const errorDescripcion = document.getElementById("errorDescripcion");
+const errorDireccion = document.getElementById("errorDireccion");
 const errorMensaje = document.getElementById("errorMensaje");
 errorNick.style.visibility = "hidden";
 errorEMail.style.visibility = "hidden";
@@ -43,6 +45,7 @@ errorCP.style.visibility = "hidden";
 errorCA.style.visibility = "hidden";
 errorProvincia.style.visibility = "hidden";
 errorDescripcion.style.visibility = "hidden";
+errorDireccion.style.visibility = "hidden";
 errorMensaje.style.visibility = "hidden";
 //Expresiones regulares.
 const expresiones = {
@@ -58,7 +61,8 @@ const expresiones = {
     cp: /^[0-9]{5}$/,
     ca: /^.{1,45}$/,
     provincia: /^.{1,45}$/,
-	descripcion: /^.+$/
+	descripcion: /^.{0,1000}$/,
+	direccion: /^.{1,45}$/
 }
 const campos = {
 	nick: false,
@@ -73,7 +77,8 @@ const campos = {
     cp: false,
     ca: false,
     provincia: false,
-	descripcion: false
+	descripcion: false,
+	direccion: false
 }
 //Funciones.
 function validarNick()
@@ -394,10 +399,25 @@ function validarDescripcion()
 		errorDescripcion.style.visibility = "visible";
 	}
 }
+function validarDireccion()
+{
+	if(expresiones.direccion.test(direccion.value))
+	{
+		document.getElementById("direccion").className = "form-control is-valid";
+		campos['direccion'] = true;
+		errorDireccion.style.visibility = "hidden";
+	}
+	else
+	{
+		document.getElementById("direccion").className = "form-control is-invalid";
+		campos['direccion'] = false;
+		errorDireccion.style.visibility = "visible";
+	}
+}
 function validarFormulario()
 {
 	let register = document.register;	
-	if(campos.nick && campos.eMail && campos.password && campos.password2 && campos.nombre && campos.apellido1 && campos.apellido2 && campos.telefono && campos.dni && campos.cp && campos.ca && campos.provincia && campos.descripcion && terminos.checked)
+	if(campos.nick && campos.eMail && campos.password && campos.password2 && campos.nombre && campos.apellido1 && campos.apellido2 && campos.telefono && campos.dni && campos.cp && campos.ca && campos.provincia && campos.descripcion && campos.direccion && terminos.checked)
 	{
 		register.submit();
 	}
@@ -450,3 +470,5 @@ descripcion.addEventListener("keyup", validarDescripcion);
 descripcion.addEventListener("blur", validarDescripcion);
 descripcion.addEventListener("keyup", contarCaracteres);
 descripcion.addEventListener("blur", contarCaracteres);
+direccion.addEventListener("keyup", validarDireccion);
+direccion.addEventListener("blur", validarDireccion);

@@ -169,15 +169,20 @@
                                 <span class="amarillo" id="errorProvincia">Provincia no válida.</span>
                             </div>
                             <div class="form-group col-md-6">
+                                <label class="rojo">Dirección:</label>
+                                <input class="form-control" type="text" name="direccion" id="direccion" minlength="1" maxlength="45" placeholder="Ejemplo: c/Ave del Paraíso Nº 7 Bajo B" required>
+                                <span class="amarillo" id="errorDireccion">Dirección no válida.</span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="rojo">Foto de perfil:</label>
+                                <input type="file" name="foto" id="foto" class="rojo">
+                            </div>
+                            <div class="form-group col-md-12">
                                 <label class="rojo">Descripción:</label>
                                 <textarea class="form-control" type="text" name="descripcion" id="descripcion" minlength="0" maxlength="1000" placeholder="Introduzca aquí información adicional..." cols="30" rows="5" required></textarea>
                                 <span class="amarillo" id="errorDescripcion">Descripción no válida.</span>
                                 <br>
                                 <span class="rojo" id="caracteres"></span>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label class="rojo">Foto de perfil:</label>
-                                <input type="file" name="foto" id="foto" class="rojo">
                             </div>
                             <div>
                                 <label class="rojo">

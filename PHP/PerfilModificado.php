@@ -1,4 +1,4 @@
-<?php  
+<?php
     require "BD/ConectorBD.php";
 	require "BD/DAOUsuario.php";
     //Creamos la conexión a la BD.
@@ -15,7 +15,8 @@
     $ca = $_POST["ca"];
     $dni = $_POST["dni"];
     $descripcion = $_POST["descripcion"];
+    $direccion = $_POST["direccion"];
     $idUsuario = $_POST["idUsuario"];
-    $consulta = modificarPerfil($conexion, $nick, $password, $nombre, $apellido1, $apellido2, $telefono, $eMail, $cp, $provincia, $ca, $dni, $descripcion, $idUsuario);
+    $consulta = modificarPerfil($conexion, $nick, $password, $nombre, $apellido1, $apellido2, $telefono, $eMail, $cp, $provincia, $ca, $dni, $descripcion, $direccion, $idUsuario);
     header("Location: Perfil.php");
 ?>

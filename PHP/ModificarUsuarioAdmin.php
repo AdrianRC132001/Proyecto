@@ -139,7 +139,12 @@
                                 <input class="form-control" type="text" name="provincia" id="provincia" minlength="1" maxlength="45" placeholder="Ejemplo: Sevilla" value="<?php echo $mostrar['Provincia'];?>" required>
                                 <span class="amarillo" id="errorProvincia">Provincia no válida.</span>
                             </div>
-                            <div class="form-group col-md-12">
+                            <div class="form-group col-md-6">
+                                <label class="rojo">Dirección:</label>
+                                <input class="form-control" type="text" name="direccion" id="direccion" minlength="1" maxlength="45" placeholder="Ejemplo: c/Ave del Paraíso Nº 7 Bajo B" value="<?php echo $mostrar['Dirección'];?>" required>
+                                <span class="amarillo" id="errorDireccion">Dirección no válida.</span>
+                            </div>
+                            <div class="form-group col-md-6">
                                 <label class="rojo">Descripción:</label>
                                 <textarea class="form-control" type="text" name="descripcion" id="descripcion" minlength="0" maxlength="1000" placeholder="Introduzca aquí información adicional..." cols="30" rows="5" required><?php echo $mostrar['Descripción'];?></textarea>
                                 <span class="amarillo" id="errorDescripcion">Descripción no válida.</span>

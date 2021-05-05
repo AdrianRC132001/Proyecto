@@ -117,6 +117,9 @@
                     <span class="spanPerfil"><u><b>DNI:</b></u> <?php echo $_SESSION['DNI']?></span>
                     <br>
                     <br>
+                    <span class="spanPerfil"><u><b>Dirección:</b></u> <?php echo $_SESSION['Dirección']?></span>
+                    <br>
+                    <br>
                     <span class="spanPerfil"><u><b>Rol:</b></u> <?php echo $_SESSION['Rol']?></span>
                     <br>
                     <br>

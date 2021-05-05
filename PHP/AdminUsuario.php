@@ -24,6 +24,7 @@
                 <th scope="col">Comunidad Autónoma</th>
                 <th scope="col">Provincia</th>
                 <th scope="col">DNI</th>
+                <th scope="col">Dirección</th>
                 <th scope="col">Descripción</th>
                 <th scope="col">Rol</th>
                 <th scope="col">Herramientas</th>
@@ -60,6 +61,7 @@
                         <td><?php echo $mostrar['CA']?></td>
                         <td><?php echo $mostrar['Provincia']?></td>
                         <td><?php echo $mostrar['DNI']?></td>
+                        <td><?php echo $mostrar['Dirección']?></td>
                         <td><?php echo $mostrar['Descripción']?></td>
                         <td><?php echo $mostrar['Rol']?></td>
                         <td class="botonesUsuarios">
