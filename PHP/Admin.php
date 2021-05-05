@@ -62,10 +62,7 @@
                 <div class="col-md-8">
                     <h1 class="titulo"><i>Panel de administración</i></h1>
                 </div>
-                <div class="col-md-3 marco d-none d-sm-none d-md-block">
-                    <?php include_once "MenúUsuario.php"?>
-                </div>
-                <div class="col-md-12 tab">
+                <div class="col-md-8 tab">
                     <button class="tablinks" onclick="panel(event, 'plataformas')">Plataformas</button>
                     <button class="tablinks" onclick="panel(event, 'videojuegos')">Videojuegos</button>
                     <button class="tablinks" onclick="panel(event, 'mapas')">Mapas</button>
@@ -73,35 +70,40 @@
                     <button class="tablinks" onclick="panel(event, 'merchandising')">Merchandising</button>
                     <button class="tablinks" onclick="panel(event, 'usuarios')">Usuarios</button>
                 </div>
-                <div id="plataformas" class="container-fluid">
-                    <div class="table-responsive">
-                        <?php include 'AdminPlataforma.php';?>
+                <div class="col-md-8">
+                    <div id="plataformas" class="container-fluid">
+                        <div class="table-responsive">
+                            <?php include 'AdminPlataforma.php';?>
+                        </div>
+                    </div>
+                    <div id="videojuegos" class="container-fluid">
+                        <div class="table-responsive">
+                            <?php include 'AdminVideojuego.php';?>
+                        </div>
+                    </div>
+                    <div id="mapas" class="container-fluid">
+                        <div class="table-responsive">
+                            <?php include 'AdminMapa.php';?>
+                        </div>
+                    </div>
+                    <div id="productos" class="container-fluid">
+                        <div class="table-responsive">
+                            <?php include 'AdminProducto.php';?>
+                        </div>
+                    </div>
+                    <div id="merchandising" class="container-fluid">
+                        <div class="table-responsive">
+                            <?php include 'AdminMerchandising.php';?>
+                        </div>
+                    </div>
+                    <div id="usuarios" class="container-fluid">
+                        <div class="table-responsive">
+                            <?php include 'AdminUsuario.php';?>
+                        </div>
                     </div>
                 </div>
-                <div id="videojuegos" class="container-fluid">
-                    <div class="table-responsive">
-                        <?php include 'AdminVideojuego.php';?>
-                    </div>
-                </div>
-                <div id="mapas" class="container-fluid">
-                    <div class="table-responsive">
-                        <?php include 'AdminMapa.php';?>
-                    </div>
-                </div>
-                <div id="productos" class="container-fluid">
-                    <div class="table-responsive">
-                        <?php include 'AdminProducto.php';?>
-                    </div>
-                </div>
-                <div id="merchandising" class="container-fluid">
-                    <div class="table-responsive">
-                        <?php include 'AdminMerchandising.php';?>
-                    </div>
-                </div>
-                <div id="usuarios" class="container-fluid">
-                    <div class="table-responsive">
-                        <?php include 'AdminUsuario.php';?>
-                    </div>
+                <div class="col-md-3 marco d-none d-sm-none d-md-block">
+                    <?php include_once "MenúUsuario.php"?>
                 </div>
             </div>
         </div>
