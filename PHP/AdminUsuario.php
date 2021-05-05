@@ -51,7 +51,7 @@
                         <tbody class="bg-dark text-center text-danger">
                             <tr>
                                 <td><?php echo $mostrar['idUsuario']?></td>
-                                <td><?php echo $mostrar['Usuario']?></td>
+                                <td><?php echo $mostrar['Nick']?></td>
                                 <td><?php echo $mostrar['Password']?></td>
                                 <td>
                                     <div class="fotoPerfil">
