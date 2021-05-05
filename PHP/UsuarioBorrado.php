@@ -5,5 +5,5 @@
     $conexion = conectar(true);
 	$idUsuario = $_POST["idUsuario"];
 	$consulta = borrarUsuario($conexion, $idUsuario);
-	header("Location: Admin.php");
+	header("Location: MostrarUsuarios.php");
 ?>

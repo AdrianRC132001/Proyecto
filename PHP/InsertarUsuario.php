@@ -203,7 +203,7 @@
                         <div class="form-group">
                             <button class="btn btn-danger btn-block" type="submit" name="boton" value="Enviar" id="boton">Enviar</button>
                         </div>
-                        <center><a class="link" href="Admin.php">Cancelar</a></center>
+                        <center><a class="link" href="MostrarUsuarios.php">Cancelar</a></center>
                     </form>
                 </div>
                 <div class="col-md-3 marco d-none d-sm-none d-md-block">

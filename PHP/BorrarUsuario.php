@@ -75,7 +75,7 @@
                         <input type="hidden" name="idUsuario" value="<?php echo $idUsuario?>">
                     </form>
                     <br>
-                    <center><a class="link" href="Admin.php">Cancelar</a></center>
+                    <center><a class="link" href="MostrarUsuarios.php">Cancelar</a></center>
                 </div>
                 <div class="col-md-3 marco d-none d-sm-none d-md-block">
                     <?php include_once "MenúUsuario.php"?>

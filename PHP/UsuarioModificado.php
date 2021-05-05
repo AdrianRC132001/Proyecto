@@ -6,5 +6,5 @@
 	$rol = $_POST["rol"];
 	$idUsuario = $_POST["idUsuario"];
 	$consulta = modificarUsuario($conexion, $rol, $idUsuario);
-	header("Location: Admin.php");
+	header("Location: MostrarUsuarios.php");
 ?>

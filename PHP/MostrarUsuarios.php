@@ -104,9 +104,7 @@
                                     <div class="col-md-4">
                                         <a href="InsertarUsuario.php" class="btn btn-warning"><i class="fas fa-user-plus"></i>&nbsp;Nuevo usuario</a>
                                     </div>
-                                    <div class="col-md-4">
-                                        <a href="MostrarUsuarios.php" class="btn btn-warning"><i class="fas fa-table"></i>&nbsp;Mostrar todo</a>
-                                    </div>
+                                    <div class="col-md-4"></div>
                                     <div class="col-md-4">
                                         <form action="BuscarUsuario.php" method="GET" class="form-inline my-2 my-lg-0">
                                             <div class="input-group">
@@ -140,8 +138,9 @@
                                             </tr>
                                         </thead>
                                         <?php
-                                            $variableBusqueda = $_GET['busquedaUsuario'];
-                                            $result = campoBuscarUsuario($conexion, $variableBusqueda);
+                                            //Creamos la conexión a la BD.
+                                            $conexion = conectar(true);
+                                            $result = mostrarUsuario($conexion);
                                             while($mostrar = mysqli_fetch_array($result))
                                             {
                                         ?>

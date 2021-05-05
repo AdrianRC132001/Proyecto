@@ -18,5 +18,5 @@
     $direccion = $_POST["direccion"];
     $idUsuario = $_POST["idUsuario"];
     $consulta = modificarPerfil($conexion, $nick, $password, $nombre, $apellido1, $apellido2, $telefono, $eMail, $cp, $provincia, $ca, $dni, $descripcion, $direccion, $idUsuario);
-    header("Location: Admin.php");
+    header("Location: MostrarUsuarios.php");
 ?>

@@ -48,6 +48,6 @@
     {
         //Lanzamos la consulta.
         $consulta = insertarUsuarios($conexion, $nick, $password, $nombre, $apellido1, $apellido2, $telefono, $eMail, $cp, $provincia, $ca, $rol, $dni, $foto, $descripcion, $direccion);
-        header("Location: Admin.php");
+        header("Location: MostrarUsuarios.php");
     }
 ?>
