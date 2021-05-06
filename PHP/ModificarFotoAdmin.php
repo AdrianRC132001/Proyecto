@@ -6,5 +6,5 @@
 	$foto = addslashes(file_get_contents($_FILES['foto']['tmp_name']));
     $idUsuario = $_POST["idUsuario"];
     $consulta = modificarFoto($conexion, $foto, $idUsuario);
-    header("Location: Admin.php");
+    header("Location: MostrarUsuarios.php");
 ?>
