@@ -21,6 +21,6 @@
     {
         //Lanzamos la consulta.
         $consulta = insertarPlataforma($conexion, $nombre, $lanzamiento, $precio, $stock, $descripcion, $imagen, $logo, $compania);
-        header("Location: Admin.php");
+        header("Location: MostrarPlataformas.php");
     }
 ?>

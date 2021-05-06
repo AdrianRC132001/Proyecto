@@ -5,5 +5,5 @@
     $conexion = conectar(true);
 	$idPlataforma = $_POST["idPlataforma"];
 	$consulta = borrarPlataforma($conexion, $idPlataforma);
-	header("Location: Admin.php");
+	header("Location: MostrarPlataformas.php");
 ?>

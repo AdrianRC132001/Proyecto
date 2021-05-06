@@ -6,5 +6,5 @@
 	$logo = addslashes(file_get_contents($_FILES['logo']['tmp_name']));
     $idPlataforma = $_POST["idPlataforma"];
     $consulta = modificarLogoPlataforma($conexion, $logo, $idPlataforma);
-    header("Location: Admin.php");
+    header("Location: MostrarPlataformas.php");
 ?>

@@ -6,5 +6,5 @@
 	$imagen = addslashes(file_get_contents($_FILES['imagen']['tmp_name']));
     $idPlataforma = $_POST["idPlataforma"];
     $consulta = modificarImagenPlataforma($conexion, $imagen, $idPlataforma);
-    header("Location: Admin.php");
+    header("Location: MostrarPlataformas.php");
 ?>

@@ -11,5 +11,5 @@
     $compania = $_POST["compania"];
     $idPlataforma = $_POST["idPlataforma"];
     $consulta = modificarPlataforma($conexion, $nombre, $lanzamiento, $precio, $stock, $descripcion, $compania, $idPlataforma);
-    header("Location: Admin.php");
+    header("Location: MostrarPlataformas.php");
 ?>
