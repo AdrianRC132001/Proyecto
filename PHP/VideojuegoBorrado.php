@@ -5,5 +5,5 @@
     $conexion = conectar(true);
 	$idVideojuego = $_POST["idVideojuego"];
 	$consulta = borrarVideojuego($conexion, $idVideojuego);
-	header("Location: Admin.php");
+	header("Location: MostrarVideojuegos.php");
 ?>

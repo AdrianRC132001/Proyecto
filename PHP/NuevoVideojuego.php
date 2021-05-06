@@ -21,6 +21,6 @@
     {
         //Lanzamos la consulta.
         $consulta = insertarVideojuego($conexion, $titulo, $compania, $publicacion, $descripcion, $imagen, $stock, $logo, $precio);
-        header("Location: Admin.php");
+        header("Location: MostrarVideojuegos.php");
     }
 ?>

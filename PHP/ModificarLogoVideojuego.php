@@ -6,5 +6,5 @@
 	$logo = addslashes(file_get_contents($_FILES['logo']['tmp_name']));
     $idVideojuego = $_POST["idVideojuego"];
     $consulta = modificarLogoVideojuego($conexion, $logo, $idVideojuego);
-    header("Location: Admin.php");
+    header("Location: MostrarVideojuegos.php");
 ?>

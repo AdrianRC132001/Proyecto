@@ -11,5 +11,5 @@
     $compania = $_POST["compania"];
     $idVideojuego = $_POST["idVideojuego"];
     $consulta = modificarVideojuego($conexion, $titulo, $compania, $publicacion, $descripcion, $stock, $precio, $idVideojuego);
-    header("Location: Admin.php");
+    header("Location: MostrarVideojuegos.php");
 ?>
