@@ -59,4 +59,10 @@
 		$resultado = mysqli_query($conexion, $consulta);
 		return $resultado;
 	}
+    function campoBuscarVideojuego($conexion, $variableBusqueda)
+	{
+		$consulta = "SELECT * FROM Videojuegos WHERE idVideojuego LIKE '%$variableBusqueda%' OR Título LIKE '%$variableBusqueda%' OR Publicación LIKE '%$variableBusqueda%' OR Precio LIKE '%$variableBusqueda%' OR Stock LIKE '%$variableBusqueda%' OR Compañía LIKE '%$variableBusqueda%';";
+		$resultado = mysqli_query($conexion, $consulta);
+		return $resultado;
+	}
 ?>

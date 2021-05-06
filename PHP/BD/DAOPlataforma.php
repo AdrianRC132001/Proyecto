@@ -53,4 +53,10 @@
 		$resultado = mysqli_query($conexion, $consulta);
 		return $resultado;
 	}
+	function campoBuscarPlataforma($conexion, $variableBusqueda)
+	{
+		$consulta = "SELECT * FROM Plataformas WHERE idPlataforma LIKE '%$variableBusqueda%' OR Nombre LIKE '%$variableBusqueda%' OR Lanzamiento LIKE '%$variableBusqueda%' OR Precio LIKE '%$variableBusqueda%' OR Stock LIKE '%$variableBusqueda%' OR Compañía LIKE '%$variableBusqueda%';";
+		$resultado = mysqli_query($conexion, $consulta);
+		return $resultado;
+	}
 ?>
