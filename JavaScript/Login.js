@@ -2,7 +2,6 @@
 const login = document.getElementById("login");
 const nick = document.getElementById("nick");
 const password = document.getElementById("password");
-const terminos = document.getElementById("terminos");
 //Errores.
 const errorNick = document.getElementById("errorNick");
 const errorPassword = document.getElementById("errorPassword");
@@ -75,7 +74,7 @@ $(document).ready(function()
 function validarFormulario()
 {
 	let login = document.login;	
-	if(campos.nick && campos.password && terminos.checked)
+	if(campos.nick && campos.password)
 	{
 		login.submit();
 	}

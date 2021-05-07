@@ -35,6 +35,8 @@
 	</head>
 	<!--Cuerpo del código.-->
 	<body class="fondo">
+        <!--Loader.-->
+        <div class="lds-roller loader" id="loader"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><p class="loaderText">Cargando...</p></div>
 		<div class="sticky-top">
             <nav class="navbar navbar-expand-lg navbar-light">
                 <a class="navbar-brand" href="Home.php">
@@ -112,11 +114,6 @@
                                 <label class="rojo">Logo:</label>
                                 <input type="file" name="logo" id="logo" class="rojo">
                             </div>
-                            <div>
-                                <label class="rojo">
-                                    <input type="checkbox" name="terminos" id="terminos">&nbsp;Acepto los términos y condiciones de uso de esta página web.<inpunt>
-                                </label>
-                            </div>
                             <div id="mensaje">
                                 <span class="amarillo" id="errorMensaje">Por favor, rellene el formulario correctamente.</span>
                             </div>
@@ -137,8 +134,6 @@
         <?php include_once "VentanaEmergenteLogout.php"?>
         <br>
         <?php include_once "Footer.php"?>
-		<!--Loader.-->
-        <div class="lds-roller loader" id="loader"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><p class="loaderText">Cargando...</p></div>
         <!--Scripts Font Awesome para los iconos.-->
         <script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" data-auto-a11y="true"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

@@ -1,5 +1,5 @@
 //Llamada de elementos por su ID.
-const register = document.getElementById("register");
+const usuario = document.getElementById("usuario");
 const nick = document.getElementById("nick");
 const eMail = document.getElementById("eMail");
 const password = document.getElementById("password");
@@ -12,7 +12,6 @@ const dni = document.getElementById("dni");
 const cp = document.getElementById("cp");
 const ca = document.getElementById("ca");
 const provincia = document.getElementById("provincia");
-const terminos = document.getElementById("terminos");
 const descripcion = document.getElementById("descripcion");
 const caracteres = document.getElementById("caracteres");
 const direccion = document.getElementById("direccion");
@@ -416,10 +415,10 @@ function validarDireccion()
 }
 function validarFormulario()
 {
-	let register = document.register;	
-	if(campos.nick && campos.eMail && campos.password && campos.password2 && campos.nombre && campos.apellido1 && campos.apellido2 && campos.telefono && campos.dni && campos.cp && campos.ca && campos.provincia && campos.descripcion && campos.direccion && terminos.checked)
+	let usuario = document.usuario;	
+	if(campos.nick && campos.eMail && campos.password && campos.password2 && campos.nombre && campos.apellido1 && campos.apellido2 && campos.telefono && campos.dni && campos.cp && campos.ca && campos.provincia && campos.descripcion && campos.direccion)
 	{
-		register.submit();
+		usuario.submit();
 	}
 	else
 	{

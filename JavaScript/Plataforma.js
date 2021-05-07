@@ -5,7 +5,6 @@ const lanzamiento = document.getElementById("lanzamiento");
 const precio = document.getElementById("precio");
 const stock = document.getElementById("stock");
 const compania = document.getElementById("compania");
-const terminos = document.getElementById("terminos");
 const descripcion = document.getElementById("descripcion");
 const caracteres = document.getElementById("caracteres");
 //Errores.
@@ -134,7 +133,7 @@ function validarDescripcion()
 function validarFormulario()
 {
 	let plataforma = document.plataforma;	
-	if(campos.nombre && campos.lanzamiento && campos.precio && campos.stock && campos.compania && campos.descripcion && terminos.checked)
+	if(campos.nombre && campos.lanzamiento && campos.precio && campos.stock && campos.compania && campos.descripcion)
 	{
 		plataforma.submit();
 	}

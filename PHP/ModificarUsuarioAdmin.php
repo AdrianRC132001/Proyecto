@@ -40,6 +40,8 @@
 	</head>
 	<!--Cuerpo del código.-->
 	<body class="fondo">
+        <!--Loader.-->
+        <div class="lds-roller loader" id="loader"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><p class="loaderText">Cargando...</p></div>
 		<div class="sticky-top">
             <nav class="navbar navbar-expand-lg navbar-light">
                 <a class="navbar-brand" href="Home.php">
@@ -67,7 +69,7 @@
             <div class="row margen">
                 <div class="col-md-8">
                     <h1 class="titulo"><i>Datos del usuario: <?php echo $mostrar['Nick'];?></i></h1>
-                    <form id="register" name="register" action="UsuarioAdminModificado.php" method="POST" enctype="multipart/form-data" novalidate onsubmit="return validarFormulario();">
+                    <form id="usuario" name="usuario" action="UsuarioAdminModificado.php" method="POST" enctype="multipart/form-data" novalidate onsubmit="return validarFormulario();">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label class="rojo">Nick:</label>
@@ -151,11 +153,6 @@
                                 <br>
                                 <span class="rojo" id="caracteres"></span>
                             </div>
-                            <div>
-                                <label class="rojo">
-                                    <input type="checkbox" name="terminos" id="terminos">&nbsp;Acepto los términos y condiciones de uso de esta página web.<inpunt>
-                                </label>
-                            </div>
                             <div id="mensaje">
                                 <span class="amarillo" id="errorMensaje">Por favor, rellene el formulario correctamente.</span>
                             </div>
@@ -177,8 +174,6 @@
         <?php include_once "VentanaEmergenteLogout.php"?>
         <br>
         <?php include_once "Footer.php"?>
-		<!--Loader.-->
-        <div class="lds-roller loader" id="loader"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><p class="loaderText">Cargando...</p></div>
         <!--Scripts Font Awesome para los iconos.-->
         <script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" data-auto-a11y="true"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -187,6 +182,6 @@
         <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
         <!--Script para el footer.-->
 		<script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" data-auto-a11y="true"></script>
-        <script src="../JavaScript/Register.js"></script>
+        <script src="../JavaScript/Usuario.js"></script>
 	</body>
 </html>
