@@ -86,7 +86,7 @@
                             <div class="container contenedor">
                                 <div class="row margen">
                                     <div class="col-md-4">
-                                        <a href="InsertarVideojuego.php" class="btn btn-warning"><i class="fas fa-user-plus"></i>&nbsp;Nuevo videojuego</a>
+                                        <a href="InsertarVideojuego.php" class="btn btn-warning"><i class="fas fa-plus"></i>&nbsp;Nuevo videojuego</a>
                                     </div>
                                     <div class="col-md-4">
                                         <a href="MostrarVideojuegos.php" class="btn btn-warning"><i class="fas fa-table"></i>&nbsp;Mostrar todo</a>

@@ -76,7 +76,7 @@
                         </center>
                         <br>
                         <button class="btn btn-danger btn-block" type="submit" name="boton" value="Aceptar" id="boton">Aceptar</button>
-                        <input type="hidden" name="idPlataforma" value="<?php echo $idPlataforma?>">
+                        <input type="hidden" name="idMapa" value="<?php echo $idMapa?>">
                     </form>
                     <br>
                     <center><a class="link" href="MostrarMapas.php">Cancelar</a></center>

@@ -6,7 +6,7 @@
     <div class="container contenedor">
         <div class="row margen">
             <div class="col-md-4">
-                <a href="InsertarMapa.php" class="btn btn-warning"><i class="fas fa-user-plus"></i>&nbsp;Nuevo mapa</a>
+                <a href="InsertarMapa.php" class="btn btn-warning"><i class="fas fa-plus"></i>&nbsp;Nuevo mapa</a>
             </div>
             <div class="col-md-4"></div>
             <div class="col-md-4">

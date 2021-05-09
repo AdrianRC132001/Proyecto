@@ -81,7 +81,7 @@
                             <div class="container contenedor">
                                 <div class="row margen">
                                     <div class="col-md-4">
-                                        <a href="InsertarPlataforma.php" class="btn btn-warning"><i class="fas fa-user-plus"></i>&nbsp;Nueva plataforma</a>
+                                        <a href="InsertarPlataforma.php" class="btn btn-warning"><i class="fas fa-plus"></i>&nbsp;Nueva plataforma</a>
                                     </div>
                                     <div class="col-md-4">
                                         <a href="MostrarPlataformas.php" class="btn btn-warning"><i class="fas fa-table"></i>&nbsp;Mostrar todo</a>

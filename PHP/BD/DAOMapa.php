@@ -11,15 +11,15 @@
         $resultado = mysqli_query($conexion, $consulta);
         return $resultado;
     }
-    function borrarMapa($conexion, $idPlataforma)
+    function borrarMapa($conexion, $idMapa)
 	{
         $consulta = "DELETE FROM `Proyecto`.`Mapas` WHERE(`idMapa` = '$idMapa')";
         $resultado = mysqli_query($conexion, $consulta);
         return $resultado;
     }
-    function modificarMapa($conexion, $nombre, $publicacion, $precio, $stock, $descripcion, $compania, $dlc, $idPlataforma)
+    function modificarMapa($conexion, $nombre, $publicacion, $precio, $stock, $descripcion, $compania, $dlc, $idMapa)
 	{
-        $consulta = "UPDATE `Proyecto`.`Mapas` SET `Nombre` = '$nombre', `Publicación` = '$publicacion', `Precio` = '$precio', `Stock` = '$stock', `Descripción` = '$descripcion', `Compañía` = '$compania', `DLC` = '$dlc' WHERE(`idPlataforma` = '$idPlataforma')";
+        $consulta = "UPDATE `Proyecto`.`Mapas` SET `Nombre` = '$nombre', `Publicación` = '$publicacion', `Precio` = '$precio', `Stock` = '$stock', `Descripción` = '$descripcion', `Compañía` = '$compania', `DLC` = '$dlc' WHERE(`idMapa` = '$idMapa')";
         $resultado = mysqli_query($conexion, $consulta);
         return $resultado;
     }

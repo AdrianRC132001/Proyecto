@@ -1,12 +1,7 @@
 <?php
     require "BD/ConectorBD.php";
-	require "BD/DAOMapa.php";
+	require "BD/DAOMerchandising.php";
     session_start();
-    //Creamos la conexión a la BD.
-    $conexion = conectar(true);
-    $idMapa = $_GET["idMapa"];
-    $consulta = detallesMapa($conexion, $idMapa);
-    $mostrar = mysqli_fetch_assoc($consulta);
     $rol = $_SESSION['Rol'];
     if($rol != "admin")
     {
@@ -68,42 +63,39 @@
         <div class="container contenedor">
             <div class="row margen">
                 <div class="col-md-8">
-                    <h1 class="titulo"><i>Datos del mapa: <?php echo $mostrar['Nombre'];?></i></h1>
-                    <form id="mapa" name="mapa" action="MapaModificado.php" method="POST" enctype="multipart/form-data" novalidate onsubmit="return validarFormulario();">
+                    <h1 class="titulo"><i>Nuevo producto</i></h1>
+                    <form id="merchandising" name="merchandising" action="NuevoMerchandising.php" method="POST" enctype="multipart/form-data" novalidate onsubmit="return validarFormulario();">
+                        <p>
+                            <?php
+                                if(isset($_GET['error']) && $_GET['error'] == "nombreMerchandisingExiste")
+                                {
+                                    echo '<h4 class="error"><i class="fas fa-exclamation-triangle"></i>&nbsp;' . "El nombre del producto introducido ya existe.</h4>";
+                                }
+                            ?>
+                        </p>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label class="rojo">Nombre:</label>
-                                <input class="form-control" type="text" name="nombre" id="nombre" minlength="1" maxlength="45" placeholder="Nombre del mapa" value="<?php echo $mostrar['Nombre'];?>" required autofocus>
+                                <input class="form-control" type="text" name="nombre" id="nombre" minlength="1" maxlength="45" placeholder="Nombre del producto" required autofocus>
                                 <span class="amarillo" id="errorNombre">Nombre no válido.</span>
                             </div>
                             <div class="form-group col-md-6">
-                                <label class="rojo">DLC:</label>
-                                <input class="form-control" type="text" name="dlc" id="dlc" minlength="1" maxlength="45" placeholder="DLC" value="<?php echo $mostrar['DLC'];?>" required>
-                                <span class="amarillo" id="errorDLC">DLC no válido.</span>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label class="rojo">Publicación:</label>
-                                <input class="form-control" type="date" id="publicacion" name="publicacion" value="<?php echo $mostrar['Publicación'];?>">
-                                <span class="amarillo" id="errorPublicacion">Fecha de publicación no válida.</span>
-                            </div>
-                            <div class="form-group col-md-6">
                                 <label class="rojo">Precio:</label>
-                                <input class="form-control" type="number" name="precio" id="precio" step="any" value="<?php echo $mostrar['Precio'];?>" required>
+                                <input class="form-control" type="number" name="precio" id="precio" step="any" required>
                                 <span class="amarillo" id="errorPrecio">Precio no válido.</span>
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="rojo">Stock:</label>
-                                <input class="form-control" type="number" name="stock" id="stock" value="<?php echo $mostrar['Stock'];?>" required>
+                                <input class="form-control" type="number" name="stock" id="stock" required>
                                 <span class="amarillo" id="errorStock">Stock no válido.</span>
                             </div>
                             <div class="form-group col-md-6">
-                                <label class="rojo">Compañía:</label>
-                                <input class="form-control" type="text" name="compania" id="compania" minlength="1" maxlength="45" placeholder="Compañía desarrolladora del mapa" value="<?php echo $mostrar['Compañía'];?>" required>
-                                <span class="amarillo" id="errorCompania">Compañía no válida.</span>
+                                <label class="rojo">Producto:</label>
+                                <input type="file" name="imagen" id="imagen" class="rojo">
                             </div>
                             <div class="form-group col-md-12">
                                 <label class="rojo">Descripción:</label>
-                                <textarea class="form-control" type="text" name="descripcion" id="descripcion" minlength="1" maxlength="1000" placeholder="Introduzca aquí información adicional..." cols="30" rows="5" required><?php echo $mostrar['Descripción'];?></textarea>
+                                <textarea class="form-control" type="text" name="descripcion" id="descripcion" minlength="1" maxlength="1000" placeholder="Introduzca aquí información adicional..." cols="30" rows="5" required></textarea>
                                 <span class="amarillo" id="errorDescripcion">Descripción no válida.</span>
                                 <br>
                                 <span class="rojo" id="caracteres"></span>
@@ -114,11 +106,10 @@
                         </div>
                         <br>
                         <div class="form-group">
-                            <button class="btn btn-danger btn-block" type="submit" name="boton" value="Aceptar" id="boton">Aceptar</button>
+                            <button class="btn btn-danger btn-block" type="submit" name="boton" value="Enviar" id="boton">Enviar</button>
                         </div>
-                        <input type="hidden" name="idMapa" value="<?php echo $idMapa?>">
+                        <center><a class="link" href="MostrarMerchandising.php">Cancelar</a></center>
                     </form>
-                    <center><a class="link" href="MostrarMapas.php">Cancelar</a></center>
                 </div>
                 <div class="col-md-3 marco d-none d-sm-none d-md-block">
                     <?php include_once "MenúUsuario.php"?>
@@ -137,6 +128,6 @@
         <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
         <!--Script para el footer.-->
 		<script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" data-auto-a11y="true"></script>
-        <script src="../JavaScript/Mapa.js"></script>
+        <script src="../JavaScript/Merchandising.js"></script>
 	</body>
 </html>
