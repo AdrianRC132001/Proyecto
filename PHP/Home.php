@@ -149,18 +149,25 @@
                             <li data-target="#carouselExampleIndicators3" data-slide-to="3"></li>
                         </ol>
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="" class="d-block w-100 rounded" alt="Imagen 1" width="100%" height="400px">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="" class="d-block w-100 rounded" alt="Imagen 2" width="100%" height="400px">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="" class="d-block w-100 rounded" alt="Imagen 3" width="100%" height="400px">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="" class="d-block w-100 rounded" alt="Imagen 4" width="100%" height="400px">
-                            </div>
+                            <?php
+                                require "BD/DAOMapa.php";
+                                //Creamos la conexión a la BD.
+                                $conexion = conectar(true);
+                                //Lanzamos la consulta.
+                                $consulta = consultaMapa($conexion);
+                                $i = 0;
+                                while($fila = mysqli_fetch_assoc($consulta))
+                                {
+                            ?>
+                                    <div class="carousel-item <?php echo ($i == 0) ? 'active' : '';?>">
+                                        <a href="DetallesMapa.php?idMapa=<?php echo $fila['idMapa'];?>">
+                                            <img class="d-block w-100 rounded" src="data:image/jpeg;base64,<?php echo base64_encode($fila['Imagen']);?>" alt="Mapa" style="width:100%; height:400px;">
+                                        </a>
+                                    </div>
+                            <?php
+                                    $i++;
+                                }
+                            ?>
                         </div>
                         <a class="carousel-control-prev" href="#carouselExampleIndicators3" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>

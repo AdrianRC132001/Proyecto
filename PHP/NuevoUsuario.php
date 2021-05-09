@@ -15,6 +15,7 @@
     $provincia = $_POST["provincia"];
     $descripcion = $_POST["descripcion"];
     $direccion = $_POST["direccion"];
+    $fechaNacimiento = $_POST["fechaNacimiento"];
     $foto = addslashes(file_get_contents($_FILES['foto']['tmp_name']));
     $rol = "usuario";
     //Creamos la conexión a la BD.
@@ -47,7 +48,7 @@
     else
     {
         //Lanzamos la consulta.
-        $consulta = insertarUsuarios($conexion, $nick, $password, $nombre, $apellido1, $apellido2, $telefono, $eMail, $cp, $provincia, $ca, $rol, $dni, $foto, $descripcion, $direccion);
+        $consulta = insertarUsuarios($conexion, $nick, $password, $nombre, $apellido1, $apellido2, $telefono, $eMail, $cp, $provincia, $ca, $rol, $dni, $foto, $descripcion, $direccion, $fechaNacimiento);
         header("Location: MostrarUsuarios.php");
     }
 ?>

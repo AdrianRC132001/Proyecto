@@ -16,6 +16,7 @@ const terminos = document.getElementById("terminos");
 const descripcion = document.getElementById("descripcion");
 const caracteres = document.getElementById("caracteres");
 const direccion = document.getElementById("direccion");
+const fechaNacimiento = document.getElementById("fechaNacimiento");
 //Errores.
 const errorNick = document.getElementById("errorNick");
 const errorEMail = document.getElementById("errorEMail");
@@ -31,6 +32,7 @@ const errorCA = document.getElementById("errorCA");
 const errorProvincia = document.getElementById("errorProvincia");
 const errorDescripcion = document.getElementById("errorDescripcion");
 const errorDireccion = document.getElementById("errorDireccion");
+const errorFechaDeNacimiento = document.getElementById("errorFechaDeNacimiento");
 const errorMensaje = document.getElementById("errorMensaje");
 errorNick.style.visibility = "hidden";
 errorEMail.style.visibility = "hidden";
@@ -46,6 +48,7 @@ errorCA.style.visibility = "hidden";
 errorProvincia.style.visibility = "hidden";
 errorDescripcion.style.visibility = "hidden";
 errorDireccion.style.visibility = "hidden";
+errorFechaDeNacimiento.style.visibility = "hidden";
 errorMensaje.style.visibility = "hidden";
 //Expresiones regulares.
 const expresiones = {
@@ -62,7 +65,8 @@ const expresiones = {
     ca: /^.\D{1,45}$/,
     provincia: /^.\D{1,45}$/,
 	descripcion: /^.{0,1000}$/,
-	direccion: /^.{1,45}$/
+	direccion: /^.{1,45}$/,
+	fechaNacimiento: /^.+$/
 }
 const campos = {
 	nick: false,
@@ -78,7 +82,8 @@ const campos = {
     ca: false,
     provincia: false,
 	descripcion: false,
-	direccion: false
+	direccion: false,
+	fechaNacimiento: false
 }
 //Funciones.
 function validarNick()
@@ -414,10 +419,25 @@ function validarDireccion()
 		errorDireccion.style.visibility = "visible";
 	}
 }
+function validarFechaDeNacimiento()
+{
+	if(expresiones.fechaNacimiento.test(fechaNacimiento.value))
+	{
+		document.getElementById("fechaNacimiento").className = "form-control is-valid";
+		campos['fechaNacimiento'] = true;
+		errorFechaDeNacimiento.style.visibility = "hidden";
+	}
+	else
+	{
+		document.getElementById("fechaNacimiento").className = "form-control is-invalid";
+		campos['fechaNacimiento'] = false;
+		errorFechaDeNacimiento.style.visibility = "visible";
+	}
+}
 function validarFormulario()
 {
 	let register = document.register;	
-	if(campos.nick && campos.eMail && campos.password && campos.password2 && campos.nombre && campos.apellido1 && campos.apellido2 && campos.telefono && campos.dni && campos.cp && campos.ca && campos.provincia && campos.descripcion && campos.direccion && terminos.checked)
+	if(campos.nick && campos.eMail && campos.password && campos.password2 && campos.nombre && campos.apellido1 && campos.apellido2 && campos.telefono && campos.dni && campos.cp && campos.ca && campos.provincia && campos.direccion && campos.fechaNacimiento && terminos.checked)
 	{
 		register.submit();
 	}
@@ -476,3 +496,5 @@ descripcion.addEventListener("keyup", contarCaracteres);
 descripcion.addEventListener("blur", contarCaracteres);
 direccion.addEventListener("keyup", validarDireccion);
 direccion.addEventListener("blur", validarDireccion);
+fechaNacimiento.addEventListener("keyup", validarFechaDeNacimiento);
+fechaNacimiento.addEventListener("blur", validarFechaDeNacimiento);

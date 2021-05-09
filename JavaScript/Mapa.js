@@ -1,6 +1,7 @@
 //Llamada de elementos por su ID.
-const videojuego = document.getElementById("videojuego");
-const titulo = document.getElementById("titulo");
+const mapa = document.getElementById("mapa");
+const nombre = document.getElementById("nombre");
+const dlc = document.getElementById("dlc");
 const publicacion = document.getElementById("publicacion");
 const precio = document.getElementById("precio");
 const stock = document.getElementById("stock");
@@ -8,14 +9,16 @@ const compania = document.getElementById("compania");
 const descripcion = document.getElementById("descripcion");
 const caracteres = document.getElementById("caracteres");
 //Errores.
-const errorTitulo = document.getElementById("errorTitulo");
+const errorNombre = document.getElementById("errorNombre");
+const errorDLC = document.getElementById("errorDLC");
 const errorPublicacion = document.getElementById("errorPublicacion");
 const errorPrecio = document.getElementById("errorPrecio");
 const errorStock = document.getElementById("errorStock");
 const errorCompania = document.getElementById("errorCompania");
 const errorDescripcion = document.getElementById("errorDescripcion");
 const errorMensaje = document.getElementById("errorMensaje");
-errorTitulo.style.visibility = "hidden";
+errorNombre.style.visibility = "hidden";
+errorDLC.style.visibility = "hidden";
 errorPublicacion.style.visibility = "hidden";
 errorPrecio.style.visibility = "hidden";
 errorStock.style.visibility = "hidden";
@@ -24,7 +27,8 @@ errorDescripcion.style.visibility = "hidden";
 errorMensaje.style.visibility = "hidden";
 //Expresiones regulares.
 const expresiones = {
-	titulo: /^.{1,45}$/,
+	nombre: /^.{1,45}$/,
+    dlc: /^.{1,45}$/,
     publicacion: /^.+$/,
 	precio: /^.+$/,
     stock: /^[0-9]+$/,
@@ -32,7 +36,8 @@ const expresiones = {
     descripcion: /^.{1,1000}$/
 }
 const campos = {
-	titulo: false,
+	nombre: false,
+    dlc: false,
     publicacion: false,
 	precio: false,
     stock: false,
@@ -40,19 +45,34 @@ const campos = {
     descripcion: false
 }
 //Funciones.
-function validarTitulo()
+function validarNombre()
 {
-	if(expresiones.titulo.test(titulo.value))
+	if(expresiones.nombre.test(nombre.value))
 	{
-		document.getElementById("titulo").className = "form-control is-valid";
-		campos['titulo'] = true;
-		errorTitulo.style.visibility = "hidden";
+		document.getElementById("nombre").className = "form-control is-valid";
+		campos['nombre'] = true;
+		errorNombre.style.visibility = "hidden";
 	}
 	else
 	{
-		document.getElementById("titulo").className = "form-control is-invalid";
-		campos['titulo'] = false;
-		errorTitulo.style.visibility = "visible";
+		document.getElementById("nombre").className = "form-control is-invalid";
+		campos['nombre'] = false;
+		errorNombre.style.visibility = "visible";
+	}
+}
+function validarDLC()
+{
+	if(expresiones.dlc.test(dlc.value))
+	{
+		document.getElementById("dlc").className = "form-control is-valid";
+		campos['dlc'] = true;
+		errorDLC.style.visibility = "hidden";
+	}
+	else
+	{
+		document.getElementById("dlc").className = "form-control is-invalid";
+		campos['dlc'] = false;
+		errorDLC.style.visibility = "visible";
 	}
 }
 function validarPublicacion()
@@ -132,10 +152,10 @@ function validarDescripcion()
 }
 function validarFormulario()
 {
-	let videojuego = document.videojuego;	
-	if(campos.titulo && campos.publicacion && campos.precio && campos.stock && campos.compania && campos.descripcion)
+	let mapa = document.mapa;	
+	if(campos.nombre && campos.dlc && campos.publicacion && campos.precio && campos.stock && campos.compania && campos.descripcion)
 	{
-		videojuego.submit();
+		mapa.submit();
 	}
 	else
 	{
@@ -156,8 +176,10 @@ function contarCaracteres()
 	}
 }
 //Oyentes de eventos.
-titulo.addEventListener("keyup", validarTitulo);
-titulo.addEventListener("blur", validarTitulo);
+nombre.addEventListener("keyup", validarNombre);
+nombre.addEventListener("blur", validarNombre);
+dlc.addEventListener("keyup", validarDLC);
+dlc.addEventListener("blur", validarDLC);
 publicacion.addEventListener("keyup", validarPublicacion);
 publicacion.addEventListener("blur", validarPublicacion);
 precio.addEventListener("keyup", validarPrecio);

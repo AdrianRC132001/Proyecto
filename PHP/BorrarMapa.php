@@ -1,11 +1,17 @@
 <?php
     require "BD/ConectorBD.php";
+	require "BD/DAOMapa.php";
     session_start();
+    //Creamos la conexión a la BD.
+    $conexion = conectar(true);
+    $idMapa = $_GET["idMapa"];
     $rol = $_SESSION['Rol'];
     if($rol != "admin")
     {
         header("Location: Home.php");
     }
+    $mostrarNombre = detallesMapa($conexion, $idMapa);
+    $nombreMostrado = mysqli_fetch_assoc($mostrarNombre);
 ?>
 <!DOCTYPE html>
 <html lang="es-ES">
@@ -62,47 +68,16 @@
         <div class="container contenedor">
             <div class="row margen">
                 <div class="col-md-8">
-                    <h1 class="titulo"><i>Panel de administración</i></h1>
-                </div>
-                <div class="col-md-8 tab">
-                    <button class="tablinks" onclick="panel(event, 'plataformas')">Plataformas</button>
-                    <button class="tablinks" onclick="panel(event, 'videojuegos')">Videojuegos</button>
-                    <button class="tablinks" onclick="panel(event, 'mapas')">Mapas</button>
-                    <button class="tablinks" onclick="panel(event, 'productos')">Productos</button>
-                    <button class="tablinks" onclick="panel(event, 'merchandising')">Merchandising</button>
-                    <button class="tablinks" onclick="panel(event, 'usuarios')">Usuarios</button>
-                </div>
-                <div class="col-md-8">
-                    <div id="plataformas" class="container-fluid" style="display: none;">
-                        <div class="table-responsive">
-                            <?php include 'AdminPlataforma.php';?>
+                    <h1 class="titulo"><i>¿Desea eliminar el mapa <?php echo $nombreMostrado['Nombre'];?>?</i></h1>
+                    <br>
+                    <form id="borrar" name="borrar" action="MapaBorrado.php" method="POST">
+                        <div class="form-group">
+                            <button class="btn btn-danger btn-block" type="submit" name="boton" value="Aceptar" id="boton">Aceptar</button>
                         </div>
-                    </div>
-                    <div id="videojuegos" class="container-fluid" style="display: none;">
-                        <div class="table-responsive">
-                            <?php include 'AdminVideojuego.php';?>
-                        </div>
-                    </div>
-                    <div id="mapas" class="container-fluid" style="display: none;">
-                        <div class="table-responsive">
-                            <?php include 'AdminMapa.php';?>
-                        </div>
-                    </div>
-                    <div id="productos" class="container-fluid" style="display: none;">
-                        <div class="table-responsive">
-                            <?php include 'AdminProducto.php';?>
-                        </div>
-                    </div>
-                    <div id="merchandising" class="container-fluid" style="display: none;">
-                        <div class="table-responsive">
-                            <?php include 'AdminMerchandising.php';?>
-                        </div>
-                    </div>
-                    <div id="usuarios" class="container-fluid" style="display: none;">
-                        <div class="table-responsive">
-                            <?php include 'AdminUsuario.php';?>
-                        </div>
-                    </div>
+                        <input type="hidden" name="idMapa" value="<?php echo $idMapa?>">
+                    </form>
+                    <br>
+                    <center><a class="link" href="MostrarMapas.php">Cancelar</a></center>
                 </div>
                 <div class="col-md-3 marco d-none d-sm-none d-md-block">
                     <?php include_once "MenúUsuario.php"?>
@@ -121,6 +96,5 @@
         <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
         <!--Script para el footer.-->
 		<script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" data-auto-a11y="true"></script>
-        <script src="../JavaScript/Panel.js"></script>
 	</body>
 </html>

@@ -29,12 +29,13 @@
                         <th scope="col">Nombre</th>
                         <th scope="col">Primer apellido</th>
                         <th scope="col">2º apellido</th>
+                        <th scope="col">DNI</th>
+                        <th scope="col">Fecha de nacimiento</th>
                         <th scope="col">Teléfono</th>
                         <th scope="col">eMail</th>
                         <th scope="col">Código Postal</th>
                         <th scope="col">Comunidad Autónoma</th>
                         <th scope="col">Provincia</th>
-                        <th scope="col">DNI</th>
                         <th scope="col">Dirección</th>
                         <th scope="col">Descripción</th>
                         <th scope="col">Rol</th>
@@ -66,12 +67,13 @@
                                 <td><?php echo $mostrar['Nombre']?></td>
                                 <td><?php echo $mostrar['Apellido1']?></td>
                                 <td><?php echo $mostrar['Apellido2']?></td>
+                                <td><?php echo $mostrar['DNI']?></td>
+                                <td><?php echo $mostrar['FechaDeNacimiento']?></td>
                                 <td><?php echo $mostrar['Teléfono']?></td>
                                 <td><?php echo $mostrar['eMail']?></td>
                                 <td><?php echo $mostrar['CP']?></td>
                                 <td><?php echo $mostrar['CA']?></td>
                                 <td><?php echo $mostrar['Provincia']?></td>
-                                <td><?php echo $mostrar['DNI']?></td>
                                 <td><?php echo $mostrar['Dirección']?></td>
                                 <td><?php echo $mostrar['Descripción']?></td>
                                 <td><?php echo $mostrar['Rol']?></td>

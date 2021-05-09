@@ -101,6 +101,12 @@
                     <span class="spanPerfil"><u><b>2º apellido:</b></u> <?php echo $_SESSION['Apellido2']?></span>
                     <br>
                     <br>
+                    <span class="spanPerfil"><u><b>DNI:</b></u> <?php echo $_SESSION['DNI']?></span>
+                    <br>
+                    <br>
+                    <span class="spanPerfil"><u><b>Fecha de nacimiento:</b></u> <?php echo $_SESSION['FechaDeNacimiento']?></span>
+                    <br>
+                    <br>
                     <span class="spanPerfil"><u><b>Teléfono:</b></u> <?php echo $_SESSION['Teléfono']?></span>
                     <br>
                     <br>
@@ -114,9 +120,6 @@
                     <br>
                     <br>
                     <span class="spanPerfil"><u><b>Provincia:</b></u> <?php echo $_SESSION['Provincia']?></span>
-                    <br>
-                    <br>
-                    <span class="spanPerfil"><u><b>DNI:</b></u> <?php echo $_SESSION['DNI']?></span>
                     <br>
                     <br>
                     <span class="spanPerfil"><u><b>Dirección:</b></u> <?php echo $_SESSION['Dirección']?></span>

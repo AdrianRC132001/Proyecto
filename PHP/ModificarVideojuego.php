@@ -93,7 +93,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="rojo">Compañía:</label>
-                                <input class="form-control" type="text" name="compania" id="compania" minlength="1" maxlength="45" placeholder="Compañía desarrolladora de la plataforma" value="<?php echo $mostrar['Compañía'];?>" required>
+                                <input class="form-control" type="text" name="compania" id="compania" minlength="1" maxlength="45" placeholder="Compañía desarrolladora del videojuego" value="<?php echo $mostrar['Compañía'];?>" required>
                                 <span class="amarillo" id="errorCompania">Compañía no válida.</span>
                             </div>
                             <div class="form-group col-md-6">

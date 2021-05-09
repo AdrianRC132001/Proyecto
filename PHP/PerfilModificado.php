@@ -16,7 +16,8 @@
     $dni = $_POST["dni"];
     $descripcion = $_POST["descripcion"];
     $direccion = $_POST["direccion"];
+    $fechaNacimiento = $_POST["fechaNacimiento"];
     $idUsuario = $_POST["idUsuario"];
-    $consulta = modificarPerfil($conexion, $nick, $password, $nombre, $apellido1, $apellido2, $telefono, $eMail, $cp, $provincia, $ca, $dni, $descripcion, $direccion, $idUsuario);
+    $consulta = modificarPerfil($conexion, $nick, $password, $nombre, $apellido1, $apellido2, $telefono, $eMail, $cp, $provincia, $ca, $dni, $descripcion, $direccion, $fechaNacimiento, $idUsuario);
     header("Location: Perfil.php");
 ?>

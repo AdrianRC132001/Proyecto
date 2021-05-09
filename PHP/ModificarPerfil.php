@@ -147,6 +147,11 @@
                                 <span class="amarillo" id="errorDireccion">Dirección no válida.</span>
                             </div>
                             <div class="form-group col-md-6">
+                                <label class="rojo">Fecha de nacimiento:</label>
+                                <input class="form-control" type="date" id="fechaNacimiento" name="fechaNacimiento" value="<?php echo $mostrar['FechaDeNacimiento'];?>">
+                                <span class="amarillo" id="errorFechaDeNacimiento">Fecha de nacimiento no válida.</span>
+                            </div>
+                            <div class="form-group col-md-12">
                                 <label class="rojo">Descripción:</label>
                                 <textarea class="form-control" type="text" name="descripcion" id="descripcion" minlength="0" maxlength="1000" placeholder="Introduzca aquí información adicional..." cols="30" rows="5" required><?php echo $mostrar['Descripción'];?></textarea>
                                 <span class="amarillo" id="errorDescripcion">Descripción no válida.</span>
