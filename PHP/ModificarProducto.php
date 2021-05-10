@@ -3,9 +3,12 @@
 	require "BD/DAOProducto.php";
     require "BD/DAOPlataforma.php";
     require "BD/DAOVideojuego.php";
+    session_start();
     //Creamos la conexión a la BD.
     $conexion = conectar(true);
-    session_start();
+    $idProducto = $_GET["idProducto"];
+    $consulta = detallesProducto($conexion, $idProducto);
+    $mostrar = mysqli_fetch_assoc($consulta);
     $rol = $_SESSION['Rol'];
     if($rol != "admin")
     {
@@ -67,16 +70,8 @@
         <div class="container contenedor">
             <div class="row margen">
                 <div class="col-md-8">
-                    <h1 class="titulo"><i>Nuevo producto</i></h1>
-                    <form id="producto" name="producto" action="NuevoProducto.php" method="POST" enctype="multipart/form-data" novalidate onsubmit="return validarFormulario();">
-                        <p>
-                            <?php
-                                if(isset($_GET['error']) && $_GET['error'] == "nombreProductoExiste")
-                                {
-                                    echo '<h4 class="error"><i class="fas fa-exclamation-triangle"></i>&nbsp;' . "El nombre del producto introducido ya existe.</h4>";
-                                }
-                            ?>
-                        </p>
+                    <h1 class="titulo"><i>Datos del producto: <?php echo $mostrar['Nombre'];?></i></h1>
+                    <form id="producto" name="producto" action="ProductoModificado.php" method="POST" enctype="multipart/form-data" novalidate onsubmit="return validarFormulario();">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label class="rojo">Plataforma:</label>
@@ -108,26 +103,22 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="rojo">Nombre:</label>
-                                <input class="form-control" type="text" name="nombre" id="nombre" minlength="1" maxlength="45" placeholder="Nombre del producto" required autofocus>
+                                <input class="form-control" type="text" name="nombre" id="nombre" minlength="1" maxlength="45" placeholder="Nombre del producto" value="<?php echo $mostrar['Nombre'];?>" required autofocus>
                                 <span class="amarillo" id="errorNombre">Nombre no válido.</span>
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="rojo">Precio:</label>
-                                <input class="form-control" type="number" name="precio" id="precio" step="any" required>
+                                <input class="form-control" type="number" name="precio" id="precio" step="any" value="<?php echo $mostrar['Precio'];?>" required>
                                 <span class="amarillo" id="errorPrecio">Precio no válido.</span>
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="rojo">Stock:</label>
-                                <input class="form-control" type="number" name="stock" id="stock" required>
+                                <input class="form-control" type="number" name="stock" id="stock" value="<?php echo $mostrar['Stock'];?>" required>
                                 <span class="amarillo" id="errorStock">Stock no válido.</span>
                             </div>
                             <div class="form-group col-md-6">
-                                <label class="rojo">Producto:</label>
-                                <input type="file" name="imagen" id="imagen" class="rojo">
-                            </div>
-                            <div class="form-group col-md-12">
                                 <label class="rojo">Descripción:</label>
-                                <textarea class="form-control" type="text" name="descripcion" id="descripcion" minlength="1" maxlength="1000" placeholder="Introduzca aquí información adicional..." cols="30" rows="5" required></textarea>
+                                <textarea class="form-control" type="text" name="descripcion" id="descripcion" minlength="1" maxlength="1000" placeholder="Introduzca aquí información adicional..." cols="30" rows="5" required><?php echo $mostrar['Descripción'];?></textarea>
                                 <span class="amarillo" id="errorDescripcion">Descripción no válida.</span>
                                 <br>
                                 <span class="rojo" id="caracteres"></span>
@@ -138,10 +129,11 @@
                         </div>
                         <br>
                         <div class="form-group">
-                            <button class="btn btn-danger btn-block" type="submit" name="boton" value="Enviar" id="boton">Enviar</button>
+                            <button class="btn btn-danger btn-block" type="submit" name="boton" value="Aceptar" id="boton">Aceptar</button>
                         </div>
-                        <center><a class="link" href="MostrarProductos.php">Cancelar</a></center>
+                        <input type="hidden" name="idProducto" value="<?php echo $idProducto?>">
                     </form>
+                    <center><a class="link" href="MostrarProductos.php">Cancelar</a></center>
                 </div>
                 <div class="col-md-3 marco d-none d-sm-none d-md-block">
                     <?php include_once "MenúUsuario.php"?>
@@ -160,6 +152,6 @@
         <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
         <!--Script para el footer.-->
 		<script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" data-auto-a11y="true"></script>
-        <script src="../JavaScript/Producto.js"></script>
+        <script src="../JavaScript/ModificarProducto.js"></script>
 	</body>
 </html>

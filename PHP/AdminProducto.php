@@ -22,9 +22,11 @@
             <table class="table bg-dark rounded">
                 <thead class="bg-danger text-center">
                     <tr>
-                        <th scope="col">ID Producto</th>
+                        <th scope="col">ID</th>
                         <th scope="col">ID Plataforma</th>
                         <th scope="col">ID Videojuego</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Imagen</th>
                         <th scope="col">Precio</th>
                         <th scope="col">Stock</th>
                         <th scope="col">Descripción</th>
@@ -43,6 +45,17 @@
                                 <td><?php echo $mostrar['idProducto']?></td>
                                 <td><?php echo $mostrar['IdPlataforma']?></td>
                                 <td><?php echo $mostrar['IdVideojuego']?></td>
+                                <td><?php echo $mostrar['Nombre']?></td>
+                                <td>
+                                    <div class="fotoPerfil">
+                                        <figure>
+                                            <a href="ImagenProducto.php?idProducto=<?php echo $mostrar['idProducto'];?>"><img src="data:image/jpeg;base64,<?php echo base64_encode($mostrar['Imagen']);?>" class="img-responsive" width="60vh" height="60vh" alt="Producto"></a>
+                                            <div class="capa">
+                                                <a class="link" href="ImagenProducto.php?idProducto=<?php echo $mostrar['idProducto'];?>"><p class="capa"><i class="fas fa-pen"></i>&nbsp;Editar</p></a>
+                                            </div>
+                                        </figure>
+                                    </div>
+                                </td>
                                 <td><?php echo $mostrar['Precio']?>€</td>
                                 <td><?php echo $mostrar['Stock']?> copias</td>
                                 <td><?php echo $mostrar['Descripción']?></td>
