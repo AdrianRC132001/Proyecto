@@ -458,6 +458,7 @@ function contarCaracteres()
 		document.getElementById("caracteres").className = "rojo";
 	}
 }
+contarCaracteres();
 //Oyentes de eventos.
 nick.addEventListener("keyup", validarNick);
 nick.addEventListener("blur", validarNick);
@@ -485,9 +486,11 @@ cp.addEventListener("blur", validarCP2);
 cp.addEventListener("click", validarCP2);
 ca.addEventListener("keyup", validarCA);
 ca.addEventListener("blur", validarCA);
+cp.addEventListener("keyup", validarCA);
 cp.addEventListener("blur", validarCA);
 provincia.addEventListener("keyup", validarProvincia);
 provincia.addEventListener("blur", validarProvincia);
+cp.addEventListener("keyup", validarProvincia);
 cp.addEventListener("blur", validarProvincia);
 descripcion.addEventListener("keyup", validarDescripcion);
 descripcion.addEventListener("blur", validarDescripcion);

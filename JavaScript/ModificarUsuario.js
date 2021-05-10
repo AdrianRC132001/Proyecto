@@ -1,5 +1,5 @@
 //Llamada de elementos por su ID.
-const register = document.getElementById("register");
+const usuario = document.getElementById("usuario");
 const nick = document.getElementById("nick");
 const eMail = document.getElementById("eMail");
 const password = document.getElementById("password");
@@ -12,7 +12,6 @@ const dni = document.getElementById("dni");
 const cp = document.getElementById("cp");
 const ca = document.getElementById("ca");
 const provincia = document.getElementById("provincia");
-const terminos = document.getElementById("terminos");
 const descripcion = document.getElementById("descripcion");
 const caracteres = document.getElementById("caracteres");
 const direccion = document.getElementById("direccion");
@@ -287,6 +286,21 @@ function validarDNI()
      	errorDNI.style.visibility = "visible";
    	}
 }
+function validarCP()
+{
+	if(expresiones.cp.test(cp.value))
+	{
+		document.getElementById("cp").className = "form-control is-valid";
+		campos['cp'] = true;
+		errorCP.style.visibility = "hidden";
+	}
+	else
+	{
+		document.getElementById("cp").className = "form-control is-invalid";
+		campos['cp'] = false;
+		errorCP.style.visibility = "visible";
+	}
+}
 function validarCP1(cPostal)
 {
     let provincias = {
@@ -436,10 +450,10 @@ function validarFechaDeNacimiento()
 }
 function validarFormulario()
 {
-	let register = document.register;	
-	if(campos.nick && campos.eMail && campos.password && campos.password2 && campos.nombre && campos.apellido1 && campos.apellido2 && campos.telefono && campos.dni && campos.cp && campos.ca && campos.provincia && campos.direccion && campos.fechaNacimiento && terminos.checked)
+	let usuario = document.usuario;	
+	if(campos.nick && campos.eMail && campos.password && campos.password2 && campos.nombre && campos.apellido1 && campos.apellido2 && campos.telefono && campos.dni && campos.cp && campos.ca && campos.provincia && campos.direccion && campos.fechaNacimiento)
 	{
-		register.submit();
+		usuario.submit();
 	}
 	else
 	{
@@ -459,6 +473,21 @@ function contarCaracteres()
 		document.getElementById("caracteres").className = "rojo";
 	}
 }
+validarNick();
+validarEMail();
+validarPassword();
+validarPassword2();
+validarNombre();
+validarApellido1();
+validarApellido2();
+validarTelefono();
+validarDNI();
+validarCP();
+validarCA();
+validarProvincia();
+validarDescripcion();
+validarDireccion();
+validarFechaDeNacimiento();
 contarCaracteres();
 //Oyentes de eventos.
 nick.addEventListener("keyup", validarNick);

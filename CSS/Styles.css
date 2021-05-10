@@ -441,3 +441,9 @@
     grid-template-columns: auto auto auto;
     grid-gap: 0.5rem;
 }
+.botonesProductos
+{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 0.5rem;
+}

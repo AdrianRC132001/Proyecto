@@ -1,12 +1,11 @@
 <?php
     require "BD/ConectorBD.php";
-	require "BD/DAOPlataforma.php";
-    session_start();
+	require "BD/DAOProducto.php";
+    require "BD/DAOPlataforma.php";
+    require "BD/DAOVideojuego.php";
     //Creamos la conexión a la BD.
     $conexion = conectar(true);
-    $idPlataforma = $_GET["idPlataforma"];
-    $consulta = detallesPlataforma($conexion, $idPlataforma);
-    $mostrar = mysqli_fetch_assoc($consulta);
+    session_start();
     $rol = $_SESSION['Rol'];
     if($rol != "admin")
     {
@@ -68,37 +67,50 @@
         <div class="container contenedor">
             <div class="row margen">
                 <div class="col-md-8">
-                    <h1 class="titulo"><i>Datos de la plataforma: <?php echo $mostrar['Nombre'];?></i></h1>
-                    <form id="plataforma" name="plataforma" action="PlataformaModificada.php" method="POST" enctype="multipart/form-data" novalidate onsubmit="return validarFormulario();">
+                    <h1 class="titulo"><i>Nuevo producto</i></h1>
+                    <form id="producto" name="producto" action="NuevoProducto.php" method="POST" enctype="multipart/form-data" novalidate onsubmit="return validarFormulario();">
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label class="rojo">Nombre:</label>
-                                <input class="form-control" type="text" name="nombre" id="nombre" minlength="1" maxlength="45" placeholder="Nombre de la plataforma" value="<?php echo $mostrar['Nombre'];?>" required autofocus>
-                                <span class="amarillo" id="errorNombre">Nombre no válido.</span>
+                                <label class="rojo">Plataforma:</label>
+                                <select class="rojo" name="plataforma" id="plataforma">
+                                    <?php 
+                                        $mostrarPlataforma = mostrarPlataforma($conexion);
+                                        while($plataforma = mysqli_fetch_assoc($mostrarPlataforma))
+                                        { 
+                                    ?>
+                                            <option value="<?php echo $plataforma['idPlataforma']?>"><?php echo $plataforma['Nombre']?></option>
+                                    <?php
+                                        }
+                                    ?>
+                                </select>
                             </div>
                             <div class="form-group col-md-6">
-                                <label class="rojo">Lanzamiento:</label>
-                                <input class="form-control" type="date" id="lanzamiento" name="lanzamiento" value="<?php echo $mostrar['Lanzamiento'];?>">
-                                <span class="amarillo" id="errorLanzamiento">Fecha de lanzamiento no válida.</span>
+                                <label class="rojo">Videojuego:</label>
+                                <select class="rojo" name="videojuego" id="videojuego">
+                                    <?php 
+                                        $mostrarVideojuego = mostrarVideojuego($conexion);
+                                        while($videojuego = mysqli_fetch_assoc($mostrarVideojuego))
+                                        { 
+                                    ?>
+                                            <option value="<?php echo $videojuego['idVideojuego']?>"><?php echo $videojuego['Título']?></option>
+                                    <?php
+                                        }
+                                    ?>
+                                </select>
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="rojo">Precio:</label>
-                                <input class="form-control" type="number" name="precio" id="precio" step="any" value="<?php echo $mostrar['Precio'];?>" required>
+                                <input class="form-control" type="number" name="precio" id="precio" step="any" required>
                                 <span class="amarillo" id="errorPrecio">Precio no válido.</span>
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="rojo">Stock:</label>
-                                <input class="form-control" type="number" name="stock" id="stock" value="<?php echo $mostrar['Stock'];?>" required>
+                                <input class="form-control" type="number" name="stock" id="stock" required>
                                 <span class="amarillo" id="errorStock">Stock no válido.</span>
                             </div>
-                            <div class="form-group col-md-6">
-                                <label class="rojo">Compañía:</label>
-                                <input class="form-control" type="text" name="compania" id="compania" minlength="1" maxlength="45" placeholder="Compañía desarrolladora de la plataforma" value="<?php echo $mostrar['Compañía'];?>" required>
-                                <span class="amarillo" id="errorCompania">Compañía no válida.</span>
-                            </div>
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-12">
                                 <label class="rojo">Descripción:</label>
-                                <textarea class="form-control" type="text" name="descripcion" id="descripcion" minlength="1" maxlength="1000" placeholder="Introduzca aquí información adicional..." cols="30" rows="5" required><?php echo $mostrar['Descripción'];?></textarea>
+                                <textarea class="form-control" type="text" name="descripcion" id="descripcion" minlength="1" maxlength="1000" placeholder="Introduzca aquí información adicional..." cols="30" rows="5" required></textarea>
                                 <span class="amarillo" id="errorDescripcion">Descripción no válida.</span>
                                 <br>
                                 <span class="rojo" id="caracteres"></span>
@@ -109,11 +121,10 @@
                         </div>
                         <br>
                         <div class="form-group">
-                            <button class="btn btn-danger btn-block" type="submit" name="boton" value="Aceptar" id="boton">Aceptar</button>
+                            <button class="btn btn-danger btn-block" type="submit" name="boton" value="Enviar" id="boton">Enviar</button>
                         </div>
-                        <input type="hidden" name="idPlataforma" value="<?php echo $idPlataforma?>">
+                        <center><a class="link" href="MostrarProductos.php">Cancelar</a></center>
                     </form>
-                    <center><a class="link" href="MostrarPlataformas.php">Cancelar</a></center>
                 </div>
                 <div class="col-md-3 marco d-none d-sm-none d-md-block">
                     <?php include_once "MenúUsuario.php"?>
@@ -132,6 +143,6 @@
         <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
         <!--Script para el footer.-->
 		<script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" data-auto-a11y="true"></script>
-        <script src="../JavaScript/ModificarPlataforma.js"></script>
+        <script src="../JavaScript/Producto.js"></script>
 	</body>
 </html>

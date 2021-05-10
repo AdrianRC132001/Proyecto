@@ -115,6 +115,10 @@ function contarCaracteres()
 		document.getElementById("caracteres").className = "rojo";
 	}
 }
+validarNombre();
+validarPrecio();
+validarStock();
+validarDescripcion();
 contarCaracteres();
 //Oyentes de eventos.
 nombre.addEventListener("keyup", validarNombre);

@@ -1,7 +1,7 @@
 <?php
-    function insertarProducto($conexion, $idPlataforma, $idVideojuego, $stock, $precio)
+    function insertarProducto($conexion, $idPlataforma, $idVideojuego, $stock, $precio, $descripcion)
     {
-        $consulta = "INSERT INTO Productos(IdVideojuego, IdPlataforma, Stock, Precio) VALUES('$idVideojuego', '$idPlataforma', '$stock', '$precio')";
+        $consulta = "INSERT INTO Productos(IdVideojuego, IdPlataforma, Stock, Precio, Descripción) VALUES('$idVideojuego', '$idPlataforma', '$stock', '$precio', '$descripcion'";
         $resultado = mysqli_query($conexion, $consulta);
         return $resultado;
     }
@@ -11,9 +11,9 @@
         $resultado = mysqli_query($conexion, $consulta);
         return $resultado;
     }
-    function modificarProducto($conexion, $idPlataforma, $idVideojuego, $stock, $precio, $idProducto)
+    function modificarProducto($conexion, $idPlataforma, $idVideojuego, $stock, $precio, $descripcion, $idProducto)
     {
-        $consulta = "UPDATE `Proyecto`.`Productos` SET `IdPlataforma` = '$idPlataforma', `IdVideojuego` = '$idVideojuego', `Stock` = '$stock', `Precio` = '$precio' WHERE(`idProducto` = '$idProducto')";
+        $consulta = "UPDATE `Proyecto`.`Productos` SET `IdPlataforma` = '$idPlataforma', `IdVideojuego` = '$idVideojuego', `Stock` = '$stock', `Precio` = '$precio', `Descripción` = '$descripcion' WHERE(`idProducto` = '$idProducto')";
         $resultado = mysqli_query($conexion, $consulta);
         return $resultado;
     }

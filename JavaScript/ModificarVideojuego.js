@@ -1,48 +1,73 @@
 //Llamada de elementos por su ID.
-const merchandising = document.getElementById("merchandising");
-const nombre = document.getElementById("nombre");
+const videojuego = document.getElementById("videojuego");
+const titulo = document.getElementById("titulo");
+const publicacion = document.getElementById("publicacion");
 const precio = document.getElementById("precio");
 const stock = document.getElementById("stock");
+const compania = document.getElementById("compania");
 const descripcion = document.getElementById("descripcion");
 const caracteres = document.getElementById("caracteres");
 //Errores.
-const errorNombre = document.getElementById("errorNombre");
+const errorTitulo = document.getElementById("errorTitulo");
+const errorPublicacion = document.getElementById("errorPublicacion");
 const errorPrecio = document.getElementById("errorPrecio");
 const errorStock = document.getElementById("errorStock");
+const errorCompania = document.getElementById("errorCompania");
 const errorDescripcion = document.getElementById("errorDescripcion");
 const errorMensaje = document.getElementById("errorMensaje");
-errorNombre.style.visibility = "hidden";
+errorTitulo.style.visibility = "hidden";
+errorPublicacion.style.visibility = "hidden";
 errorPrecio.style.visibility = "hidden";
 errorStock.style.visibility = "hidden";
+errorCompania.style.visibility = "hidden";
 errorDescripcion.style.visibility = "hidden";
 errorMensaje.style.visibility = "hidden";
 //Expresiones regulares.
 const expresiones = {
-	nombre: /^.{1,45}$/,
+	titulo: /^.{1,45}$/,
+    publicacion: /^.+$/,
 	precio: /^.+$/,
     stock: /^[0-9]+$/,
+    compania: /^.{1,45}$/,
     descripcion: /^.{1,1000}$/
 }
 const campos = {
-	nombre: false,
+	titulo: false,
+    publicacion: false,
 	precio: false,
     stock: false,
+    compania: false,
     descripcion: false
 }
 //Funciones.
-function validarNombre()
+function validarTitulo()
 {
-	if(expresiones.nombre.test(nombre.value))
+	if(expresiones.titulo.test(titulo.value))
 	{
-		document.getElementById("nombre").className = "form-control is-valid";
-		campos['nombre'] = true;
-		errorNombre.style.visibility = "hidden";
+		document.getElementById("titulo").className = "form-control is-valid";
+		campos['titulo'] = true;
+		errorTitulo.style.visibility = "hidden";
 	}
 	else
 	{
-		document.getElementById("nombre").className = "form-control is-invalid";
-		campos['nombre'] = false;
-		errorNombre.style.visibility = "visible";
+		document.getElementById("titulo").className = "form-control is-invalid";
+		campos['titulo'] = false;
+		errorTitulo.style.visibility = "visible";
+	}
+}
+function validarPublicacion()
+{
+	if(expresiones.publicacion.test(publicacion.value))
+	{
+		document.getElementById("publicacion").className = "form-control is-valid";
+		campos['publicacion'] = true;
+		errorPublicacion.style.visibility = "hidden";
+	}
+	else
+	{
+		document.getElementById("publicacion").className = "form-control is-invalid";
+		campos['publicacion'] = false;
+		errorPublicacion.style.visibility = "visible";
 	}
 }
 function validarPrecio()
@@ -75,6 +100,21 @@ function validarStock()
 		errorStock.style.visibility = "visible";
 	}
 }
+function validarCompania()
+{
+	if(expresiones.compania.test(compania.value))
+	{
+		document.getElementById("compania").className = "form-control is-valid";
+		campos['compania'] = true;
+		errorCompania.style.visibility = "hidden";
+	}
+	else
+	{
+		document.getElementById("compania").className = "form-control is-invalid";
+		campos['compania'] = false;
+		errorCompania.style.visibility = "visible";
+	}
+}
 function validarDescripcion()
 {
 	if(expresiones.descripcion.test(descripcion.value))
@@ -92,10 +132,10 @@ function validarDescripcion()
 }
 function validarFormulario()
 {
-	let merchandising = document.merchandising;	
-	if(campos.nombre && campos.precio && campos.stock && campos.descripcion)
+	let videojuego = document.videojuego;	
+	if(campos.titulo && campos.publicacion && campos.precio && campos.stock && campos.compania && campos.descripcion)
 	{
-		merchandising.submit();
+		videojuego.submit();
 	}
 	else
 	{
@@ -115,16 +155,26 @@ function contarCaracteres()
 		document.getElementById("caracteres").className = "rojo";
 	}
 }
+validarTitulo();
+validarPublicacion();
+validarPrecio();
+validarStock();
+validarCompania();
+validarDescripcion();
 contarCaracteres();
 //Oyentes de eventos.
-nombre.addEventListener("keyup", validarNombre);
-nombre.addEventListener("blur", validarNombre);
+titulo.addEventListener("keyup", validarTitulo);
+titulo.addEventListener("blur", validarTitulo);
+publicacion.addEventListener("keyup", validarPublicacion);
+publicacion.addEventListener("blur", validarPublicacion);
 precio.addEventListener("keyup", validarPrecio);
 precio.addEventListener("blur", validarPrecio);
 precio.addEventListener("click", validarPrecio);
 stock.addEventListener("keyup", validarStock);
 stock.addEventListener("blur", validarStock);
 stock.addEventListener("click", validarStock);
+compania.addEventListener("keyup", validarCompania);
+compania.addEventListener("blur", validarCompania);
 descripcion.addEventListener("keyup", validarDescripcion);
 descripcion.addEventListener("blur", validarDescripcion);
 descripcion.addEventListener("keyup", contarCaracteres);

@@ -122,6 +122,6 @@
         <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
         <!--Script para el footer.-->
 		<script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" data-auto-a11y="true"></script>
-        <script src="../JavaScript/Merchandising.js"></script>
+        <script src="../JavaScript/ModificarMerchandising.js"></script>
 	</body>
 </html>

@@ -17,7 +17,7 @@
     $direccion = $_POST["direccion"];
     $fechaNacimiento = $_POST["fechaNacimiento"];
     $foto = addslashes(file_get_contents($_FILES['foto']['tmp_name']));
-    $rol = "usuario";
+    $rol = $_POST["rol"];
     //Creamos la conexión a la BD.
     $conexion = conectar(true);
     $consultaNick = consultaNick($conexion, $nick);

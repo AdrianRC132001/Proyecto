@@ -190,7 +190,14 @@
                                 <label class="rojo">Foto de perfil:</label>
                                 <input type="file" name="foto" id="foto" class="rojo">
                             </div>
-                            <div class="form-group col-md-6">
+                            <div class="grupo_rol col-md-6">
+                                <label class="rojo">Rol:</label>
+                                <select class="rojo" name="rol">
+                                    <option value="admin">admin</option>
+                                    <option value="usuario">usuario</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-12">
                                 <label class="rojo">Descripción:</label>
                                 <textarea class="form-control" type="text" name="descripcion" id="descripcion" minlength="0" maxlength="1000" placeholder="Introduzca aquí información adicional..." cols="30" rows="5" required></textarea>
                                 <span class="amarillo" id="errorDescripcion">Descripción no válida.</span>

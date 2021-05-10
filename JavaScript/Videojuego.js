@@ -155,6 +155,7 @@ function contarCaracteres()
 		document.getElementById("caracteres").className = "rojo";
 	}
 }
+contarCaracteres();
 //Oyentes de eventos.
 titulo.addEventListener("keyup", validarTitulo);
 titulo.addEventListener("blur", validarTitulo);
