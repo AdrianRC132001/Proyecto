@@ -77,6 +77,11 @@
                                 <span class="amarillo" id="errorNombre">Nombre no válido.</span>
                             </div>
                             <div class="form-group col-md-6">
+                                <label class="rojo">Historia:</label>
+                                <input class="form-control" type="text" name="historia" id="historia" minlength="1" maxlength="45" placeholder="Historia a la que pertenece el mapa" value="<?php echo $mostrar['Historia'];?>" required>
+                                <span class="amarillo" id="errorHistoria">Historia no válida.</span>
+                            </div>
+                            <div class="form-group col-md-6">
                                 <label class="rojo">DLC:</label>
                                 <input class="form-control" type="text" name="dlc" id="dlc" minlength="1" maxlength="45" placeholder="DLC" value="<?php echo $mostrar['DLC'];?>" required>
                                 <span class="amarillo" id="errorDLC">DLC no válido.</span>
@@ -101,7 +106,7 @@
                                 <input class="form-control" type="text" name="compania" id="compania" minlength="1" maxlength="45" placeholder="Compañía desarrolladora del mapa" value="<?php echo $mostrar['Compañía'];?>" required>
                                 <span class="amarillo" id="errorCompania">Compañía no válida.</span>
                             </div>
-                            <div class="form-group col-md-12">
+                            <div class="form-group col-md-6">
                                 <label class="rojo">Descripción:</label>
                                 <textarea class="form-control" type="text" name="descripcion" id="descripcion" minlength="1" maxlength="1000" placeholder="Introduzca aquí información adicional..." cols="30" rows="5" required><?php echo $mostrar['Descripción'];?></textarea>
                                 <span class="amarillo" id="errorDescripcion">Descripción no válida.</span>

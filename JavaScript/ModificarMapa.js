@@ -1,6 +1,7 @@
 //Llamada de elementos por su ID.
 const mapa = document.getElementById("mapa");
 const nombre = document.getElementById("nombre");
+const historia = document.getElementById("historia");
 const dlc = document.getElementById("dlc");
 const publicacion = document.getElementById("publicacion");
 const precio = document.getElementById("precio");
@@ -10,6 +11,7 @@ const descripcion = document.getElementById("descripcion");
 const caracteres = document.getElementById("caracteres");
 //Errores.
 const errorNombre = document.getElementById("errorNombre");
+const errorHistoria = document.getElementById("errorHistoria");
 const errorDLC = document.getElementById("errorDLC");
 const errorPublicacion = document.getElementById("errorPublicacion");
 const errorPrecio = document.getElementById("errorPrecio");
@@ -28,6 +30,7 @@ errorMensaje.style.visibility = "hidden";
 //Expresiones regulares.
 const expresiones = {
 	nombre: /^.{1,45}$/,
+	historia: /^.{1,45}$/,
     dlc: /^.{1,45}$/,
     publicacion: /^.+$/,
 	precio: /^.+$/,
@@ -37,6 +40,7 @@ const expresiones = {
 }
 const campos = {
 	nombre: false,
+	historia: false,
     dlc: false,
     publicacion: false,
 	precio: false,
@@ -58,6 +62,21 @@ function validarNombre()
 		document.getElementById("nombre").className = "form-control is-invalid";
 		campos['nombre'] = false;
 		errorNombre.style.visibility = "visible";
+	}
+}
+function validarHistoria()
+{
+	if(expresiones.historia.test(historia.value))
+	{
+		document.getElementById("historia").className = "form-control is-valid";
+		campos['historia'] = true;
+		errorHistoria.style.visibility = "hidden";
+	}
+	else
+	{
+		document.getElementById("historia").className = "form-control is-invalid";
+		campos['historia'] = false;
+		errorHistoria.style.visibility = "visible";
 	}
 }
 function validarDLC()
@@ -153,7 +172,7 @@ function validarDescripcion()
 function validarFormulario()
 {
 	let mapa = document.mapa;	
-	if(campos.nombre && campos.dlc && campos.publicacion && campos.precio && campos.stock && campos.compania && campos.descripcion)
+	if(campos.nombre && campos.historia && campos.dlc && campos.publicacion && campos.precio && campos.stock && campos.compania && campos.descripcion)
 	{
 		mapa.submit();
 	}
@@ -176,6 +195,7 @@ function contarCaracteres()
 	}
 }
 validarNombre();
+validarHistoria();
 validarDLC();
 validarPublicacion();
 validarPrecio();
@@ -186,6 +206,8 @@ contarCaracteres();
 //Oyentes de eventos.
 nombre.addEventListener("keyup", validarNombre);
 nombre.addEventListener("blur", validarNombre);
+historia.addEventListener("keyup", validarHistoria);
+historia.addEventListener("blur", validarHistoria);
 dlc.addEventListener("keyup", validarDLC);
 dlc.addEventListener("blur", validarDLC);
 publicacion.addEventListener("keyup", validarPublicacion);

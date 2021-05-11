@@ -80,6 +80,11 @@
                                 <span class="amarillo" id="errorNombre">Nombre no válido.</span>
                             </div>
                             <div class="form-group col-md-6">
+                                <label class="rojo">Historia:</label>
+                                <input class="form-control" type="text" name="historia" id="historia" minlength="1" maxlength="45" placeholder="Historia a la que pertenece el mapa" required>
+                                <span class="amarillo" id="errorHistoria">Historia no válida.</span>
+                            </div>
+                            <div class="form-group col-md-6">
                                 <label class="rojo">DLC:</label>
                                 <input class="form-control" type="text" name="dlc" id="dlc" minlength="1" maxlength="45" placeholder="DLC" required>
                                 <span class="amarillo" id="errorDLC">DLC no válido.</span>
@@ -105,15 +110,15 @@
                                 <span class="amarillo" id="errorCompania">Compañía no válida.</span>
                             </div>
                             <div class="form-group col-md-6">
+                                <label class="rojo">Mapa:</label>
+                                <input type="file" name="imagen" id="imagen" class="rojo">
+                            </div>
+                            <div class="form-group col-md-12">
                                 <label class="rojo">Descripción:</label>
                                 <textarea class="form-control" type="text" name="descripcion" id="descripcion" minlength="1" maxlength="1000" placeholder="Introduzca aquí información adicional..." cols="30" rows="5" required></textarea>
                                 <span class="amarillo" id="errorDescripcion">Descripción no válida.</span>
                                 <br>
                                 <span class="rojo" id="caracteres"></span>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label class="rojo">Mapa:</label>
-                                <input type="file" name="imagen" id="imagen" class="rojo">
                             </div>
                             <div id="mensaje">
                                 <span class="amarillo" id="errorMensaje">Por favor, rellene el formulario correctamente.</span>

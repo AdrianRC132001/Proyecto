@@ -24,6 +24,7 @@
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Nombre</th>
+                        <th scope="col">Historia</th>
                         <th scope="col">Imagen</th>
                         <th scope="col">DLC</th>
                         <th scope="col">Publicación</th>
@@ -45,6 +46,7 @@
                             <tr>
                                 <td><?php echo $mostrar['idMapa']?></td>
                                 <td><?php echo $mostrar['Nombre']?></td>
+                                <td><?php echo $mostrar['Historia']?></td>
                                 <td>
                                     <div class="fotoPerfil">
                                         <figure>

@@ -3,6 +3,7 @@
     require "BD/DAOMapa.php";
     //Recogemos los valores del formulario.
     $nombre = $_POST["nombre"];
+    $historia = $_POST["historia"];
     $dlc = $_POST["dlc"];
     $publicacion = $_POST["publicacion"];
     $precio = $_POST["precio"];
@@ -20,7 +21,7 @@
     else
     {
         //Lanzamos la consulta.
-        $consulta = insertarMapa($conexion, $nombre, $publicacion, $precio, $stock, $descripcion, $imagen, $dlc, $compania);
+        $consulta = insertarMapa($conexion, $nombre, $publicacion, $precio, $stock, $descripcion, $imagen, $dlc, $compania, $historia);
         header("Location: MostrarMapas.php");
     }
 ?>

@@ -9,6 +9,8 @@
     $idProducto = $_GET["idProducto"];
     $consulta = detallesProducto($conexion, $idProducto);
     $mostrar = mysqli_fetch_assoc($consulta);
+    $idPlataforma = $mostrar['IdPlataforma'];
+    $idVideojuego = $mostrar['IdVideojuego'];
     $rol = $_SESSION['Rol'];
     if($rol != "admin")
     {
@@ -75,8 +77,13 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label class="rojo">Plataforma:</label>
+                                <?php
+                                    $detallesPlataforma = detallesPlataforma($conexion, $idPlataforma);
+                                    $nombrePlataforma = mysqli_fetch_assoc($detallesPlataforma);
+                                ?>
                                 <select class="rojo" name="plataforma" id="plataforma">
-                                    <?php 
+                                    <option value="<?php echo $nombrePlataforma['idPlataforma']?>" selected><?php echo $nombrePlataforma['Nombre']?></option>
+                                    <?php
                                         $mostrarPlataforma = mostrarPlataforma($conexion);
                                         while($plataforma = mysqli_fetch_assoc($mostrarPlataforma))
                                         { 
@@ -89,7 +96,12 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="rojo">Videojuego:</label>
+                                <?php
+                                    $detallesVideojuego = detallesVideojuego($conexion, $idVideojuego);
+                                    $tituloVideojuego = mysqli_fetch_assoc($detallesVideojuego);
+                                ?>
                                 <select class="rojo" name="videojuego" id="videojuego">
+                                    <option value="<?php echo $tituloVideojuego['idVideojuego']?>" selected><?php echo $tituloVideojuego['Título']?></option>
                                     <?php 
                                         $mostrarVideojuego = mostrarVideojuego($conexion);
                                         while($videojuego = mysqli_fetch_assoc($mostrarVideojuego))
