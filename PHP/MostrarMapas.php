@@ -107,6 +107,8 @@
                                             <tr>
                                                 <th scope="col">ID</th>
                                                 <th scope="col">Nombre</th>
+                                                <th scope="col">Plataforma</th>
+                                                <th scope="col">Videojuego</th>
                                                 <th scope="col">Historia</th>
                                                 <th scope="col">Imagen</th>
                                                 <th scope="col">DLC</th>
@@ -129,6 +131,8 @@
                                                     <tr>
                                                         <td><?php echo $mostrar['idMapa']?></td>
                                                         <td><?php echo $mostrar['Nombre']?></td>
+                                                        <td><?php echo $mostrar['Plataforma']?></td>
+                                                        <td><?php echo $mostrar['Videojuego']?></td>
                                                         <td><?php echo $mostrar['Historia']?></td>
                                                         <td>
                                                             <div class="fotoPerfil">

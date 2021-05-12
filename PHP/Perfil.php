@@ -4,6 +4,9 @@
     session_start();
     //Creamos la conexión a la BD.
     $conexion = conectar(true);
+    $idUsuario = $_SESSION["idUsuario"];
+    $consulta = mostrarPerfil($conexion, $idUsuario);
+    $mostrar = mysqli_fetch_assoc($consulta);
     $rol = $_SESSION['Rol'];
     if(($rol != "admin") && ($rol != "usuario"))
     {
@@ -71,61 +74,61 @@
                     <br>
                     <div class="fotoPerfil">
                         <figure>
-                            <a href="#" data-toggle="modal" data-target="#foto"><img src="data:image/jpeg;base64,<?php echo base64_encode($_SESSION['Foto']);?>" class="img-responsive" width="120vh" height="120vh" alt="Foto de perfil"></a>
+                            <a href="#" data-toggle="modal" data-target="#foto"><img src="data:image/jpeg;base64,<?php echo base64_encode($mostrar['Foto']);?>" class="img-responsive" width="120vh" height="120vh" alt="Foto de perfil"></a>
                             <div class="capa">
                                 <a class="link" href="#" data-toggle="modal" data-target="#foto"><p class="capa"><i class="fas fa-pen"></i>&nbsp;Editar</p></a>
                             </div>
                         </figure>
                     </div>
                     <br>
-                    <span class="spanPerfil"><u><b>Descripción:</b></u> <?php echo $_SESSION["Descripción"]?></span>
+                    <span class="spanPerfil"><u><b>Descripción:</b></u> <?php echo $mostrar["Descripción"]?></span>
                     <br>
                     <br>
                     <h2 class="tituloPerfil"><i>Datos personales</i></h2>
                     <br>
-                    <span class="spanPerfil"><u><b>ID:</b></u> <?php echo $_SESSION["idUsuario"]?></span>
+                    <span class="spanPerfil"><u><b>ID:</b></u> <?php echo $mostrar["idUsuario"]?></span>
                     <br>
                     <br>
-                    <span class="spanPerfil"><u><b>Nick:</b></u> <?php echo $_SESSION['Nick']?></span>
+                    <span class="spanPerfil"><u><b>Nick:</b></u> <?php echo $mostrar['Nick']?></span>
                     <br>
                     <br>
-                    <span class="spanPerfil"><u><b>Password:</b></u> <?php echo $_SESSION['Password']?></span>
+                    <span class="spanPerfil"><u><b>Password:</b></u> <?php echo $mostrar['Password']?></span>
                     <br>
                     <br>
-                    <span class="spanPerfil"><u><b>Nombre:</b></u> <?php echo $_SESSION['Nombre']?></span>
+                    <span class="spanPerfil"><u><b>Nombre:</b></u> <?php echo $mostrar['Nombre']?></span>
                     <br>
                     <br>
-                    <span class="spanPerfil"><u><b>Primer apellido:</b></u> <?php echo $_SESSION['Apellido1']?></span>
+                    <span class="spanPerfil"><u><b>Primer apellido:</b></u> <?php echo $mostrar['Apellido1']?></span>
                     <br>
                     <br>
-                    <span class="spanPerfil"><u><b>2º apellido:</b></u> <?php echo $_SESSION['Apellido2']?></span>
+                    <span class="spanPerfil"><u><b>2º apellido:</b></u> <?php echo $mostrar['Apellido2']?></span>
                     <br>
                     <br>
-                    <span class="spanPerfil"><u><b>DNI:</b></u> <?php echo $_SESSION['DNI']?></span>
+                    <span class="spanPerfil"><u><b>DNI:</b></u> <?php echo $mostrar['DNI']?></span>
                     <br>
                     <br>
-                    <span class="spanPerfil"><u><b>Fecha de nacimiento:</b></u> <?php echo $_SESSION['FechaDeNacimiento']?></span>
+                    <span class="spanPerfil"><u><b>Fecha de nacimiento:</b></u> <?php echo $mostrar['FechaDeNacimiento']?></span>
                     <br>
                     <br>
-                    <span class="spanPerfil"><u><b>Teléfono:</b></u> <?php echo $_SESSION['Teléfono']?></span>
+                    <span class="spanPerfil"><u><b>Teléfono:</b></u> <?php echo $mostrar['Teléfono']?></span>
                     <br>
                     <br>
-                    <span class="spanPerfil"><u><b>eMail:</b></u> <?php echo $_SESSION['eMail']?></span>
+                    <span class="spanPerfil"><u><b>eMail:</b></u> <?php echo $mostrar['eMail']?></span>
                     <br>
                     <br>
-                    <span class="spanPerfil"><u><b>Código Postal:</b></u> <?php echo $_SESSION['CP']?></span>
+                    <span class="spanPerfil"><u><b>Código Postal:</b></u> <?php echo $mostrar['CP']?></span>
                     <br>
                     <br>
-                    <span class="spanPerfil"><u><b>Comunidad Autónoma:</b></u> <?php echo $_SESSION['CA']?></span>
+                    <span class="spanPerfil"><u><b>Comunidad Autónoma:</b></u> <?php echo $mostrar['CA']?></span>
                     <br>
                     <br>
-                    <span class="spanPerfil"><u><b>Provincia:</b></u> <?php echo $_SESSION['Provincia']?></span>
+                    <span class="spanPerfil"><u><b>Provincia:</b></u> <?php echo $mostrar['Provincia']?></span>
                     <br>
                     <br>
-                    <span class="spanPerfil"><u><b>Dirección:</b></u> <?php echo $_SESSION['Dirección']?></span>
+                    <span class="spanPerfil"><u><b>Dirección:</b></u> <?php echo $mostrar['Dirección']?></span>
                     <br>
                     <br>
-                    <span class="spanPerfil"><u><b>Rol:</b></u> <?php echo $_SESSION['Rol']?></span>
+                    <span class="spanPerfil"><u><b>Rol:</b></u> <?php echo $mostrar['Rol']?></span>
                     <br>
                     <br>
                     <a class="btn btn-primary" href="ModificarPerfil.php?idUsuario=<?php echo $_SESSION['idUsuario'];?>" value="Editar" name="modificarPerfil"><i class="fas fa-user-edit"></i>&nbsp;Editar</a>&nbsp;<a class="btn btn-danger" href="BajaUsuario.php?idUsuario=<?php echo $_SESSION['idUsuario'];?>" value="Dar de baja" name="bajaUsuario"><i class="fas fa-user-times"></i>&nbsp;Dar de baja</a>

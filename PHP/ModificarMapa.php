@@ -77,6 +77,16 @@
                                 <span class="amarillo" id="errorNombre">Nombre no válido.</span>
                             </div>
                             <div class="form-group col-md-6">
+                                <label class="rojo">Plataforma:</label>
+                                <input class="form-control" type="text" name="plataforma" id="plataforma" minlength="1" maxlength="45" placeholder="Plataforma donde se puede jugar el mapa" value="<?php echo $mostrar['Plataforma'];?>" required>
+                                <span class="amarillo" id="errorPlataforma">Plataforma no válida.</span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="rojo">Videojuego:</label>
+                                <input class="form-control" type="text" name="videojuego" id="videojuego" minlength="1" maxlength="45" placeholder="Videojuego donde se encuentra el mapa" value="<?php echo $mostrar['Videojuego'];?>" required>
+                                <span class="amarillo" id="errorVideojuego">Videojuego no válido.</span>
+                            </div>
+                            <div class="form-group col-md-6">
                                 <label class="rojo">Historia:</label>
                                 <input class="form-control" type="text" name="historia" id="historia" minlength="1" maxlength="45" placeholder="Historia a la que pertenece el mapa" value="<?php echo $mostrar['Historia'];?>" required>
                                 <span class="amarillo" id="errorHistoria">Historia no válida.</span>

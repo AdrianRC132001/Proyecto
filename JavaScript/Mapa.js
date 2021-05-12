@@ -1,6 +1,8 @@
 //Llamada de elementos por su ID.
 const mapa = document.getElementById("mapa");
 const nombre = document.getElementById("nombre");
+const plataforma = document.getElementById("plataforma");
+const videojuego = document.getElementById("videojuego");
 const historia = document.getElementById("historia");
 const dlc = document.getElementById("dlc");
 const publicacion = document.getElementById("publicacion");
@@ -11,6 +13,8 @@ const descripcion = document.getElementById("descripcion");
 const caracteres = document.getElementById("caracteres");
 //Errores.
 const errorNombre = document.getElementById("errorNombre");
+const errorPlataforma = document.getElementById("errorPlataforma");
+const errorVideojuego = document.getElementById("errorVideojuego");
 const errorHistoria = document.getElementById("errorHistoria");
 const errorDLC = document.getElementById("errorDLC");
 const errorPublicacion = document.getElementById("errorPublicacion");
@@ -20,6 +24,9 @@ const errorCompania = document.getElementById("errorCompania");
 const errorDescripcion = document.getElementById("errorDescripcion");
 const errorMensaje = document.getElementById("errorMensaje");
 errorNombre.style.visibility = "hidden";
+errorPlataforma.style.visibility = "hidden";
+errorVideojuego.style.visibility = "hidden";
+errorHistoria.style.visibility = "hidden";
 errorDLC.style.visibility = "hidden";
 errorPublicacion.style.visibility = "hidden";
 errorPrecio.style.visibility = "hidden";
@@ -30,6 +37,8 @@ errorMensaje.style.visibility = "hidden";
 //Expresiones regulares.
 const expresiones = {
 	nombre: /^.{1,45}$/,
+	plataforma: /^.{1,45}$/,
+	videojuego: /^.{1,45}$/,
 	historia: /^.{1,45}$/,
     dlc: /^.{1,45}$/,
     publicacion: /^.+$/,
@@ -40,6 +49,8 @@ const expresiones = {
 }
 const campos = {
 	nombre: false,
+	plataforma: false,
+	videojuego: false,
 	historia: false,
     dlc: false,
     publicacion: false,
@@ -62,6 +73,36 @@ function validarNombre()
 		document.getElementById("nombre").className = "form-control is-invalid";
 		campos['nombre'] = false;
 		errorNombre.style.visibility = "visible";
+	}
+}
+function validarPlataforma()
+{
+	if(expresiones.plataforma.test(plataforma.value))
+	{
+		document.getElementById("plataforma").className = "form-control is-valid";
+		campos['plataforma'] = true;
+		errorPlataforma.style.visibility = "hidden";
+	}
+	else
+	{
+		document.getElementById("plataforma").className = "form-control is-invalid";
+		campos['plataforma'] = false;
+		errorPlataforma.style.visibility = "visible";
+	}
+}
+function validarVideojuego()
+{
+	if(expresiones.videojuego.test(videojuego.value))
+	{
+		document.getElementById("videojuego").className = "form-control is-valid";
+		campos['videojuego'] = true;
+		errorVideojuego.style.visibility = "hidden";
+	}
+	else
+	{
+		document.getElementById("videojuego").className = "form-control is-invalid";
+		campos['videojuego'] = false;
+		errorVideojuego.style.visibility = "visible";
 	}
 }
 function validarHistoria()
@@ -172,7 +213,7 @@ function validarDescripcion()
 function validarFormulario()
 {
 	let mapa = document.mapa;	
-	if(campos.nombre && campos.historia && campos.dlc && campos.publicacion && campos.precio && campos.stock && campos.compania && campos.descripcion)
+	if(campos.nombre && campos.plataforma && campos.videojuego && campos.historia && campos.dlc && campos.publicacion && campos.precio && campos.stock && campos.compania && campos.descripcion)
 	{
 		mapa.submit();
 	}
@@ -198,6 +239,10 @@ contarCaracteres();
 //Oyentes de eventos.
 nombre.addEventListener("keyup", validarNombre);
 nombre.addEventListener("blur", validarNombre);
+plataforma.addEventListener("keyup", validarPlataforma);
+plataforma.addEventListener("blur", validarPlataforma);
+videojuego.addEventListener("keyup", validarVideojuego);
+videojuego.addEventListener("blur", validarVideojuego);
 historia.addEventListener("keyup", validarHistoria);
 historia.addEventListener("blur", validarHistoria);
 dlc.addEventListener("keyup", validarDLC);

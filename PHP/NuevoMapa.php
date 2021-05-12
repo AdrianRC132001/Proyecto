@@ -3,6 +3,8 @@
     require "BD/DAOMapa.php";
     //Recogemos los valores del formulario.
     $nombre = $_POST["nombre"];
+    $plataforma = $_POST["plataforma"];
+    $videojuego = $_POST["videojuego"];
     $historia = $_POST["historia"];
     $dlc = $_POST["dlc"];
     $publicacion = $_POST["publicacion"];
@@ -21,7 +23,7 @@
     else
     {
         //Lanzamos la consulta.
-        $consulta = insertarMapa($conexion, $nombre, $publicacion, $precio, $stock, $descripcion, $imagen, $dlc, $compania, $historia);
+        $consulta = insertarMapa($conexion, $nombre, $publicacion, $precio, $stock, $descripcion, $imagen, $dlc, $compania, $historia, $plataforma, $videojuego);
         header("Location: MostrarMapas.php");
     }
 ?>

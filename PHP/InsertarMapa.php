@@ -69,7 +69,7 @@
                             <?php
                                 if(isset($_GET['error']) && $_GET['error'] == "nombreMapaExiste")
                                 {
-                                    echo '<h4 class="error"><i class="fas fa-exclamation-triangle"></i>&nbsp;' . "El nombre del mapa introducida ya existe.</h4>";
+                                    echo '<h4 class="error"><i class="fas fa-exclamation-triangle"></i>&nbsp;' . "El nombre del mapa introducido ya existe.</h4>";
                                 }
                             ?>
                         </p>
@@ -78,6 +78,16 @@
                                 <label class="rojo">Nombre:</label>
                                 <input class="form-control" type="text" name="nombre" id="nombre" minlength="1" maxlength="45" placeholder="Nombre del mapa" required autofocus>
                                 <span class="amarillo" id="errorNombre">Nombre no válido.</span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="rojo">Plataforma:</label>
+                                <input class="form-control" type="text" name="plataforma" id="plataforma" minlength="1" maxlength="45" placeholder="Plataforma donde se puede jugar el mapa" required>
+                                <span class="amarillo" id="errorPlataforma">Plataforma no válida.</span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="rojo">Videojuego:</label>
+                                <input class="form-control" type="text" name="videojuego" id="videojuego" minlength="1" maxlength="45" placeholder="Videojuego donde se encuentra el mapa" required>
+                                <span class="amarillo" id="errorVideojuego">Videojuego no válido.</span>
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="rojo">Historia:</label>
