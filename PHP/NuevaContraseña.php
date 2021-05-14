@@ -57,39 +57,21 @@
         <div class="container contenedor">
             <div class="row margen">
                 <div class="col-md-8">
-                    <h1 class="titulo"><i>Iniciar sesión</i></h1>
-                    <form id="login" name="login" action="UsuarioLogeado.php" method="POST" novalidate onsubmit="return validarFormulario();">
+                    <h1 class="titulo"><i>Nueva contraseña</i></h1>
+                    <form id="nueva" name="nueva" action="ModificarContraseña.php" method="POST" novalidate onsubmit="return validarFormulario();">
                         <p>
                             <?php
-                                if(isset($_GET['error']) && $_GET['error'] == "usuarioNoExiste")
+                                if(isset($_GET['error']) && $_GET['error'] == "eMailNoExiste")
                                 {
-                                    echo '<h4 class="error"><i class="fas fa-exclamation-triangle"></i>&nbsp;' . "El nombre de usuario introducido no existe.</h4>";
-                                }
-                            ?>
-                        </p>
-                        <p>
-                            <?php
-                                if(isset($_GET['error']) && $_GET['error'] == "contraseñaIncorrecta")
-                                {
-                                    echo '<h4 class="error"><i class="fas fa-exclamation-triangle"></i>&nbsp;' . "Contraseña incorrecta.</h4>";
+                                    echo '<h4 class="error"><i class="fas fa-exclamation-triangle"></i>&nbsp;' . "El eMail introducido no existe.</h4>";
                                 }
                             ?>
                         </p>
                         <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label class="rojo">Nick:</label>
-                                <input class="form-control" type="text" name="nick" id="nick" minlength="1" maxlength="45" placeholder="Mínimo un carácter y sin espacios" required autofocus>
-                                <span class="amarillo" id="errorNick">Nombre de usuario no válido.</span>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label class="rojo">Password:</label>
-                                <div class="input-group">
-                                    <input class="form-control" type="password" name="password" id="password" minlength="8" maxlength="45" placeholder="Mínimo 8 carácteres y sin espacios" required>
-                                    <div class="input-group-append">
-                                        <button id="show_password" class="btn btn-danger" type="button" onclick="mostrarPassword()"><span class="fa fa-eye-slash icon"></span></button>
-                                    </div>
-                                </div>
-                                <span class="amarillo" id="errorPassword">Contraseña no válida.</span>
+                            <div class="form-group col-md-12">
+                                <label class="rojo">Introduzca su eMail:</label>
+                                <input class="form-control" type="text" name="eMail" id="eMail" minlength="1" maxlength="45" placeholder="dirección@email.dominio" required autofocus>
+                                <span class="amarillo" id="errorEMail">Dirección de correo electrónico no válida.</span>
                             </div>
                             <div id="mensaje">
                                 <span class="amarillo" id="errorMensaje">Por favor, rellene el formulario correctamente.</span>
@@ -97,9 +79,9 @@
                         </div>
                         <br>
                         <div class="form-group">
-                            <button class="btn btn-danger btn-block" type="submit" name="boton" value="Login" id="boton">Login</button>
+                            <button class="btn btn-danger btn-block" type="submit" name="boton" value="Enviar" id="boton">Enviar</button>
                         </div>
-                        <center><a class="link" href="NuevaContraseña.php">He olvidado mi contraseña</a></center>
+                        <center><a class="link" href="Login.php">Volver</a></center>
                     </form>
                 </div>
                 <div class="col-md-3 marco d-none d-sm-none d-md-block">
@@ -119,6 +101,6 @@
         <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
         <!--Script para el footer.-->
 		<script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" data-auto-a11y="true"></script>
-        <script src="../JavaScript/Login.js"></script>
+        <script src="../JavaScript/NuevaContraseña.js"></script>
 	</body>
 </html>
