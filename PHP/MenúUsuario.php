@@ -7,7 +7,7 @@
         echo '
             <br>
             <br>
-            <a class="enlaceDesactivado">' . $nick . ': ' . $rol . '</a>
+            <a class="enlaceDesactivado"><div class="foto"><img src="data:image/jpeg;base64,' . base64_encode($_SESSION['Foto']) . '" class="img-responsive" width="120vh" height="120vh" alt="Foto de perfil"></div><br>' . $nick . ': ' . $rol . '</a>
             <br>
             <br>
             <a class="nav-link mr-sm-2" href="Carrito.php"><i class="fas fa-shopping-cart"></i> Mi carrito </a>
@@ -25,7 +25,7 @@
         echo '
             <br>
             <br>
-            <a class="enlaceDesactivado">' . $nick . ': ' . $rol . '</a>
+            <a class="enlaceDesactivado"><div class="foto"><img src="data:image/jpeg;base64,' . base64_encode($_SESSION['Foto']) . '" class="img-responsive" width="120vh" height="120vh" alt="Foto de perfil"></div><br>' . $nick . ': ' . $rol . '</a>
             <br>
             <br>
             <a class="nav-link mr-sm-2" href="Carrito.php"><i class="fas fa-shopping-cart"></i> Mi carrito </a>

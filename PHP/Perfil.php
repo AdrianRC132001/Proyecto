@@ -75,7 +75,7 @@
                     <br>
                     <div class="fotoPerfil">
                         <figure>
-                            <a href="#" data-toggle="modal" data-target="#foto"><img src="data:image/jpeg;base64,<?php echo base64_encode($mostrar['Foto']);?>" class="img-responsive" width="120vh" height="120vh" alt="Foto de perfil"></a>
+                            <a href="#" data-toggle="modal" data-target="#foto"><img src="data:image/jpeg;base64,<?php echo base64_encode($mostrar['Foto']);?>" class="img-responsive" width="240vh" height="240vh" alt="Foto de perfil"></a>
                             <div class="capa">
                                 <a class="link" href="#" data-toggle="modal" data-target="#foto"><p class="capa"><i class="fas fa-pen"></i>&nbsp;Editar</p></a>
                             </div>

@@ -5,7 +5,7 @@
     if($_SESSION['Rol'] == "admin")
     {
         echo '
-            ' . $nick . ': ' . $rol . '
+            <a class="enlaceDesactivado">' . $nick . ': ' . $rol . '</a>
             <a class="nav-link mr-sm-2" href="Carrito.php"><i class="fas fa-shopping-cart"></i> Mi carrito </a>
             <a class="nav-link mr-sm-2" href="Admin.php"><i class="fas fa-cog"></i> Administración </a>
             <a class="nav-link mr-sm-2" href="Perfil.php"><i class="fas fa-user-cog"></i> Perfil </a>
@@ -15,7 +15,7 @@
     else if($_SESSION['Rol'] == "usuario")
     {
         echo '
-            ' . $nick . ': ' . $rol . '
+            <a class="enlaceDesactivado">' . $nick . ': ' . $rol . '</a>
             <a class="nav-link mr-sm-2" href="Carrito.php"><i class="fas fa-shopping-cart"></i> Mi carrito </a>
             <a class="nav-link mr-sm-2" href="Perfil.php"><i class="fas fa-user-cog"></i> Perfil </a>
             <a class="nav-link mr-sm-2" href="DeslogearUsuario.php" data-toggle="modal" data-target="#emergenteLogOut"><i class="fas fa-sign-out-alt"></i> Cerrar sesión </a>
