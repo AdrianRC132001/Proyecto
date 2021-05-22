@@ -46,6 +46,7 @@
 						<a class="nav-link" href="Videojuegos.php">Videojuegos<span class="sr-only">Videojuegos</span></a>
 						<a class="nav-link" href="Mapas.php">Mapas<span class="sr-only">Mapas</span></a>
                         <a class="nav-link" href="Merchandising.php">Merchandising<span class="sr-only">Merchandising</span></a>
+                        <a class="nav-link" href="EasterEggsEHistoria.php">Easter Eggs e Historia<span class="sr-only">Easter Eggs e Historia</span></a>
                         <div class="nav-link d-block d-sm-block d-md-none">
                             <?php include_once "MenúUsuarioMóvil.php"?>
                         </div>
@@ -181,20 +182,26 @@
                                 <span class="amarillo" id="errorFechaDeNacimiento">Fecha de nacimiento no válida.</span>
                             </div>
                             <div class="form-group col-md-6">
-                                <label class="rojo">Foto de perfil:</label>
-                                <input type="file" name="foto" id="foto" class="rojo">
-                            </div>
-                            <div class="form-group col-md-6">
                                 <label class="rojo">Descripción:</label>
                                 <textarea class="form-control" type="text" name="descripcion" id="descripcion" minlength="0" maxlength="1000" placeholder="Introduzca aquí información adicional..." cols="30" rows="5" required></textarea>
                                 <span class="amarillo" id="errorDescripcion">Descripción no válida.</span>
                                 <br>
                                 <span class="rojo" id="caracteres"></span>
                             </div>
+                            <div class="form-group col-md-6">
+                                <label class="rojo">Foto de perfil:</label>
+                                <input type="file" name="foto" id="foto" class="rojo">
+                            </div>
                             <div>
                                 <label class="rojo">
-                                    <input type="checkbox" name="terminos" id="terminos">&nbsp;Acepto los términos y condiciones de uso de esta página web.<inpunt>
+                                    <input type="checkbox" name="terminos" id="terminos">&nbsp;Acepto los términos y condiciones de uso de esta página web.
                                 </label>
+                                <br>
+                                <label class="rojo" for="desplegableMostrarTerminos" style="cursor: pointer;"><i class="fas fa-sort-down flechaArriba"></i>&nbsp;<b>Mostrar términos</b></label>
+                                <input type="checkbox" name="desplegableMostrarTerminos" id="desplegableMostrarTerminos" style="display: none;">
+                                <div id="terminosAceptados" style="display: none;">
+				                    <textarea class="form-group col-md-12" cols="98" rows="5" disabled>Has aceptado los términos.</textarea>
+			                    </div>
                             </div>
                             <div id="mensaje">
                                 <span class="amarillo" id="errorMensaje">Por favor, rellene el formulario correctamente.</span>
@@ -224,5 +231,23 @@
         <!--Script para el footer.-->
 		<script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" data-auto-a11y="true"></script>
         <script src="../JavaScript/Register.js"></script>
+        <script>
+            $(document).ready(function()
+            {
+                $("#desplegableMostrarTerminos").click(function(evento)
+                {
+                    if($("#desplegableMostrarTerminos").is(":checked"))
+                    {
+                        $("#terminosAceptados").css("display", "block");
+                        $('.flechaArriba').removeClass('fas fa-sort-down').addClass('fas fa-sort-up');
+                    }
+                    else
+                    {
+                        $("#terminosAceptados").css("display", "none");
+                        $('.flechaArriba').removeClass('fas fa-sort-up').addClass('fas fa-sort-down');
+                    }
+                });
+            });
+        </script>
 	</body>
 </html>

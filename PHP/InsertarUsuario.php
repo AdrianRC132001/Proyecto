@@ -52,6 +52,7 @@
 						<a class="nav-link" href="Videojuegos.php">Videojuegos<span class="sr-only">Videojuegos</span></a>
 						<a class="nav-link" href="Mapas.php">Mapas<span class="sr-only">Mapas</span></a>
                         <a class="nav-link" href="Merchandising.php">Merchandising<span class="sr-only">Merchandising</span></a>
+                        <a class="nav-link" href="EasterEggsEHistoria.php">Easter Eggs e Historia<span class="sr-only">Easter Eggs e Historia</span></a>
                         <div class="nav-link d-block d-sm-block d-md-none">
                             <?php include_once "MenúUsuarioMóvil.php"?>
                         </div>
@@ -193,8 +194,8 @@
                             <div class="grupo_rol col-md-6">
                                 <label class="rojo">Rol:</label>
                                 <select class="rojo" name="rol">
-                                    <option value="admin">admin</option>
                                     <option value="usuario">usuario</option>
+                                    <option value="admin">admin</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-12">

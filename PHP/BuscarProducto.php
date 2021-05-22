@@ -54,6 +54,7 @@
 						<a class="nav-link" href="Videojuegos.php">Videojuegos<span class="sr-only">Videojuegos</span></a>
 						<a class="nav-link" href="Mapas.php">Mapas<span class="sr-only">Mapas</span></a>
                         <a class="nav-link" href="Merchandising.php">Merchandising<span class="sr-only">Merchandising</span></a>
+                        <a class="nav-link" href="EasterEggsEHistoria.php">Easter Eggs e Historia<span class="sr-only">Easter Eggs e Historia</span></a>
                         <div class="nav-link d-block d-sm-block d-md-none">
                             <?php include_once "MenúUsuarioMóvil.php"?>
                         </div>
