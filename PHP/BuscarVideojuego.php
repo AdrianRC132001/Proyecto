@@ -130,7 +130,7 @@
                                                         <td>
                                                             <div class="fotoPerfil">
                                                                 <figure>
-                                                                    <a href="ImagenVideojuego.php?idVideojuego=<?php echo $mostrar['idVideojuego'];?>"><img src="data:image/jpeg;base64,<?php echo base64_encode($mostrar['Imagen']);?>" class="img-responsive" width="60vh" height="60vh" alt="Videojuego"></a>
+                                                                    <a href="ImagenVideojuego.php?idVideojuego=<?php echo $mostrar['idVideojuego'];?>"><img src="data:image/jpeg;base64,<?php echo base64_encode($mostrar['Imagen']);?>" class="img-responsive" width="60vh" height="60vh" alt="Portada"></a>
                                                                     <div class="capa">
                                                                         <a class="link" href="ImagenVideojuego.php?idVideojuego=<?php echo $mostrar['idVideojuego'];?>"><p class="capa"><i class="fas fa-pen"></i>&nbsp;Editar</p></a>
                                                                     </div>
