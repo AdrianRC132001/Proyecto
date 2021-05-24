@@ -88,10 +88,6 @@
                         {
                             header("Location: Register.php?error=nickExiste");
                         }
-                        else if(mysqli_num_rows($consultaPassword) != 0)
-                        {
-                            header("Location: Register.php?error=passwordExiste");
-                        }
                         else if(mysqli_num_rows($consultaEMail) != 0)
                         {
                             header("Location: Register.php?error=eMailExiste");
@@ -107,7 +103,7 @@
                         else
                         {
                             //Lanzamos la consulta.
-                            $consulta = insertarUsuarios($conexion, $nick, $password, $nombre, $apellido1, $apellido2, $telefono, $eMail, $cp, $provincia, $ca, $rol, $dni, $foto, $descripcion, $direccion);
+                            $consulta = insertarUsuario($conexion, $nick, $password, $nombre, $apellido1, $apellido2, $telefono, $eMail, $cp, $provincia, $ca, $rol, $dni, $foto, $descripcion, $direccion);
                         }
                     ?>
                 </div>

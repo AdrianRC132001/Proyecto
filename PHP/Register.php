@@ -70,14 +70,6 @@
                         </p>
                         <p>
                             <?php
-                                if(isset($_GET['error']) && $_GET['error'] == "passwordExiste")
-                                {
-                                    echo '<h4 class="error"><i class="fas fa-exclamation-triangle"></i>&nbsp;' . "La contraseña introducida ya existe.</h4>";
-                                }
-                            ?>
-                        </p>
-                        <p>
-                            <?php
                                 if(isset($_GET['error']) && $_GET['error'] == "eMailExiste")
                                 {
                                     echo '<h4 class="error"><i class="fas fa-exclamation-triangle"></i>&nbsp;' . "El eMail introducido ya existe.</h4>";

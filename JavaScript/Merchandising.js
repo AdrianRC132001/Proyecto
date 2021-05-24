@@ -20,14 +20,12 @@ errorMensaje.style.visibility = "hidden";
 const expresiones = {
 	nombre: /^.{1,45}$/,
 	precio: /^.+$/,
-    stock: /^[0-9]+$/,
-    descripcion: /^.{1,1000}$/
+    stock: /^[0-9]+$/
 }
 const campos = {
 	nombre: false,
 	precio: false,
-    stock: false,
-    descripcion: false
+    stock: false
 }
 //Funciones.
 function validarNombre()
@@ -75,25 +73,10 @@ function validarStock()
 		errorStock.style.visibility = "visible";
 	}
 }
-function validarDescripcion()
-{
-	if(expresiones.descripcion.test(descripcion.value))
-	{
-		document.getElementById("descripcion").className = "form-control is-valid";
-		campos['descripcion'] = true;
-		errorDescripcion.style.visibility = "hidden";
-	}
-	else
-	{
-		document.getElementById("descripcion").className = "form-control is-invalid";
-		campos['descripcion'] = false;
-		errorDescripcion.style.visibility = "visible";
-	}
-}
 function validarFormulario()
 {
 	let merchandising = document.merchandising;	
-	if(campos.nombre && campos.precio && campos.stock && campos.descripcion)
+	if(campos.nombre && campos.precio && campos.stock)
 	{
 		merchandising.submit();
 	}
@@ -125,7 +108,5 @@ precio.addEventListener("click", validarPrecio);
 stock.addEventListener("keyup", validarStock);
 stock.addEventListener("blur", validarStock);
 stock.addEventListener("click", validarStock);
-descripcion.addEventListener("keyup", validarDescripcion);
-descripcion.addEventListener("blur", validarDescripcion);
 descripcion.addEventListener("keyup", contarCaracteres);
 descripcion.addEventListener("blur", contarCaracteres);

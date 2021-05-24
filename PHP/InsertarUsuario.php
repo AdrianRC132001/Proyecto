@@ -76,14 +76,6 @@
                         </p>
                         <p>
                             <?php
-                                if(isset($_GET['error']) && $_GET['error'] == "passwordExiste")
-                                {
-                                    echo '<h4 class="error"><i class="fas fa-exclamation-triangle"></i>&nbsp;' . "La contraseña introducida ya existe.</h4>";
-                                }
-                            ?>
-                        </p>
-                        <p>
-                            <?php
                                 if(isset($_GET['error']) && $_GET['error'] == "eMailExiste")
                                 {
                                     echo '<h4 class="error"><i class="fas fa-exclamation-triangle"></i>&nbsp;' . "El eMail introducido ya existe.</h4>";
@@ -191,12 +183,17 @@
                                 <label class="rojo">Foto de perfil:</label>
                                 <input type="file" name="foto" id="foto" class="rojo">
                             </div>
-                            <div class="grupo_rol col-md-6">
+                            <div class="form-group col-md-6">
                                 <label class="rojo">Rol:</label>
-                                <select class="rojo" name="rol">
-                                    <option value="usuario">usuario</option>
-                                    <option value="admin">admin</option>
-                                </select>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="rol">Opciones</label>
+                                    </div>
+                                    <select class="custom-select" id="rol" name="rol">
+                                        <option value="usuario">usuario</option>
+                                        <option value="admin">admin</option>
+                                    </select>
+                                </div>
                             </div>
                             <div class="form-group col-md-12">
                                 <label class="rojo">Descripción:</label>

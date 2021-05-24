@@ -42,7 +42,7 @@
 		$resultado = mysqli_query($conexion, $consulta);
 		return $resultado;
 	}
-	function insertarUsuarios($conexion, $nick, $password, $nombre, $apellido1, $apellido2, $telefono, $eMail, $cp, $provincia, $ca, $rol, $dni, $foto, $descripcion, $direccion, $fechaNacimiento)
+	function insertarUsuario($conexion, $nick, $password, $nombre, $apellido1, $apellido2, $telefono, $eMail, $cp, $provincia, $ca, $rol, $dni, $foto, $descripcion, $direccion, $fechaNacimiento)
     {
         $sql = "INSERT INTO Usuarios(Nick, Password, Nombre, Apellido1, Apellido2, Teléfono, eMail, CP, Provincia, CA, Rol, DNI, Foto, Descripción, Dirección, FechaDeNacimiento) VALUES('$nick', '$password', '$nombre', '$apellido1', '$apellido2', '$telefono', '$eMail', '$cp', '$provincia', '$ca', '$rol', '$dni', '$foto', '$descripcion', '$direccion', '$fechaNacimiento')";
         if(mysqli_query($conexion, $sql))

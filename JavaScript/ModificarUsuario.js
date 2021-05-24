@@ -63,7 +63,6 @@ const expresiones = {
     cp: /^[0-9]{5}$/,
     ca: /^.\D{1,45}$/,
     provincia: /^.\D{1,45}$/,
-	descripcion: /^.{0,1000}$/,
 	direccion: /^.{1,45}$/,
 	fechaNacimiento: /^.+$/
 }
@@ -80,7 +79,6 @@ const campos = {
     cp: false,
     ca: false,
     provincia: false,
-	descripcion: false,
 	direccion: false,
 	fechaNacimiento: false
 }
@@ -403,21 +401,6 @@ function validarProvincia()
 		errorProvincia.style.visibility = "visible";
 	}
 }
-function validarDescripcion()
-{
-	if(expresiones.descripcion.test(descripcion.value))
-	{
-		document.getElementById("descripcion").className = "form-control is-valid";
-		campos['descripcion'] = true;
-		errorDescripcion.style.visibility = "hidden";
-	}
-	else
-	{
-		document.getElementById("descripcion").className = "form-control is-invalid";
-		campos['descripcion'] = false;
-		errorDescripcion.style.visibility = "visible";
-	}
-}
 function validarDireccion()
 {
 	if(expresiones.direccion.test(direccion.value))
@@ -485,7 +468,6 @@ validarDNI();
 validarCP();
 validarCA();
 validarProvincia();
-validarDescripcion();
 validarDireccion();
 validarFechaDeNacimiento();
 contarCaracteres();
@@ -522,8 +504,6 @@ provincia.addEventListener("keyup", validarProvincia);
 provincia.addEventListener("blur", validarProvincia);
 cp.addEventListener("keyup", validarProvincia);
 cp.addEventListener("blur", validarProvincia);
-descripcion.addEventListener("keyup", validarDescripcion);
-descripcion.addEventListener("blur", validarDescripcion);
 descripcion.addEventListener("keyup", contarCaracteres);
 descripcion.addEventListener("blur", contarCaracteres);
 direccion.addEventListener("keyup", validarDireccion);

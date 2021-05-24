@@ -73,10 +73,19 @@
                     <br>
                     <form id="modificarUsuario" name="modificarUsuario" action="UsuarioModificado.php" method="POST" enctype="multipart/form-data">
                         <center>
-                            <select class="rojo" name="rol">
-                                <option value="admin">admin</option>
-                                <option value="usuario">usuario</option>
-                            </select>
+                            <div class="form-group col-md-12">
+                                <label class="rojo">Rol:</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="rol">Opciones</label>
+                                    </div>
+                                    <select class="custom-select" id="rol" name="rol">
+                                        <option value="<?php echo $nickMostrado['Rol'];?>" selected><?php echo $nickMostrado['Rol'];?></option>
+                                        <option value="usuario">usuario</option>
+                                        <option value="admin">admin</option>
+                                    </select>
+                                </div>
+                            </div>
                         </center>
                         <br>
                         <button class="btn btn-danger btn-block" type="submit" name="boton" value="Aceptar" id="boton">Aceptar</button>

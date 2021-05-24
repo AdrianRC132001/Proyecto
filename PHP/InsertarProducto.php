@@ -81,31 +81,41 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label class="rojo">Plataforma:</label>
-                                <select class="rojo" name="plataforma" id="plataforma">
-                                    <?php 
-                                        $mostrarPlataforma = mostrarPlataforma($conexion);
-                                        while($plataforma = mysqli_fetch_assoc($mostrarPlataforma))
-                                        { 
-                                    ?>
-                                            <option value="<?php echo $plataforma['idPlataforma']?>"><?php echo $plataforma['Nombre']?></option>
-                                    <?php
-                                        }
-                                    ?>
-                                </select>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="plataforma">Opciones</label>
+                                    </div>
+                                    <select class="custom-select" id="plataforma" name="plataforma">
+                                        <?php 
+                                            $mostrarPlataforma = mostrarPlataforma($conexion);
+                                            while($plataforma = mysqli_fetch_assoc($mostrarPlataforma))
+                                            { 
+                                        ?>
+                                                <option value="<?php echo $plataforma['idPlataforma']?>"><?php echo $plataforma['Nombre']?></option>
+                                        <?php
+                                            }
+                                        ?>
+                                    </select>
+                                </div>
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="rojo">Videojuego:</label>
-                                <select class="rojo" name="videojuego" id="videojuego">
-                                    <?php 
-                                        $mostrarVideojuego = mostrarVideojuego($conexion);
-                                        while($videojuego = mysqli_fetch_assoc($mostrarVideojuego))
-                                        { 
-                                    ?>
-                                            <option value="<?php echo $videojuego['idVideojuego']?>"><?php echo $videojuego['Título']?></option>
-                                    <?php
-                                        }
-                                    ?>
-                                </select>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="videojuego">Opciones</label>
+                                    </div>
+                                    <select class="custom-select" id="videojuego" name="videojuego">
+                                        <?php 
+                                            $mostrarVideojuego = mostrarVideojuego($conexion);
+                                            while($videojuego = mysqli_fetch_assoc($mostrarVideojuego))
+                                            { 
+                                        ?>
+                                                <option value="<?php echo $videojuego['idVideojuego']?>"><?php echo $videojuego['Título']?></option>
+                                        <?php
+                                            }
+                                        ?>
+                                    </select>
+                                </div>
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="rojo">Nombre:</label>
