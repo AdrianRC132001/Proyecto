@@ -57,7 +57,7 @@
         <br>
         <div class="container contenedor">
             <div class="row margen">
-                <div class="col-md-8">
+                <div class="col-md-8 mb-3">
                     <h1 class="titulo"><i>Plataformas de la saga</i></h1>
                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
@@ -100,7 +100,7 @@
                 <div class="col-md-3 marco d-none d-sm-none d-md-block">
                     <?php include_once "MenúUsuario.php"?>
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-8 mb-3">
                     <h1 class="titulo"><i>Videojuegos de la saga</i></h1>
                     <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
@@ -140,7 +140,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-8 mb-3">
                     <h1 class="titulo"><i>Mapas de la saga</i></h1>
                     <div id="carouselExampleIndicators3" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
@@ -180,7 +180,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-8 mb-3">
                     <h1 class="titulo"><i>Merchandising de la saga</i></h1>
                     <div id="carouselExampleIndicators4" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">

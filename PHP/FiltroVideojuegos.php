@@ -42,8 +42,8 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
                         <a class="nav-link" href="Home.php">Home<span class="sr-only">Home</span></a>
-                        <a class="nav-link" href="Plataformas.php">Plataformas<span class="sr-only">Plataformas</span></a>
-						<a class="nav-link active" href="Videojuegos.php">Videojuegos<span class="sr-only">Videojuegos</span></a>
+                        <a class="nav-link active" href="Plataformas.php">Plataformas<span class="sr-only">Plataformas</span></a>
+						<a class="nav-link" href="Videojuegos.php">Videojuegos<span class="sr-only">Videojuegos</span></a>
 						<a class="nav-link" href="Mapas.php">Mapas<span class="sr-only">Mapas</span></a>
                         <a class="nav-link" href="Merchandising.php">Merchandising<span class="sr-only">Merchandising</span></a>
                         <a class="nav-link" href="EasterEggsEHistoria.php">Easter Eggs e Historia<span class="sr-only">Easter Eggs e Historia</span></a>
@@ -58,52 +58,47 @@
         <div class="container contenedor">
             <div class="row margen">
                 <div class="col-md-8">
-                    <center>
-                        <?php
-                            require "BD/DAOVideojuego.php";
-                            //Creamos la conexión a la BD.
-                            $conexion = conectar(true);
-                            $idVideojuego = $_GET["idVideojuego"];
-                            $result = detallesVideojuego($conexion, $idVideojuego);
-                            while($mostrar = mysqli_fetch_array($result))
-                            {
-                        ?>
-                                <div class="thumbnail">
-                                    <h1 class="titulo"><i><?php echo $mostrar['Título']?></i></h1>
-                                    <br>
-                                    <img src="data:image/jpeg;base64,<?php echo base64_encode($mostrar['Logo']);?>" class="img-responsive" width="400px" height="200px" alt="Logo">
-                                    <br>
-                                    <br>
-                                    <img src="data:image/jpeg;base64,<?php echo base64_encode($mostrar['Imagen']);?>" class="img-responsive" width="400px" height="400px" alt="Portada">
-                                    <br>
-                                    <br>
-                                    <h5><p class="rojo"><b>Precio: </b><?php echo $mostrar['Precio']?>€</p></h5>
-                                    <h5><p class="rojo"><b>Stock: </b><?php echo $mostrar['Stock']?> copias</p></h5>
-                                    <h5><p class="rojo"><b>Compañía: </b><?php echo $mostrar['Compañía']?></p></h5>
-                                    <h5><p class="rojo"><b>Publicación: </b><?php echo $mostrar['Publicación']?></p></h5>
-                                    <h5><p class="rojo"><b>Descripción: </b><?php echo $mostrar['Descripción']?></p></h5>
-                                </div>
-                                <br>
-                                <br>
-                                <a class="link" href="FiltroVideojuegos.php?id=<?php echo $mostrar['idVideojuego']?>">Ver plataformas disponibles para este videojuego</a>
-                                <br>
-                                <?php
-                                    $rol = $_SESSION["Rol"];
-                                    if($rol == "admin")
-                                    {
-                                        echo '
-                                            <br>
-                                                <a class="link" href="MostrarVideojuegos.php">Ir al panel de administración</a>
-                                            <br>
-                                        ';
-                                    }
-                                ?>
-                                <br>
-                                <a class="link" href="Videojuegos.php">Volver</a>
-                        <?php
-                            }
-                        ?>
-                    </center>
+                    <div class="container">
+                        <div class="row margen">
+                            <div class="col-md-4">
+                                <a href="Plataformas.php" class="btn btn-warning">Mostrar todas las plataformas de la saga</a>
+                            </div>
+                            <div class="col-md-2"></div>
+                            <div class="col-md-4">
+                                <a href="Videojuegos.php" class="btn btn-warning">Mostrar todos los videojuegos de la saga</a>
+                            </div>
+                            <?php
+                                require "BD/DAOPlataforma.php";
+                                require "BD/DAOVideojuego.php";
+                                require "BD/DAOProducto.php";
+                                //Creamos la conexión a la BD.
+                                $conexion = conectar(true);
+                                $id = $_GET["id"];
+                                $consulta = detallesVideojuego($conexion, $id);
+                                $titulo = mysqli_fetch_assoc($consulta);
+                                echo "<h1 class='titulo'><i>Plataformas disponibles para el videojuego: " . $titulo['Título'] . "</i></h1>";
+                                $result = filtrarVideojuego($conexion, $id);
+                                while($mostrar = mysqli_fetch_array($result))
+                                {
+                            ?>
+                                    <div class="col-md-6">
+                                        <div class="card border-danger text-danger bg-dark mb-3 titulo" style="width: 18rem;">
+                                            <div class="card-header border-danger"><h1><?php echo $mostrar['Nombre']?></h1></div>
+                                            <p></p>
+                                            <img class="card-img margen" src="data:image/jpeg;base64,<?php echo base64_encode($mostrar['Logo']);?>" alt="Logo" style="height:100px;">
+                                            <p></p>
+                                            <img class="card-img margen" src="data:image/jpeg;base64,<?php echo base64_encode($mostrar['Imagen']);?>" alt="Plataforma" style="height:200px;">
+                                            <p></p>
+                                            <p class="card-text"><b>Precio: </b><?php echo $mostrar['Precio']?>€</p>
+                                            <p class="card-text"><b>Stock: </b><?php echo $mostrar['Stock']?> unidades</p>
+                                            <div class="card-footer border-danger"><a href="DetallesPlataforma.php?idPlataforma=<?php echo $mostrar['idPlataforma'];?>" class="btn btn-danger">Ver más detalles de la plataforma</a></div>
+                                        </div>
+                                    </div>
+                            <?php
+                                }
+                            ?>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-3 marco d-none d-sm-none d-md-block">
                     <?php include_once "MenúUsuario.php"?>

@@ -51,6 +51,13 @@
 	{
 		$consulta = "SELECT * FROM Merchandising WHERE idMerchandising LIKE '%$variableBusqueda%' OR Nombre LIKE '%$variableBusqueda%' OR Precio LIKE '%$variableBusqueda%' OR Stock LIKE '%$variableBusqueda%';";
 		$resultado = mysqli_query($conexion, $consulta);
-		return $resultado;
+		if(mysqli_num_rows($resultado) != 0)
+        {
+            return $resultado;
+        }
+        else
+        {
+            echo "<tr><td><h1 class='titulo'>Sin resultados...&nbsp;<i class='fas fa-frown amarillo'></i></h1></td></tr>";
+        }
 	}
 ?>

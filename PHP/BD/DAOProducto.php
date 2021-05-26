@@ -23,9 +23,15 @@
         $resultado = mysqli_query($conexion, $consulta);
         return $resultado;
     }
-    function filtrarProducto($conexion, $id)
+    function filtrarPlataforma($conexion, $id)
     {
-        $consulta = "SELECT Productos.idProducto, Plataformas.idPlataforma, Plataformas.Logo, Videojuegos.idVideojuego, Videojuegos.Título, Videojuegos.Imagen FROM Proyecto.Productos INNER JOIN Proyecto.Videojuegos INNER JOIN Proyecto.Plataformas ON Productos.IdVideojuego = Videojuegos.idVideojuego AND Productos.IdPlataforma = Plataformas.idPlataforma WHERE Productos.IdPlataforma = $id";
+        $consulta = "SELECT Productos.idProducto, Plataformas.idPlataforma, Plataformas.Nombre, Plataformas.Logo, Videojuegos.idVideojuego, Videojuegos.Título, Videojuegos.Imagen, Videojuegos.Precio, Videojuegos.Stock FROM Proyecto.Productos INNER JOIN Proyecto.Videojuegos INNER JOIN Proyecto.Plataformas ON Productos.IdVideojuego = Videojuegos.idVideojuego AND Productos.IdPlataforma = Plataformas.idPlataforma WHERE Productos.IdPlataforma = $id";
+        $resultado = mysqli_query($conexion, $consulta);
+        return $resultado;
+    }
+    function filtrarVideojuego($conexion, $id)
+    {
+        $consulta = "SELECT Productos.idProducto, Plataformas.idPlataforma, Plataformas.Nombre, Plataformas.Imagen, Plataformas.Precio, Plataformas.Stock, Videojuegos.idVideojuego, Videojuegos.Título, Videojuegos.Logo FROM Proyecto.Productos INNER JOIN Proyecto.Videojuegos INNER JOIN Proyecto.Plataformas ON Productos.IdVideojuego = Videojuegos.idVideojuego AND Productos.IdPlataforma = Plataformas.idPlataforma WHERE Productos.IdVideojuego = $id";
         $resultado = mysqli_query($conexion, $consulta);
         return $resultado;
     }
@@ -39,7 +45,14 @@
 	{
 		$consulta = "SELECT * FROM Productos WHERE idProducto LIKE '%$variableBusqueda%' OR Nombre LIKE '%$variableBusqueda%' OR Precio LIKE '%$variableBusqueda%' OR Stock LIKE '%$variableBusqueda%' OR Descripción LIKE '%$variableBusqueda%';";
 		$resultado = mysqli_query($conexion, $consulta);
-		return $resultado;
+        if(mysqli_num_rows($resultado) != 0)
+        {
+            return $resultado;
+        }
+        else
+        {
+            echo "<tr><td><h1 class='titulo'>Sin resultados...&nbsp;<i class='fas fa-frown amarillo'></i></h1></td></tr>";
+        }
 	}
     function consultaNombreProducto($conexion, $nombre)
 	{

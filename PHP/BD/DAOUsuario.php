@@ -119,6 +119,13 @@
 	{
 		$consulta = "SELECT * FROM Usuarios WHERE idUsuario LIKE '%$variableBusqueda%' OR Nick LIKE '%$variableBusqueda%' OR Nombre LIKE '%$variableBusqueda%' OR Apellido1 LIKE '%$variableBusqueda%' OR Apellido2 LIKE '%$variableBusqueda%' OR DNI LIKE '%$variableBusqueda%' OR FechaDeNacimiento LIKE '%$variableBusqueda%' OR Teléfono LIKE '%$variableBusqueda%' OR eMail LIKE '%$variableBusqueda%' OR CP LIKE '%$variableBusqueda%' OR CA LIKE '%$variableBusqueda%' OR Provincia LIKE '%$variableBusqueda%' OR Dirección LIKE '%$variableBusqueda%' OR Rol LIKE '%$variableBusqueda%';";
 		$resultado = mysqli_query($conexion, $consulta);
-		return $resultado;
+		if(mysqli_num_rows($resultado) != 0)
+        {
+            return $resultado;
+        }
+        else
+        {
+            echo "<tr><td><h1 class='titulo'>Sin resultados...&nbsp;<i class='fas fa-frown amarillo'></i></h1></td></tr>";
+        }
 	}
 ?>

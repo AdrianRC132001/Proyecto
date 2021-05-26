@@ -51,6 +51,13 @@
 	{
 		$consulta = "SELECT * FROM Mapas WHERE idMapa LIKE '%$variableBusqueda%' OR Nombre LIKE '%$variableBusqueda%' OR Publicación LIKE '%$variableBusqueda%' OR Precio LIKE '%$variableBusqueda%' OR Stock LIKE '%$variableBusqueda%' OR Compañía LIKE '%$variableBusqueda%' OR DLC LIKE '%$variableBusqueda%' OR Historia LIKE '%$variableBusqueda%' OR Plataforma LIKE '%$variableBusqueda%' OR Videojuego LIKE '%$variableBusqueda%';";
 		$resultado = mysqli_query($conexion, $consulta);
-		return $resultado;
+		if(mysqli_num_rows($resultado) != 0)
+        {
+            return $resultado;
+        }
+        else
+        {
+            echo "<tr><td><h1 class='titulo'>Sin resultados...&nbsp;<i class='fas fa-frown amarillo'></i></h1></td></tr>";
+        }
 	}
 ?>
