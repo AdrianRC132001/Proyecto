@@ -59,7 +59,6 @@
             <div class="row margen">
                 <div class="col-md-8">
                     <?php
-                        require "BD/ConectorBD.php";
                         require "BD/DAOUsuario.php";
                         //Recogemos los valores del formulario.
                         $nick = $_POST["nick"];
@@ -80,7 +79,6 @@
                         //Creamos la conexión a la BD.
                         $conexion = conectar(true);
                         $consultaNick = consultaNick($conexion, $nick);
-                        $consultaPassword = consultaPassword($conexion, $password);
                         $consultaEMail = consultaEMail($conexion, $eMail);
                         $consultaTelefono = consultaTelefono($conexion, $telefono);
                         $consultaDNI = consultaDNI($conexion, $dni);
@@ -103,7 +101,9 @@
                         else
                         {
                             //Lanzamos la consulta.
-                            $consulta = insertarUsuario($conexion, $nick, $password, $nombre, $apellido1, $apellido2, $telefono, $eMail, $cp, $provincia, $ca, $rol, $dni, $foto, $descripcion, $direccion);
+                            $consulta = insertarUsuario($conexion, $nick, $password, $nombre, $apellido1, $apellido2, $telefono, $eMail, $cp, $provincia, $ca, $rol, $dni, $foto, $descripcion, $direccion, $fechaNacimiento);
+                            $ultimoIDRegistrado = mysqli_insert_id($conexion);
+                            $insetarCarrito = insertarCarrito($conexion, $ultimoIDRegistrado, $ultimoIDRegistrado);
                         }
                     ?>
                 </div>

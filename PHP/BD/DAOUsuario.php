@@ -45,15 +45,8 @@
 	function insertarUsuario($conexion, $nick, $password, $nombre, $apellido1, $apellido2, $telefono, $eMail, $cp, $provincia, $ca, $rol, $dni, $foto, $descripcion, $direccion, $fechaNacimiento)
     {
         $sql = "INSERT INTO Usuarios(Nick, Password, Nombre, Apellido1, Apellido2, Teléfono, eMail, CP, Provincia, CA, Rol, DNI, Foto, Descripción, Dirección, FechaDeNacimiento) VALUES('$nick', '$password', '$nombre', '$apellido1', '$apellido2', '$telefono', '$eMail', '$cp', '$provincia', '$ca', '$rol', '$dni', '$foto', '$descripcion', '$direccion', '$fechaNacimiento')";
-        if(mysqli_query($conexion, $sql))
-        {
-            echo "<h1 class='titulo'><i>¡Registro correcto!</i></h1>";
-        }
-        else
-        {
-            echo "Error: " . $sql . " " . mysqli_error($conexion);
-        }
-        $conexion->close();
+		$resultado = mysqli_query($conexion, $sql);
+		return $resultado;
     }
 	function consultaEMail($conexion, $eMail)
 	{
@@ -128,4 +121,17 @@
             echo "<tr><td><h1 class='titulo'>Sin resultados...&nbsp;<i class='fas fa-frown amarillo'></i></h1></td></tr>";
         }
 	}
+	function insertarCarrito($conexion, $idUsuario, $idCarrito)
+    {
+        $consulta = "INSERT INTO `Proyecto`.`Carrito`(`idCarrito`, `idCliente`, `Total`) VALUES('$idCarrito', '$idUsuario', '0.00');";
+        if(mysqli_query($conexion, $consulta))
+        {
+            echo "<h1 class='titulo'><i>¡Registro correcto!</i></h1>";
+        }
+        else
+        {
+            echo "Error: " . $consulta . " " . mysqli_error($conexion);
+        }
+        $conexion->close();
+    }
 ?>
