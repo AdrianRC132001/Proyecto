@@ -45,6 +45,8 @@
     {
         //Lanzamos la consulta.
         $consulta = insertarUsuario($conexion, $nick, $password, $nombre, $apellido1, $apellido2, $telefono, $eMail, $cp, $provincia, $ca, $rol, $dni, $foto, $descripcion, $direccion, $fechaNacimiento);
+        $ultimoIDRegistrado = mysqli_insert_id($conexion);
+        $insetarCarrito = insertarCarrito($conexion, $ultimoIDRegistrado, $ultimoIDRegistrado);
         header("Location: MostrarUsuarios.php");
     }
 ?>

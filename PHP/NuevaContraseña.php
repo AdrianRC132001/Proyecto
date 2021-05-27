@@ -1,5 +1,6 @@
 <?php
     require "BD/ConectorBD.php";
+    require "BD/DAOItem.php";
     session_start();
 ?>
 <!DOCTYPE html>

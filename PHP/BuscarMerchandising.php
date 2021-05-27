@@ -1,5 +1,6 @@
 <?php
     require "BD/ConectorBD.php";
+    require "BD/DAOItem.php";
     require "BD/DAOMerchandising.php";
     //Creamos la conexión a la BD.
     $conexion = conectar(true);

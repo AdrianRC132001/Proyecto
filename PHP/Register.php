@@ -1,6 +1,9 @@
 <?php
     require "BD/ConectorBD.php";
+    require "BD/DAOItem.php";
     session_start();
+    //Creamos la conexión a la BD.
+    $conexion = conectar(true);
 ?>
 <!DOCTYPE html>
 <html lang="es-ES">

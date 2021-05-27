@@ -1,5 +1,6 @@
 <?php
     require "BD/ConectorBD.php";
+    require "BD/DAOItem.php";
 	require "BD/DAOProducto.php";
     require "BD/DAOPlataforma.php";
     require "BD/DAOVideojuego.php";

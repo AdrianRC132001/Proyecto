@@ -1,5 +1,6 @@
 <?php
     require "BD/ConectorBD.php";
+    require "BD/DAOItem.php";
     session_start();
 ?>
 <!DOCTYPE html>
@@ -84,6 +85,12 @@
                                     <h5><p class="rojo"><b>Descripción: </b><?php echo $mostrar['Descripción']?></p></h5>
                                 </div>
                                 <br>
+                                <?php
+                                    if(($rol == "admin") || ($rol == "usuario"))
+                                    {
+                                        echo '<div class="mb-3"><a href="CarritoPlataforma.php?idPlataforma=' . $mostrar['idPlataforma'] . '" class="btn btn-success"><i class="fas fa-cart-plus"></i>&nbsp;Añadir al carrito</a></div>';
+                                    }
+                                ?>
                                 <br>
                                 <a class="link" href="FiltroPlataformas.php?id=<?php echo $mostrar['idPlataforma']?>">Ver videojuegos de la saga disponibles para esta plataforma</a>
                                 <br>

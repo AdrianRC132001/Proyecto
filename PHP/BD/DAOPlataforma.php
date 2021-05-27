@@ -66,4 +66,22 @@
             echo "<tr><td><h1 class='titulo'>Sin resultados...&nbsp;<i class='fas fa-frown amarillo'></i></h1></td></tr>";
         }
 	}
+	function buscarPlataformaCarrito($conexion, $idPlataforma, $idCesta)
+	{
+		$consulta = "SELECT * FROM Proyecto.Items WHERE idCesta = '$idCesta' AND idProductoPlataforma = '$idPlataforma'";
+		$resultado = mysqli_query($conexion, $consulta);
+		return $resultado;
+	}
+	function sumarCantidadPlataforma($conexion, $idPlataforma)
+	{
+		$consulta = "UPDATE `Proyecto`.`Items` SET `Cantidad` = Cantidad + 1 WHERE(`idProductoPlataforma` = '$idPlataforma')";
+		$resultado = mysqli_query($conexion, $consulta);
+		return $resultado;
+	}
+	function insertarPlataformaCarrito($conexion, $idPlataforma, $idCesta, $cantidad, $precio)
+	{
+		$consulta = "INSERT INTO `Proyecto`.`Items`(`Cantidad`, `Precio`, `idCesta`, `idProductoPlataforma`) VALUES('$cantidad', '$precio', '$idCesta', '$idPlataforma')";
+		$resultado = mysqli_query($conexion, $consulta);
+		return $resultado;
+	}
 ?>

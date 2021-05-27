@@ -1,5 +1,6 @@
 <?php
     require "BD/ConectorBD.php";
+    require "BD/DAOItem.php";
     session_start();
 ?>
 <!DOCTYPE html>
@@ -75,8 +76,6 @@
                                             <p></p>
                                             <img class="card-img margen" src="data:image/jpeg;base64,<?php echo base64_encode($mostrar['Imagen']);?>" alt="Mapa" style="height:200px;">
                                             <p></p>
-                                            <p class="card-text"><b>Precio: </b><?php echo $mostrar['Precio']?>€</p>
-                                            <p class="card-text"><b>Stock: </b><?php echo $mostrar['Stock']?> copias</p>
                                             <div class="card-footer border-danger"><a href="DetallesMapa.php?idMapa=<?php echo $mostrar['idMapa'];?>" class="btn btn-danger">Ver más detalles del mapa</a></div>
                                         </div>
                                     </div>

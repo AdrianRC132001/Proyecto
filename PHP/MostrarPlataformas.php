@@ -1,5 +1,6 @@
 <?php
     require "BD/ConectorBD.php";
+    require "BD/DAOItem.php";
     require "BD/DAOPlataforma.php";
     session_start();
     $rol = $_SESSION['Rol'];

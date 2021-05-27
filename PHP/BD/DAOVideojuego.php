@@ -72,4 +72,22 @@
             echo "<tr><td><h1 class='titulo'>Sin resultados...&nbsp;<i class='fas fa-frown amarillo'></i></h1></td></tr>";
         }
 	}
+    function buscarVideojuegoCarrito($conexion, $idVideojuego, $idCesta)
+	{
+		$consulta = "SELECT * FROM Proyecto.Items WHERE idCesta = '$idCesta' AND idProductoVideojuego = '$idVideojuego'";
+		$resultado = mysqli_query($conexion, $consulta);
+		return $resultado;
+	}
+	function sumarCantidadVideojuego($conexion, $idVideojuego)
+	{
+		$consulta = "UPDATE `Proyecto`.`Items` SET `Cantidad` = Cantidad + 1 WHERE(`idProductoVideojuego` = '$idVideojuego')";
+		$resultado = mysqli_query($conexion, $consulta);
+		return $resultado;
+	}
+	function insertarVideojuegoCarrito($conexion, $idVideojuego, $idCesta, $cantidad, $precio)
+	{
+		$consulta = "INSERT INTO `Proyecto`.`Items`(`Cantidad`, `Precio`, `idCesta`, `idProductoVideojuego`) VALUES('$cantidad', '$precio', '$idCesta', '$idVideojuego')";
+		$resultado = mysqli_query($conexion, $consulta);
+		return $resultado;
+	}
 ?>

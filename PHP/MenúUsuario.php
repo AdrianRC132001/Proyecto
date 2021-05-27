@@ -2,6 +2,8 @@
     error_reporting(0);
     $nick = $_SESSION['Nick'];
     $rol = $_SESSION['Rol'];
+    $idCesta = $_SESSION["idUsuario"];
+    $contarProductos = mysqli_fetch_assoc(contarProductos($conexion, $idCesta));
     if($_SESSION['Rol'] == "admin")
     {
         echo '
@@ -10,7 +12,7 @@
             <a class="enlaceDesactivado"><div class="foto"><img src="data:image/jpeg;base64,' . base64_encode($_SESSION['Foto']) . '" class="img-responsive" width="120vh" height="120vh" alt="Foto de perfil"></div><br>' . $nick . ': ' . $rol . '</a>
             <br>
             <br>
-            <a class="nav-link mr-sm-2" href="Carrito.php"><i class="fas fa-shopping-cart"></i> Mi carrito </a>
+            <a class="nav-link mr-sm-2" href="Carrito.php"><i class="fas fa-shopping-cart"></i> Mi carrito <span>(' . $contarProductos["count(idCesta)"] . ')</span></a>
             <br>
             <a class="nav-link mr-sm-2" href="Admin.php"><i class="fas fa-cog"></i> Administración </a>
             <br>
@@ -28,7 +30,7 @@
             <a class="enlaceDesactivado"><div class="foto"><img src="data:image/jpeg;base64,' . base64_encode($_SESSION['Foto']) . '" class="img-responsive" width="120vh" height="120vh" alt="Foto de perfil"></div><br>' . $nick . ': ' . $rol . '</a>
             <br>
             <br>
-            <a class="nav-link mr-sm-2" href="Carrito.php"><i class="fas fa-shopping-cart"></i> Mi carrito </a>
+            <a class="nav-link mr-sm-2" href="Carrito.php"><i class="fas fa-shopping-cart"></i> Mi carrito <span>(' . $contarProductos["count(idCesta)"] . ')</span></a>
             <br>
             <a class="nav-link mr-sm-2" href="Perfil.php"><i class="fas fa-user-cog"></i> Perfil </a>
             <br>

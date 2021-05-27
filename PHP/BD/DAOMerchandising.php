@@ -60,4 +60,22 @@
             echo "<tr><td><h1 class='titulo'>Sin resultados...&nbsp;<i class='fas fa-frown amarillo'></i></h1></td></tr>";
         }
 	}
+    function buscarMerchandisingCarrito($conexion, $idMerchandising, $idCesta)
+	{
+		$consulta = "SELECT * FROM Proyecto.Items WHERE idCesta = '$idCesta' AND idProductoMerchandising = '$idMerchandising'";
+		$resultado = mysqli_query($conexion, $consulta);
+		return $resultado;
+	}
+	function sumarCantidadMerchandising($conexion, $idMerchandising)
+	{
+		$consulta = "UPDATE `Proyecto`.`Items` SET `Cantidad` = Cantidad + 1 WHERE(`idProductoMerchandising` = '$idMerchandising')";
+		$resultado = mysqli_query($conexion, $consulta);
+		return $resultado;
+	}
+	function insertarMerchandisingCarrito($conexion, $idMerchandising, $idCesta, $cantidad, $precio)
+	{
+		$consulta = "INSERT INTO `Proyecto`.`Items`(`Cantidad`, `Precio`, `idCesta`, `idProductoMerchandising`) VALUES('$cantidad', '$precio', '$idCesta', '$idMerchandising')";
+		$resultado = mysqli_query($conexion, $consulta);
+		return $resultado;
+	}
 ?>

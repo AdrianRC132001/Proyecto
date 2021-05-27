@@ -1,5 +1,6 @@
 <?php
     require "BD/ConectorBD.php";
+    require "BD/DAOItem.php";
     session_start();
 ?>
 <!DOCTYPE html>
@@ -91,6 +92,12 @@
                                             <p></p>
                                             <p class="card-text"><b>Precio: </b><?php echo $mostrar['Precio']?>€</p>
                                             <p class="card-text"><b>Stock: </b><?php echo $mostrar['Stock']?> copias</p>
+                                            <?php
+                                                if(($rol == "admin") || ($rol == "usuario"))
+                                                {
+                                                    echo '<div class="card-footer border-danger"><a href="CarritoVideojuego.php?idVideojuego=' . $mostrar['idVideojuego'] . '" class="btn btn-success"><i class="fas fa-cart-plus"></i>&nbsp;Añadir al carrito</a></div>';
+                                                }
+                                            ?>
                                             <div class="card-footer border-danger"><a href="DetallesVideojuego.php?idVideojuego=<?php echo $mostrar['idVideojuego'];?>" class="btn btn-danger">Ver más detalles del videojuego</a></div>
                                         </div>
                                     </div>

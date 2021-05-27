@@ -1,7 +1,10 @@
 <?php
     require "BD/ConectorBD.php";
+    require "BD/DAOItem.php";
 	require "BD/DAOMerchandising.php";
     session_start();
+    //Creamos la conexión a la BD.
+    $conexion = conectar(true);
     $rol = $_SESSION['Rol'];
     if($rol != "admin")
     {
