@@ -8,6 +8,8 @@
     $idCesta = $_SESSION["idUsuario"];
     $buscarVideojuego = mysqli_fetch_assoc(detallesVideojuego($conexion, $idVideojuego));
     $precio = $buscarVideojuego["Precio"];
+    $nombre = $buscarVideojuego["Título"];
+    $stock = $buscarVideojuego["Stock"];
     $buscarVideojuegoCarrito = buscarVideojuegoCarrito($conexion, $idVideojuego, $idCesta);
     if(mysqli_num_rows($buscarVideojuegoCarrito) != 0)
     {
@@ -17,7 +19,7 @@
     else
     {
         $cantidad = 1;
-        $insertar = insertarVideojuegoCarrito($conexion, $idVideojuego, $idCesta, $cantidad, $precio);
+        $insertar = insertarVideojuegoCarrito($conexion, $idVideojuego, $idCesta, $cantidad, $precio, $nombre, $stock);
         header("Location: Videojuegos.php");
     }
 ?>

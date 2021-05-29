@@ -84,9 +84,9 @@
 		$resultado = mysqli_query($conexion, $consulta);
 		return $resultado;
 	}
-	function insertarVideojuegoCarrito($conexion, $idVideojuego, $idCesta, $cantidad, $precio)
+	function insertarVideojuegoCarrito($conexion, $idVideojuego, $idCesta, $cantidad, $precio, $nombre, $stock)
 	{
-		$consulta = "INSERT INTO `Proyecto`.`Items`(`Cantidad`, `Precio`, `idCesta`, `idProductoVideojuego`) VALUES('$cantidad', '$precio', '$idCesta', '$idVideojuego')";
+		$consulta = "INSERT INTO `Proyecto`.`Items`(`Cantidad`, `PrecioProducto`, `idCesta`, `idProductoVideojuego`, `NombreProducto`, `StockProducto`) VALUES('$cantidad', '$precio', '$idCesta', '$idVideojuego', '$nombre', '$stock')";
 		$resultado = mysqli_query($conexion, $consulta);
 		return $resultado;
 	}

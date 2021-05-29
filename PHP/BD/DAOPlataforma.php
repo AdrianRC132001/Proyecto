@@ -78,9 +78,9 @@
 		$resultado = mysqli_query($conexion, $consulta);
 		return $resultado;
 	}
-	function insertarPlataformaCarrito($conexion, $idPlataforma, $idCesta, $cantidad, $precio)
+	function insertarPlataformaCarrito($conexion, $idPlataforma, $idCesta, $cantidad, $precio, $nombre, $stock)
 	{
-		$consulta = "INSERT INTO `Proyecto`.`Items`(`Cantidad`, `Precio`, `idCesta`, `idProductoPlataforma`) VALUES('$cantidad', '$precio', '$idCesta', '$idPlataforma')";
+		$consulta = "INSERT INTO `Proyecto`.`Items`(`Cantidad`, `PrecioProducto`, `idCesta`, `idProductoPlataforma`, `NombreProducto`, `StockProducto`) VALUES('$cantidad', '$precio', '$idCesta', '$idPlataforma', '$nombre', '$stock')";
 		$resultado = mysqli_query($conexion, $consulta);
 		return $resultado;
 	}

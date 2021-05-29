@@ -8,6 +8,8 @@
     $idCesta = $_SESSION["idUsuario"];
     $buscarMerchandising = mysqli_fetch_assoc(detallesMerchandising($conexion, $idMerchandising));
     $precio = $buscarMerchandising["Precio"];
+    $nombre = $buscarMerchandising["Nombre"];
+    $stock = $buscarMerchandising["Stock"];
     $buscarMerchandisingCarrito = buscarMerchandisingCarrito($conexion, $idMerchandising, $idCesta);
     if(mysqli_num_rows($buscarMerchandisingCarrito) != 0)
     {
@@ -17,7 +19,7 @@
     else
     {
         $cantidad = 1;
-        $insertar = insertarMerchandisingCarrito($conexion, $idMerchandising, $idCesta, $cantidad, $precio);
+        $insertar = insertarMerchandisingCarrito($conexion, $idMerchandising, $idCesta, $cantidad, $precio, $nombre, $stock);
         header("Location: Merchandising.php");
     }
 ?>
