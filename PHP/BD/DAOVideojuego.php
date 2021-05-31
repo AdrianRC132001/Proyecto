@@ -90,4 +90,22 @@
 		$resultado = mysqli_query($conexion, $consulta);
 		return $resultado;
 	}
+	function insertarComentarioVideojuego($conexion, $idUsuario, $idVideojuego, $comentario)
+	{
+		$consulta = "INSERT INTO `Proyecto`.`Comentarios`(`idComentarioUsuario`, `idComentarioVideojuego`, `Comentario`) VALUES('$idUsuario', '$idVideojuego', '$comentario')";
+		$resultado = mysqli_query($conexion, $consulta);
+		return $resultado;
+	}
+	function borrarComentarioVideojuego($conexion, $idComentario)
+	{
+		$consulta = "DELETE FROM `Proyecto`.`Comentarios` WHERE(`idComentario` = '$idComentario')";
+        $resultado = mysqli_query($conexion, $consulta);
+        return $resultado;
+	}
+	function mostrarComentarioVideojuego($conexion, $idVideojuego)
+	{
+		$consulta = "SELECT * FROM Proyecto.Comentarios WHERE idComentarioVideojuego = '$idVideojuego'";
+		$resultado = mysqli_query($conexion, $consulta);
+		return $resultado;
+	}
 ?>

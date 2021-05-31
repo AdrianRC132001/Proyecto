@@ -84,4 +84,22 @@
 		$resultado = mysqli_query($conexion, $consulta);
 		return $resultado;
 	}
+	function insertarComentarioPlataforma($conexion, $idUsuario, $idPlataforma, $comentario)
+	{
+		$consulta = "INSERT INTO `Proyecto`.`Comentarios`(`idComentarioUsuario`, `idComentarioPlataforma`, `Comentario`) VALUES('$idUsuario', '$idPlataforma', '$comentario')";
+		$resultado = mysqli_query($conexion, $consulta);
+		return $resultado;
+	}
+	function borrarComentarioPlataforma($conexion, $idComentario)
+	{
+		$consulta = "DELETE FROM `Proyecto`.`Comentarios` WHERE(`idComentario` = '$idComentario')";
+        $resultado = mysqli_query($conexion, $consulta);
+        return $resultado;
+	}
+	function mostrarComentarioPlataforma($conexion, $idPlataforma)
+	{
+		$consulta = "SELECT * FROM Proyecto.Comentarios WHERE idComentarioPlataforma = '$idPlataforma'";
+		$resultado = mysqli_query($conexion, $consulta);
+		return $resultado;
+	}
 ?>

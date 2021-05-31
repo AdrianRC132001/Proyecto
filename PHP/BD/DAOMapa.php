@@ -60,4 +60,22 @@
             echo "<tr><td><h1 class='titulo'>Sin resultados...&nbsp;<i class='fas fa-frown amarillo'></i></h1></td></tr>";
         }
 	}
+    function insertarComentarioMapa($conexion, $idUsuario, $idMapa, $comentario)
+	{
+		$consulta = "INSERT INTO `Proyecto`.`Comentarios`(`idComentarioUsuario`, `idComentarioMapa`, `Comentario`) VALUES('$idUsuario', '$idMapa', '$comentario')";
+		$resultado = mysqli_query($conexion, $consulta);
+		return $resultado;
+	}
+	function borrarComentarioMapa($conexion, $idComentario)
+	{
+		$consulta = "DELETE FROM `Proyecto`.`Comentarios` WHERE(`idComentario` = '$idComentario')";
+        $resultado = mysqli_query($conexion, $consulta);
+        return $resultado;
+	}
+	function mostrarComentarioMapa($conexion, $idMapa)
+	{
+		$consulta = "SELECT * FROM Proyecto.Comentarios WHERE idComentarioMapa = '$idMapa'";
+		$resultado = mysqli_query($conexion, $consulta);
+		return $resultado;
+	}
 ?>

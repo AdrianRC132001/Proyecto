@@ -78,4 +78,22 @@
 		$resultado = mysqli_query($conexion, $consulta);
 		return $resultado;
 	}
+	function insertarComentarioMerchandising($conexion, $idUsuario, $idMerchandising, $comentario)
+	{
+		$consulta = "INSERT INTO `Proyecto`.`Comentarios`(`idComentarioUsuario`, `idComentarioMerchandising`, `Comentario`) VALUES('$idUsuario', '$idMerchandising', '$comentario')";
+		$resultado = mysqli_query($conexion, $consulta);
+		return $resultado;
+	}
+	function borrarComentarioMerchandising($conexion, $idComentario)
+	{
+		$consulta = "DELETE FROM `Proyecto`.`Comentarios` WHERE(`idComentario` = '$idComentario')";
+        $resultado = mysqli_query($conexion, $consulta);
+        return $resultado;
+	}
+	function mostrarComentarioMerchandising($conexion, $idMerchandising)
+	{
+		$consulta = "SELECT * FROM Proyecto.Comentarios WHERE idComentarioMerchandising = '$idMerchandising'";
+		$resultado = mysqli_query($conexion, $consulta);
+		return $resultado;
+	}
 ?>

@@ -110,6 +110,15 @@
                         <?php
                             }
                         ?>
+                        <div>
+                            <form id="comentariosPlataforma">
+                                <textarea name="comentarioPlataforma" id="comentarioPlataforma" cols="30" rows="10"></textarea>
+                                <button name="enviar" data-idPlataforma="<?php echo $_GET["idPlataforma"];?>" data-idUsuario="<?php echo $_SESSION['idUsuario']?>">Enviar</button>
+                                <br>
+                                <div id="mostrarComentariosPlataforma">
+                                </div>
+                            </form>
+                        </div>
                     </center>
                 </div>
                 <div class="col-md-3 marco d-none d-sm-none d-md-block">
@@ -121,9 +130,53 @@
         <?php include_once "VentanaEmergenteLogout.php"?>
         <br>
         <?php include_once "Footer.php"?>
+        <!--Script jQuery.-->
+        <script src="https://code.jquery.com/jquery-3.5.1.js" type="text/javascript"></script>
+        <script>
+            $(document).ready(function()
+            {
+                mostrarComentarioPlataforma();
+                $('button[name=enviar]').click(function(e)
+                {
+                    const postData={
+                        idPlataforma:$(this).attr('data-idPlataforma'),
+                        idUsuario:$(this).attr('data-idUsuario'),
+                        comentarioPlataforma:$('#comentarioPlataforma').val()
+                    }
+                    $.post('InsertarComentarioPlataforma.php', postData, function(response)
+                    {
+                        mostrarComentarioPlataforma();
+                        $('#comentariosPlataforma').trigger('reset');
+                    });
+                    e.preventDefault();
+                })
+                function mostrarComentarioPlataforma()
+                {
+                    let idPlataforma = $('button[name=enviar]').attr('data-idPlataforma');
+                    $.ajax(
+                    {
+                        url:'MostrarComentarioPlataforma.php',
+                        type:'GET',
+                        data:{'idPlataforma':idPlataforma},
+                        success:function numero(response)
+                        {
+                            let comentarios = JSON.parse(response); 
+                            let template = '';
+                            comentarios.forEach(comentarios => {
+                            
+                                template += `
+                                    <p>&nbsp;&nbsp;${comentarios.Nick}</p>
+                                    <textarea class='form-control' cols="30" rows="10" disabled>${comentarios.Comentario}</textarea>
+                                `
+                            });
+                            $('#mostrarComentariosPlataforma').html(template);
+                        }
+                    })
+                }
+            })
+        </script>
         <!--Scripts Font Awesome para los iconos.-->
         <script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" data-auto-a11y="true"></script>
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
