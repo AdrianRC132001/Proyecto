@@ -60,9 +60,9 @@
             echo "<tr><td><h1 class='titulo'>Sin resultados...&nbsp;<i class='fas fa-frown amarillo'></i></h1></td></tr>";
         }
 	}
-    function insertarComentarioMapa($conexion, $idUsuario, $idMapa, $comentario)
+    function insertarComentarioMapa($conexion, $idUsuario, $idMapa, $comentario, $nick)
 	{
-		$consulta = "INSERT INTO `Proyecto`.`Comentarios`(`idComentarioUsuario`, `idComentarioMapa`, `Comentario`) VALUES('$idUsuario', '$idMapa', '$comentario')";
+		$consulta = "INSERT INTO `Proyecto`.`Comentarios`(`idComentarioUsuario`, `idComentarioMapa`, `Comentario`, `Nick`) VALUES('$idUsuario', '$idMapa', '$comentario', '$nick')";
 		$resultado = mysqli_query($conexion, $consulta);
 		return $resultado;
 	}

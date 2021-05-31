@@ -78,9 +78,9 @@
 		$resultado = mysqli_query($conexion, $consulta);
 		return $resultado;
 	}
-	function insertarComentarioMerchandising($conexion, $idUsuario, $idMerchandising, $comentario)
+	function insertarComentarioMerchandising($conexion, $idUsuario, $idMerchandising, $comentario, $nick)
 	{
-		$consulta = "INSERT INTO `Proyecto`.`Comentarios`(`idComentarioUsuario`, `idComentarioMerchandising`, `Comentario`) VALUES('$idUsuario', '$idMerchandising', '$comentario')";
+		$consulta = "INSERT INTO `Proyecto`.`Comentarios`(`idComentarioUsuario`, `idComentarioMerchandising`, `Comentario`, `Nick`) VALUES('$idUsuario', '$idMerchandising', '$comentario', '$nick')";
 		$resultado = mysqli_query($conexion, $consulta);
 		return $resultado;
 	}

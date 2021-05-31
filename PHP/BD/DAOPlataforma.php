@@ -84,9 +84,9 @@
 		$resultado = mysqli_query($conexion, $consulta);
 		return $resultado;
 	}
-	function insertarComentarioPlataforma($conexion, $idUsuario, $idPlataforma, $comentario)
+	function insertarComentarioPlataforma($conexion, $idUsuario, $idPlataforma, $comentario, $nick)
 	{
-		$consulta = "INSERT INTO `Proyecto`.`Comentarios`(`idComentarioUsuario`, `idComentarioPlataforma`, `Comentario`) VALUES('$idUsuario', '$idPlataforma', '$comentario')";
+		$consulta = "INSERT INTO `Proyecto`.`Comentarios`(`idComentarioUsuario`, `idComentarioPlataforma`, `Comentario`, `Nick`) VALUES('$idUsuario', '$idPlataforma', '$comentario', '$nick')";
 		$resultado = mysqli_query($conexion, $consulta);
 		return $resultado;
 	}

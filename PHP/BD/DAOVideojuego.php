@@ -90,9 +90,9 @@
 		$resultado = mysqli_query($conexion, $consulta);
 		return $resultado;
 	}
-	function insertarComentarioVideojuego($conexion, $idUsuario, $idVideojuego, $comentario)
+	function insertarComentarioVideojuego($conexion, $idUsuario, $idVideojuego, $comentario, $nick)
 	{
-		$consulta = "INSERT INTO `Proyecto`.`Comentarios`(`idComentarioUsuario`, `idComentarioVideojuego`, `Comentario`) VALUES('$idUsuario', '$idVideojuego', '$comentario')";
+		$consulta = "INSERT INTO `Proyecto`.`Comentarios`(`idComentarioUsuario`, `idComentarioVideojuego`, `Comentario`, `Nick`) VALUES('$idUsuario', '$idVideojuego', '$comentario', '$nick')";
 		$resultado = mysqli_query($conexion, $consulta);
 		return $resultado;
 	}

@@ -110,15 +110,40 @@
                         <?php
                             }
                         ?>
-                        <div>
-                            <form id="comentariosPlataforma">
-                                <textarea name="comentarioPlataforma" id="comentarioPlataforma" cols="30" rows="10"></textarea>
-                                <button name="enviar" data-idPlataforma="<?php echo $_GET["idPlataforma"];?>" data-idUsuario="<?php echo $_SESSION['idUsuario']?>">Enviar</button>
-                                <br>
-                                <div id="mostrarComentariosPlataforma">
-                                </div>
-                            </form>
-                        </div>
+                        <br>
+                        <br>
+                        <?php
+                            if(($rol == "admin") || ($rol == "usuario"))
+                            {
+                                echo '
+                                    <div class="col-md-12">
+                                        <h1 class="titulo"><i class="fas fa-comments"></i>&nbsp;Comentarios:</h1>
+                                        <form id="comentariosPlataforma">
+                                            <textarea class="form-control" name="comentarioPlataforma" id="comentarioPlataforma" cols="30" rows="10" placeholder="Introduzca aquí su comentario..."></textarea>
+                                            <button class="btn btn-success col-md-12" name="enviar" data-idPlataforma=' . $_GET["idPlataforma"] . '" data-idUsuario="' . $_SESSION["idUsuario"] . '"><i class="fas fa-share"></i>&nbsp;Enviar</button>
+                                            <br>
+                                            <br>
+                                            <div id="mostrarComentariosPlataforma"></div>
+                                        </form>
+                                    </div>
+                                ';
+                            }
+                            else
+                            {
+                                echo '
+                                    <div class="col-md-12">
+                                        <h1 class="titulo"><i class="fas fa-comments"></i>&nbsp;Comentarios:</h1>
+                                        <form id="comentariosPlataforma">
+                                            <textarea class="form-control" name="comentarioPlataforma" id="comentarioPlataforma" cols="30" rows="10" style="display:none"></textarea>
+                                            <button class="btn btn-success col-md-12" name="enviar" data-idPlataforma=' . $_GET["idPlataforma"] . '" data-idUsuario="' . $_SESSION["idUsuario"] . '" style="display:none"><i class="fas fa-share"></i>&nbsp;Enviar</button>
+                                            <br>
+                                            <br>
+                                            <div id="mostrarComentariosPlataforma"></div>
+                                        </form>
+                                    </div>
+                                ';
+                            }
+                        ?>
                     </center>
                 </div>
                 <div class="col-md-3 marco d-none d-sm-none d-md-block">
@@ -165,8 +190,10 @@
                             comentarios.forEach(comentarios => {
                             
                                 template += `
-                                    <p>&nbsp;&nbsp;${comentarios.Nick}</p>
+                                    <br>
+                                    <h2 class="titulo">${comentarios.Nick}:</h2>
                                     <textarea class='form-control' cols="30" rows="10" disabled>${comentarios.Comentario}</textarea>
+                                    <br>
                                 `
                             });
                             $('#mostrarComentariosPlataforma').html(template);

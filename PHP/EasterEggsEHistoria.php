@@ -85,7 +85,7 @@
                             </div>
                         </div>
                     </div>
-                    <h2 class="titulo"><i>Seleccione un videojuego de la saga para más información sobre los Easter Eggs</i></h2>
+                    <h2 class="titulo"><i>Seleccione un videojuego de la saga para acceder a los videotutoriales de los Easter Eggs</i></h2>
                     <div class="container">
                         <div class="row margen">
                             <div class="col-md-4 mb-3">
