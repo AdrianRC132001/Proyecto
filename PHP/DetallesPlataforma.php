@@ -120,7 +120,7 @@
                                         <h1 class="titulo"><i class="fas fa-comments"></i>&nbsp;Comentarios:</h1>
                                         <form id="comentariosPlataforma">
                                             <textarea class="form-control" name="comentarioPlataforma" id="comentarioPlataforma" cols="30" rows="10" placeholder="Introduzca aquí su comentario..."></textarea>
-                                            <button class="btn btn-success col-md-12" name="enviar" data-idPlataforma=' . $_GET["idPlataforma"] . '" data-idUsuario="' . $_SESSION["idUsuario"] . '"><i class="fas fa-share"></i>&nbsp;Enviar</button>
+                                            <button class="btn btn-success col-md-12" name="enviar" data-rol=' . $_SESSION["Rol"] . ' data-idPlataforma=' . $_GET["idPlataforma"] . '" data-idUsuario="' . $_SESSION["idUsuario"] . '"><i class="fas fa-share"></i>&nbsp;Enviar</button>
                                             <br>
                                             <br>
                                             <div id="mostrarComentariosPlataforma"></div>
@@ -135,7 +135,7 @@
                                         <h1 class="titulo"><i class="fas fa-comments"></i>&nbsp;Comentarios:</h1>
                                         <form id="comentariosPlataforma">
                                             <textarea class="form-control" name="comentarioPlataforma" id="comentarioPlataforma" cols="30" rows="10" style="display:none"></textarea>
-                                            <button class="btn btn-success col-md-12" name="enviar" data-idPlataforma=' . $_GET["idPlataforma"] . '" data-idUsuario="' . $_SESSION["idUsuario"] . '" style="display:none"><i class="fas fa-share"></i>&nbsp;Enviar</button>
+                                            <button class="btn btn-success col-md-12" name="enviar" data-rol=' . $_SESSION["Rol"] . ' data-idPlataforma=' . $_GET["idPlataforma"] . '" data-idUsuario="' . $_SESSION["idUsuario"] . '" style="display:none"><i class="fas fa-share"></i>&nbsp;Enviar</button>
                                             <br>
                                             <br>
                                             <div id="mostrarComentariosPlataforma"></div>
@@ -178,6 +178,7 @@
                 function mostrarComentarioPlataforma()
                 {
                     let idPlataforma = $('button[name=enviar]').attr('data-idPlataforma');
+                    let rol = $('button[name=enviar]').attr('data-rol');
                     $.ajax(
                     {
                         url:'MostrarComentarioPlataforma.php',
@@ -186,18 +187,43 @@
                         success:function numero(response)
                         {
                             let comentarios = JSON.parse(response); 
-                            let template = '';
+                            let textarea = '';
                             comentarios.forEach(comentarios => {
                             
-                                template += `
+                                textarea += `
                                     <br>
                                     <h2 class="titulo">${comentarios.Nick}:</h2>
                                     <textarea class='form-control' cols="30" rows="10" disabled>${comentarios.Comentario}</textarea>
                                     <br>
                                 `
+                                if(rol == "admin")
+                                {
+                                    textarea += `
+                                        <button name="borrar" id="borrar" class="btn btn-danger col-md-12 borrar" data-id='${comentarios.idComentario}'><i class="fas fa-trash-alt"></i>&nbsp;Eliminar</button>
+                                        <br>
+                                        <br>
+                                    `
+                                }
+                                else if($('button[name=enviar]').attr('data-idUsuario') == comentarios.idUsuario)
+                                {
+                                    textarea += `
+                                        <button name="borrar" id="borrar" class="btn btn-danger col-md-12 borrar" data-id='${comentarios.idComentario}'><i class="fas fa-trash-alt"></i>&nbsp;Eliminar</button>
+                                        <br>
+                                        <br>
+                                    `
+                                }
                             });
-                            $('#mostrarComentariosPlataforma').html(template);
+                            $('#mostrarComentariosPlataforma').html(textarea);
                         }
+                    })
+                    $(document).on('click', '.borrar', function(e)
+                    {
+                        let idComentario = $(this).attr('data-id');
+                        $.post('BorrarComentarioPlataforma.php', {'idComentario':idComentario}, function(response)
+                        {
+                            mostrarComentarioPlataforma();
+                        });
+                        e.preventDefault();
                     })
                 }
             })

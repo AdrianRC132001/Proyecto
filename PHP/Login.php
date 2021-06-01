@@ -79,6 +79,14 @@
                                 }
                             ?>
                         </p>
+                        <p>
+                            <?php
+                                if(isset($_GET['action']) && $_GET['action'] == "correoEnviado")
+                                {
+                                    echo '<h4 class="correoEnviado"><i class="far fa-check-circle"></i>&nbsp;' . "Se ha enviado un correo a su eMail.</h4>";
+                                }
+                            ?>
+                        </p>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label class="rojo">Nick:</label>

@@ -36,9 +36,17 @@
 		$resultado = mysqli_query($conexion, $consulta);
 		return $resultado;
     }
-	function consultaNueva($conexion, $eMail, $password)
+	function consultaNueva($conexion, $nick, $password)
 	{
-		$consulta = "SELECT * FROM Usuarios WHERE eMail = '$eMail' AND Password = '$password'";
+		$consulta = "UPDATE `Proyecto`.`Usuarios` SET `Password` = '$password' WHERE Nick = '$nick'";
+		if(mysqli_query($conexion, $consulta))
+        {
+            echo "<h1 class='titulo'><i>Nueva contraseña establecida</i></h1>";
+        }
+        else
+        {
+            echo "Error: " . $consulta . " " . mysqli_error($conexion);
+        }
 		$resultado = mysqli_query($conexion, $consulta);
 		return $resultado;
 	}

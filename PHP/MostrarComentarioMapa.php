@@ -13,6 +13,7 @@
             'Comentario' => $mostrar['Comentario'],
             'Nick' => $mostrar['Nick'],
             'idUsuario' => $mostrar['idComentarioUsuario'],
+            'idComentario' => $mostrar['idComentario'],
         );
     }
     $mostrarComentario = json_encode($json);
