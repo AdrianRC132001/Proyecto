@@ -65,34 +65,34 @@
                     <div class="container">
                         <div class="row margen">
                             <div class="col-md-4">
-                                <li class="link"><a class="link" href="35.180.225.224/Proyecto/PHP/Home.php">Home</a></li>
-                                <li class="link"><a class="link" href="35.180.225.224/Proyecto/PHP/Plataformas.php">Plataformas</a></li>
-                                <li class="link"><a class="link" href="35.180.225.224/Proyecto/PHP/Videojuegos.php">Videojuegos</a></li>
-                                <li class="link"><a class="link" href="35.180.225.224/Proyecto/PHP/Mapas.php">Mapas</a></li>
-                                <li class="link"><a class="link" href="35.180.225.224/Proyecto/PHP/Merchandising.php">Merchandising</a></li>
+                                <li class="link"><a class="link" href="Home.php">Home</a></li>
+                                <li class="link"><a class="link" href="Plataformas.php">Plataformas</a></li>
+                                <li class="link"><a class="link" href="Videojuegos.php">Videojuegos</a></li>
+                                <li class="link"><a class="link" href="Mapas.php">Mapas</a></li>
+                                <li class="link"><a class="link" href="Merchandising.php">Merchandising</a></li>
                             </div>
                             <div class="col-md-4">
-                                <li class="link"><a class="link" href="35.180.225.224/Proyecto/PHP/EasterEggsEHistoria.php">Easter Eggs e Historia</a></li>
+                                <li class="link"><a class="link" href="EasterEggsEHistoria.php">Easter Eggs e Historia</a></li>
                                 <ul>
                                     <li class="link"><a class="link" href="https://lahistoriaocultacodz.blogspot.com/">La Historia Oculta Call of Duty Zombies</a></li>
                                     <li class="link"><a class="link" href="https://www.youtube.com/watch?v=lYpio2tG-BE&list=PLMwwrqX1Ir2fC14kulxlzHDBYE0CEx7UP">Música de la saga</a></li>
                                     <li class="link"><a class="link" href="https://www.youtube.com/watch?v=8linO6mCUnU&list=PLMwwrqX1Ir2cYZMJUdynzFZf297LIcgAK">Easter Eggs de Treyarch</a></li>
                                     <ul>
-                                        <li class="link"><a class="link" href="35.180.225.224/Proyecto/PHP/CallOfDutyWorldAtWar.php">Call of Duty World at War</a></li>
-                                        <li class="link"><a class="link" href="35.180.225.224/Proyecto/PHP/CallOfDutyBlackOps.php">Call of Duty Black Ops</a></li>
-                                        <li class="link"><a class="link" href="35.180.225.224/Proyecto/PHP/CallOfDutyBlackOpsII.php">Call of Duty Black Ops II</a></li>
-                                        <li class="link"><a class="link" href="35.180.225.224/Proyecto/PHP/CallOfDutyBlackOpsIII.php">Call of Duty Black Ops III</a></li>
-                                        <li class="link"><a class="link" href="35.180.225.224/Proyecto/PHP/CallOfDutyBlackOpsIIII.php">Call of Duty Black Ops IIII</a></li>                              
+                                        <li class="link"><a class="link" href="CallOfDutyWorldAtWar.php">Call of Duty World at War</a></li>
+                                        <li class="link"><a class="link" href="CallOfDutyBlackOps.php">Call of Duty Black Ops</a></li>
+                                        <li class="link"><a class="link" href="CallOfDutyBlackOpsII.php">Call of Duty Black Ops II</a></li>
+                                        <li class="link"><a class="link" href="CallOfDutyBlackOpsIII.php">Call of Duty Black Ops III</a></li>
+                                        <li class="link"><a class="link" href="CallOfDutyBlackOpsIIII.php">Call of Duty Black Ops IIII</a></li>                              
                                     </ul>
                                     <li class="link"><a class="link" href="https://www.youtube.com/watch?v=7sURl24c208&list=PLMwwrqX1Ir2ebyOWoUs-4IjSqdmmFkhP-">Easter Eggs de Infinity Ward</a></li>
                                     <ul>
-                                        <li class="link"><a class="link" href="35.180.225.224/Proyecto/PHP/CallOfDutyGhosts.php">Call of Duty Ghosts</a></li>
-                                        <li class="link"><a class="link" href="35.180.225.224/Proyecto/PHP/CallOfDutyInfiniteWarfare.php">Call of Duty Infinite Warfare</a></li>                            
+                                        <li class="link"><a class="link" href="CallOfDutyGhosts.php">Call of Duty Ghosts</a></li>
+                                        <li class="link"><a class="link" href="CallOfDutyInfiniteWarfare.php">Call of Duty Infinite Warfare</a></li>                            
                                     </ul>
                                     <li class="link"><a class="link" href="https://www.youtube.com/watch?v=aMyOxTeJ6ho&list=PLMwwrqX1Ir2dyBKPx2hHR9PWyRSPja_1_">Easter Eggs de Sledgehammer Games</a></li>
                                     <ul>
-                                        <li class="link"><a class="link" href="35.180.225.224/Proyecto/PHP/CallOfDutyAdvancedWarfare.php">Call of Duty Advanced Warfare</a></li>
-                                        <li class="link"><a class="link" href="35.180.225.224/Proyecto/PHP/CallOfDutyWWII.php">Call of Duty WWII</a></li>                            
+                                        <li class="link"><a class="link" href="CallOfDutyAdvancedWarfare.php">Call of Duty Advanced Warfare</a></li>
+                                        <li class="link"><a class="link" href="CallOfDutyWWII.php">Call of Duty WWII</a></li>                            
                                     </ul>                   
                                 </ul>
                             </div>
@@ -101,16 +101,16 @@
                                     if($_SESSION["Rol"] == "admin")
                                     {
                                         echo '
-                                            <li class="link"><a class="link" href="35.180.225.224/Proyecto/PHP/Carrito.php">Carrito</a></li>
-                                            <li class="link"><a class="link" href="35.180.225.224/Proyecto/PHP/Admin.php">Panel de administración</a></li>
-                                            <li class="link"><a class="link" href="35.180.225.224/Proyecto/PHP/Perfil.php">Perfil</a></li>
+                                            <li class="link"><a class="link" href="Carrito.php">Carrito</a></li>
+                                            <li class="link"><a class="link" href="Admin.php">Panel de administración</a></li>
+                                            <li class="link"><a class="link" href="Perfil.php">Perfil</a></li>
                                         ';
                                     }
                                     else if($_SESSION["Rol"] == "usuario")
                                     {
                                         echo '
-                                            <li class="link"><a class="link" href="35.180.225.224/Proyecto/PHP/Carrito.php">Carrito</a></li>
-                                            <li class="link"><a class="link" href="35.180.225.224/Proyecto/PHP/Perfil.php">Perfil</a></li>
+                                            <li class="link"><a class="link" href="Carrito.php">Carrito</a></li>
+                                            <li class="link"><a class="link" href="Perfil.php">Perfil</a></li>
                                         ';
                                     }
                                 ?>
