@@ -203,7 +203,7 @@
                                 <label class="rojo" for="desplegableMostrarTerminos" style="cursor: pointer;"><i class="fas fa-sort-down flechaArriba"></i>&nbsp;<b>Mostrar términos</b></label>
                                 <input type="checkbox" name="desplegableMostrarTerminos" id="desplegableMostrarTerminos" style="display: none;">
                                 <div id="terminosAceptados" style="display: none;">
-				                    <textarea class="form-group col-md-12" cols="98" rows="5" disabled>Has aceptado los términos.</textarea>
+				                    <textarea class="form-group col-md-12" cols="98" rows="5" disabled>Al aceptar los términos y condiciones de uso de esta página web se le asegurará de que sus datos serán utilizados única y exclusivamente con uso académico y de que jamás serán divulgados.</textarea>
 			                    </div>
                             </div>
                             <div id="mensaje">

@@ -26,6 +26,8 @@
         <!--Links para el footer.-->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+        <!--Link para el sistema de valoración.-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
         <script src="../JavaScript/Loader.js"></script>
 	</head>
 	<!--Cuerpo del código.-->
@@ -77,6 +79,16 @@
                                     <br>
                                     <img src="data:image/jpeg;base64,<?php echo base64_encode($mostrar['Imagen']);?>" class="img-responsive" width="350px" height="350px" alt="Plataforma">
                                     <br>
+                                    <?php
+                                        $mostrarPuntuacion = mysqli_fetch_assoc(mostrarPuntuacionPlataforma($conexion, $idPlataforma, $_SESSION["idUsuario"]));
+                                        $media = mediaPlataforma($conexion, $idPlataforma);
+                                        $mediaPlataforma = mysqli_fetch_assoc($media);
+                                        echo "<br>";
+                                        echo "<b class='rojo'>Puntuación media de los usuarios: <i class='fas fa-star'></i>&nbsp;" . $mediaPlataforma["format(avg(Puntuación),1)"] . "</b>";
+                                        echo "<br>";
+                                    ?>
+                                    <br>
+                                    <div id="rateYo" data-rateyo-rating="<?php echo $mostrarPuntuacion["Puntuación"] ?>"></div>
                                     <br>
                                     <h5><p class="rojo"><b>Precio: </b><?php echo $mostrar['Precio']?>€</p></h5>
                                     <h5><p class="rojo"><b>Stock: </b><?php echo $mostrar['Stock']?> unidades</p></h5>
@@ -100,7 +112,7 @@
                                     {
                                         echo '
                                             <br>
-                                                <a class="link" href="MostrarPlataformas.php">Ir al panel de administración</a>
+                                            <a class="link" href="MostrarPlataformas.php">Ir al panel de administración</a>
                                             <br>
                                         ';
                                     }
@@ -120,7 +132,7 @@
                                         <h1 class="titulo"><i class="fas fa-comments"></i>&nbsp;Comentarios:</h1>
                                         <form id="comentariosPlataforma">
                                             <textarea class="form-control" name="comentarioPlataforma" id="comentarioPlataforma" cols="30" rows="10" placeholder="Introduzca aquí su comentario..."></textarea>
-                                            <button class="btn btn-success col-md-12" name="enviar" data-rol=' . $_SESSION["Rol"] . ' data-idPlataforma=' . $_GET["idPlataforma"] . '" data-idUsuario="' . $_SESSION["idUsuario"] . '"><i class="fas fa-share"></i>&nbsp;Enviar</button>
+                                            <button class="btn btn-success col-md-12" name="enviar" data-rol=' . $_SESSION["Rol"] . ' data-idPlataforma=' . $_GET["idPlataforma"] . ' data-idUsuario="' . $_SESSION["idUsuario"] . '"><i class="fas fa-share"></i>&nbsp;Enviar</button>
                                             <br>
                                             <br>
                                             <div id="mostrarComentariosPlataforma"></div>
@@ -135,7 +147,7 @@
                                         <h1 class="titulo"><i class="fas fa-comments"></i>&nbsp;Comentarios:</h1>
                                         <form id="comentariosPlataforma">
                                             <textarea class="form-control" name="comentarioPlataforma" id="comentarioPlataforma" cols="30" rows="10" style="display:none"></textarea>
-                                            <button class="btn btn-success col-md-12" name="enviar" data-rol=' . $_SESSION["Rol"] . ' data-idPlataforma=' . $_GET["idPlataforma"] . '" data-idUsuario="' . $_SESSION["idUsuario"] . '" style="display:none"><i class="fas fa-share"></i>&nbsp;Enviar</button>
+                                            <button class="btn btn-success col-md-12" name="enviar" data-rol=' . $_SESSION["Rol"] . ' data-idPlataforma=' . $_GET["idPlataforma"] . ' data-idUsuario="' . $_SESSION["idUsuario"] . '" style="display:none"><i class="fas fa-share"></i>&nbsp;Enviar</button>
                                             <br>
                                             <br>
                                             <div id="mostrarComentariosPlataforma"></div>
@@ -233,7 +245,34 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
-        <!--Script para el footer.-->
+        <!--Script para el sistema de valoración.-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
+        <!--Scripts para el footer.-->
 		<script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" data-auto-a11y="true"></script>
+        <script>
+            $(document).ready(function()
+            {
+                $(function()
+                {
+                    $("#rateYo").rateYo(
+                    {
+                        ratedFill: "#ff0000"
+                    });
+                    $("#rateYo").rateYo().on("rateyo.set", function(e, data)
+                    {
+                        let puntuacion = data.rating;
+                        const postData = {
+                            idPlataforma:$('button[name=enviar]').attr("data-idPlataforma"),
+                            idUsuario:$('button[name=enviar]').attr("data-idUsuario"),
+                            numeroPuntuacion:puntuacion
+                        }
+                        $.post('ValoraciónPlataforma.php', postData, function(response)
+                        {
+                            console.log(response);
+                        });
+                    });
+                });
+            })
+        </script>
 	</body>
 </html>

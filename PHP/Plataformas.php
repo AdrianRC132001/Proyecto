@@ -81,6 +81,11 @@
                                             <p class="card-text"><b>Precio: </b><?php echo $mostrar['Precio']?>€</p>
                                             <p class="card-text"><b>Stock: </b><?php echo $mostrar['Stock']?> unidades</p>
                                             <?php
+                                                $media = mediaPlataforma($conexion, $mostrar["idPlataforma"]);
+                                                $mediaPlataforma = mysqli_fetch_assoc($media);
+                                                echo "<p class='card-text'>Puntuación media de los usuarios: <i class='fas fa-star'></i>&nbsp;" . $mediaPlataforma["format(avg(Puntuación),1)"] . "</p>";
+                                            ?>
+                                            <?php
                                                 if(($rol == "admin") || ($rol == "usuario"))
                                                 {
                                                     echo '<div class="card-footer border-danger"><a href="CarritoPlataforma.php?idPlataforma=' . $mostrar['idPlataforma'] . '" class="btn btn-success"><i class="fas fa-cart-plus"></i>&nbsp;Añadir al carrito</a></div>';

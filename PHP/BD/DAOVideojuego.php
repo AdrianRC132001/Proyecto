@@ -108,4 +108,28 @@
 		$resultado = mysqli_query($conexion, $consulta);
 		return $resultado;
 	}
+	function mostrarPuntuacionVideojuego($conexion, $idVideojuego, $idUsuario)
+	{
+		$consulta = "SELECT * FROM Proyecto.Valoración WHERE idPuntuaciónVideojuego = '$idVideojuego' AND idPuntuaciónUsuario = '$idUsuario'";
+		$resultado = mysqli_query($conexion, $consulta);
+		return $resultado;
+	}
+	function modificarPuntuacionVideojuego($conexion, $puntuacion, $idVideojuego, $idUsuario)
+	{
+		$consulta = "UPDATE `Proyecto`.`Valoración` SET `Puntuación` = '$puntuacion' WHERE(`idPuntuaciónVideojuego` = '$idVideojuego' AND `idPuntuaciónUsuario` = '$idUsuario')";
+		$resultado = mysqli_query($conexion, $consulta);
+		return $resultado;
+	}
+	function insertarPuntuacionVideojuego($conexion, $idVideojuego, $idUsuario, $puntuacion)
+	{
+		$consulta = "INSERT INTO `Proyecto`.`Valoración`(`idPuntuaciónUsuario`, `idPuntuaciónVideojuego`, `Puntuación`) VALUES('$idUsuario', '$idVideojuego', '$puntuacion')";
+		$resultado = mysqli_query($conexion, $consulta);
+		return $resultado;
+	}
+	function mediaVideojuego($conexion, $idVideojuego)
+	{
+		$consulta = "SELECT format(avg(Puntuación),1) FROM Proyecto.Valoración WHERE idPuntuaciónVideojuego = '$idVideojuego'";
+		$resultado = mysqli_query($conexion, $consulta);
+		return $resultado;
+	}
 ?>

@@ -96,4 +96,28 @@
 		$resultado = mysqli_query($conexion, $consulta);
 		return $resultado;
 	}
+	function mostrarPuntuacionMerchandising($conexion, $idMerchandising, $idUsuario)
+	{
+		$consulta = "SELECT * FROM Proyecto.Valoración WHERE idPuntuaciónMerchandising = '$idMerchandising' AND idPuntuaciónUsuario = '$idUsuario'";
+		$resultado = mysqli_query($conexion, $consulta);
+		return $resultado;
+	}
+	function modificarPuntuacionMerchandising($conexion, $puntuacion, $idMerchandising, $idUsuario)
+	{
+		$consulta = "UPDATE `Proyecto`.`Valoración` SET `Puntuación` = '$puntuacion' WHERE(`idPuntuaciónMerchandising` = '$idMerchandising' AND `idPuntuaciónUsuario` = '$idUsuario')";
+		$resultado = mysqli_query($conexion, $consulta);
+		return $resultado;
+	}
+	function insertarPuntuacionMerchandising($conexion, $idMerchandising, $idUsuario, $puntuacion)
+	{
+		$consulta = "INSERT INTO `Proyecto`.`Valoración`(`idPuntuaciónUsuario`, `idPuntuaciónMerchandising`, `Puntuación`) VALUES('$idUsuario', '$idMerchandising', '$puntuacion')";
+		$resultado = mysqli_query($conexion, $consulta);
+		return $resultado;
+	}
+	function mediaMerchandising($conexion, $idMerchandising)
+	{
+		$consulta = "SELECT format(avg(Puntuación),1) FROM Proyecto.Valoración WHERE idPuntuaciónMerchandising = '$idMerchandising'";
+		$resultado = mysqli_query($conexion, $consulta);
+		return $resultado;
+	}
 ?>

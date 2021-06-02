@@ -78,4 +78,28 @@
 		$resultado = mysqli_query($conexion, $consulta);
 		return $resultado;
 	}
+	function mostrarPuntuacionMapa($conexion, $idMapa, $idUsuario)
+	{
+		$consulta = "SELECT * FROM Proyecto.Valoración WHERE idPuntuaciónMapa = '$idMapa' AND idPuntuaciónUsuario = '$idUsuario'";
+		$resultado = mysqli_query($conexion, $consulta);
+		return $resultado;
+	}
+	function modificarPuntuacionMapa($conexion, $puntuacion, $idMapa, $idUsuario)
+	{
+		$consulta = "UPDATE `Proyecto`.`Valoración` SET `Puntuación` = '$puntuacion' WHERE(`idPuntuaciónMapa` = '$idMapa' AND `idPuntuaciónUsuario` = '$idUsuario')";
+		$resultado = mysqli_query($conexion, $consulta);
+		return $resultado;
+	}
+	function insertarPuntuacionMapa($conexion, $idMapa, $idUsuario, $puntuacion)
+	{
+		$consulta = "INSERT INTO `Proyecto`.`Valoración`(`idPuntuaciónUsuario`, `idPuntuaciónMapa`, `Puntuación`) VALUES('$idUsuario', '$idMapa', '$puntuacion')";
+		$resultado = mysqli_query($conexion, $consulta);
+		return $resultado;
+	}
+	function mediaMapa($conexion, $idMapa)
+	{
+		$consulta = "SELECT format(avg(Puntuación),1) FROM Proyecto.Valoración WHERE idPuntuaciónMapa = '$idMapa'";
+		$resultado = mysqli_query($conexion, $consulta);
+		return $resultado;
+	}
 ?>

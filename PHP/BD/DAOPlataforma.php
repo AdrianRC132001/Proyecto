@@ -102,4 +102,28 @@
 		$resultado = mysqli_query($conexion, $consulta);
 		return $resultado;
 	}
+	function mostrarPuntuacionPlataforma($conexion, $idPlataforma, $idUsuario)
+	{
+		$consulta = "SELECT * FROM Proyecto.Valoración WHERE idPuntuaciónPlataforma = '$idPlataforma' AND idPuntuaciónUsuario = '$idUsuario'";
+		$resultado = mysqli_query($conexion, $consulta);
+		return $resultado;
+	}
+	function modificarPuntuacionPlataforma($conexion, $puntuacion, $idPlataforma, $idUsuario)
+	{
+		$consulta = "UPDATE `Proyecto`.`Valoración` SET `Puntuación` = '$puntuacion' WHERE(`idPuntuaciónPlataforma` = '$idPlataforma' AND `idPuntuaciónUsuario` = '$idUsuario')";
+		$resultado = mysqli_query($conexion, $consulta);
+		return $resultado;
+	}
+	function insertarPuntuacionPlataforma($conexion, $idPlataforma, $idUsuario, $puntuacion)
+	{
+		$consulta = "INSERT INTO `Proyecto`.`Valoración`(`idPuntuaciónUsuario`, `idPuntuaciónPlataforma`, `Puntuación`) VALUES('$idUsuario', '$idPlataforma', '$puntuacion')";
+		$resultado = mysqli_query($conexion, $consulta);
+		return $resultado;
+	}
+	function mediaPlataforma($conexion, $idPlataforma)
+	{
+		$consulta = "SELECT format(avg(Puntuación),1) FROM Proyecto.Valoración WHERE idPuntuaciónPlataforma = '$idPlataforma'";
+		$resultado = mysqli_query($conexion, $consulta);
+		return $resultado;
+	}
 ?>

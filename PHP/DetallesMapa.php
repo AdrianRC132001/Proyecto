@@ -74,6 +74,16 @@
                                     <br>
                                     <img src="data:image/jpeg;base64,<?php echo base64_encode($mostrar['Imagen']);?>" class="img-responsive" width="350px" height="350px" alt="Mapa">
                                     <br>
+                                    <?php
+                                        $mostrarPuntuacion = mysqli_fetch_assoc(mostrarPuntuacionMapa($conexion, $idMapa, $_SESSION["idUsuario"]));
+                                        $media = mediaMapa($conexion, $idMapa);
+                                        $mediaMapa = mysqli_fetch_assoc($media);
+                                        echo "<br>";
+                                        echo "<b class='rojo'>Puntuación media de los usuarios: <i class='fas fa-star'></i>&nbsp;" . $mediaMapa["format(avg(Puntuación),1)"] . "</b>";
+                                        echo "<br>";
+                                    ?>
+                                    <br>
+                                    <div id="rateYo" data-rateyo-rating="<?php echo $mostrarPuntuacion["Puntuación"] ?>"></div>
                                     <br>
                                     <h5><p class="rojo"><b>Precio: </b><?php echo $mostrar['Precio']?>€</p></h5>
                                     <h5><p class="rojo"><b>Stock: </b><?php echo $mostrar['Stock']?> copias</p></h5>
@@ -93,7 +103,7 @@
                                     {
                                         echo '
                                             <br>
-                                                <a class="link" href="MostrarMapas.php">Ir al panel de administración</a>
+                                            <a class="link" href="MostrarMapas.php">Ir al panel de administración</a>
                                             <br>
                                         ';
                                     }
@@ -228,5 +238,34 @@
         <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
         <!--Script para el footer.-->
 		<script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" data-auto-a11y="true"></script>
+        <!--Script para el sistema de valoración.-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
+        <!--Scripts para el footer.-->
+		<script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" data-auto-a11y="true"></script>
+        <script>
+            $(document).ready(function()
+            {
+                $(function()
+                {
+                    $("#rateYo").rateYo(
+                    {
+                        ratedFill: "#ff0000"
+                    });
+                    $("#rateYo").rateYo().on("rateyo.set", function(e, data)
+                    {
+                        let puntuacion = data.rating;
+                        const postData = {
+                            idMapa:$('button[name=enviar]').attr("data-idMapa"),
+                            idUsuario:$('button[name=enviar]').attr("data-idUsuario"),
+                            numeroPuntuacion:puntuacion
+                        }
+                        $.post('ValoraciónMapa.php', postData, function(response)
+                        {
+                            console.log(response);
+                        });
+                    });
+                });
+            })
+        </script>
 	</body>
 </html>

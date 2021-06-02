@@ -81,6 +81,11 @@
                                             <p class="card-text"><b>Precio: </b><?php echo $mostrar['Precio']?>€</p>
                                             <p class="card-text"><b>Stock: </b><?php echo $mostrar['Stock']?> copias</p>
                                             <?php
+                                                $media = mediaVideojuego($conexion, $mostrar["idVideojuego"]);
+                                                $mediaVideojuego = mysqli_fetch_assoc($media);
+                                                echo "<p class='card-text'>Puntuación media de los usuarios: <i class='fas fa-star'></i>&nbsp;" . $mediaVideojuego["format(avg(Puntuación),1)"] . "</p>";
+                                            ?>
+                                            <?php
                                                 if(($rol == "admin") || ($rol == "usuario"))
                                                 {
                                                     echo '<div class="card-footer border-danger"><a href="CarritoVideojuego.php?idVideojuego=' . $mostrar['idVideojuego'] . '" class="btn btn-success"><i class="fas fa-cart-plus"></i>&nbsp;Añadir al carrito</a></div>';

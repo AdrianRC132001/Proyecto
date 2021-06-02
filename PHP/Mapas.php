@@ -76,6 +76,11 @@
                                             <p></p>
                                             <img class="card-img margen" src="data:image/jpeg;base64,<?php echo base64_encode($mostrar['Imagen']);?>" alt="Mapa" style="height:200px;">
                                             <p></p>
+                                            <?php
+                                                $media = mediaMapa($conexion, $mostrar["idMapa"]);
+                                                $mediaMapa = mysqli_fetch_assoc($media);
+                                                echo "<p class='card-text'>Puntuación media de los usuarios: <i class='fas fa-star'></i>&nbsp;" . $mediaMapa["format(avg(Puntuación),1)"] . "</p>";
+                                            ?>
                                             <div class="card-footer border-danger"><a href="DetallesMapa.php?idMapa=<?php echo $mostrar['idMapa'];?>" class="btn btn-danger">Ver más detalles del mapa</a></div>
                                         </div>
                                     </div>
