@@ -80,7 +80,6 @@
                                     <img src="data:image/jpeg;base64,<?php echo base64_encode($mostrar['Imagen']);?>" class="img-responsive" width="350px" height="350px" alt="Plataforma">
                                     <br>
                                     <?php
-                                        $mostrarPuntuacion = mysqli_fetch_assoc(mostrarPuntuacionPlataforma($conexion, $idPlataforma, $_SESSION["idUsuario"]));
                                         $media = mediaPlataforma($conexion, $idPlataforma);
                                         $mediaPlataforma = mysqli_fetch_assoc($media);
                                         echo "<br>";
@@ -89,12 +88,16 @@
                                     ?>
                                     <br>
                                     <?php
+                                        $mostrarPuntuacion = mysqli_fetch_assoc(mostrarPuntuacionPlataforma($conexion, $idPlataforma, $_SESSION["idUsuario"]));
                                         if(($rol == "admin") || ($rol == "usuario"))
                                         {
-                                            echo '<div class="mb-3"><a href="CarritoPlataforma.php?idPlataforma=' . $mostrar['idPlataforma'] . '" class="btn btn-success"><i class="fas fa-cart-plus"></i>&nbsp;Añadir al carrito</a></div>';
+                                            echo '<div id="rateYo" data-rateyo-rating="' . $mostrarPuntuacion['Puntuación'] . '"></div>';
+                                        }
+                                        else
+                                        {
+                                            echo '<div id="rateYo" data-rateyo-rating="' . $mostrarPuntuacion['Puntuación'] . '" style="display: none;"></div>';
                                         }
                                     ?>
-                                    <div id="rateYo" data-rateyo-rating="<?php echo $mostrarPuntuacion["Puntuación"] ?>"></div>
                                     <br>
                                     <h5><p class="rojo"><b>Precio: </b><?php echo $mostrar['Precio']?>€</p></h5>
                                     <h5><p class="rojo"><b>Stock: </b><?php echo $mostrar['Stock']?> unidades</p></h5>
@@ -253,8 +256,6 @@
         <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
         <!--Script para el sistema de valoración.-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
-        <!--Scripts para el footer.-->
-		<script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" data-auto-a11y="true"></script>
         <script>
             $(document).ready(function()
             {

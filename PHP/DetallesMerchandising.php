@@ -26,8 +26,6 @@
         <!--Links para el footer.-->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-        <!--Link para el sistema de valoración.-->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
         <script src="../JavaScript/Loader.js"></script>
 	</head>
 	<!--Cuerpo del código.-->
@@ -77,7 +75,6 @@
                                     <img src="data:image/jpeg;base64,<?php echo base64_encode($mostrar['Imagen']);?>" class="img-responsive" width="350px" height="350px" alt="Producto">
                                     <br>
                                     <?php
-                                        $mostrarPuntuacion = mysqli_fetch_assoc(mostrarPuntuacionMerchandising($conexion, $idMerchandising, $_SESSION["idUsuario"]));
                                         $media = mediaMerchandising($conexion, $idMerchandising);
                                         $mediaMerchandising = mysqli_fetch_assoc($media);
                                         echo "<br>";
@@ -85,7 +82,17 @@
                                         echo "<br>";
                                     ?>
                                     <br>
-                                    <div id="rateYo" data-rateyo-rating="<?php echo $mostrarPuntuacion["Puntuación"] ?>"></div>
+                                    <?php
+                                        $mostrarPuntuacion = mysqli_fetch_assoc(mostrarPuntuacionMerchandising($conexion, $idMerchandising, $_SESSION["idUsuario"]));
+                                        if(($rol == "admin") || ($rol == "usuario"))
+                                        {
+                                            echo '<div id="rateYo" data-rateyo-rating="' . $mostrarPuntuacion['Puntuación'] . '"></div>';
+                                        }
+                                        else
+                                        {
+                                            echo '<div id="rateYo" data-rateyo-rating="' . $mostrarPuntuacion['Puntuación'] . '" style="display: none;"></div>';
+                                        }
+                                    ?>
                                     <br>
                                     <h5><p class="rojo"><b>Precio: </b><?php echo $mostrar['Precio']?>€</p></h5>
                                     <h5><p class="rojo"><b>Stock: </b><?php echo $mostrar['Stock']?> unidades</p></h5>
@@ -238,12 +245,8 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
-        <!--Script para el footer.-->
-		<script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" data-auto-a11y="true"></script>
         <!--Script para el sistema de valoración.-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
-        <!--Scripts para el footer.-->
-		<script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" data-auto-a11y="true"></script>
         <script>
             $(document).ready(function()
             {
