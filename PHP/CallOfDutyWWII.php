@@ -69,31 +69,31 @@
                         <div class="row margen">
                             <h2 class="titulo"><i>Easter Egg de Gröesten Haus</i></h2>
                             <div class="col-md-12 mb-3">
-                                <iframe width="350" height="300" src="https://www.youtube.com/embed/xl1yUV6IaJw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe width="300" height="250" src="https://www.youtube.com/embed/xl1yUV6IaJw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                             <h2 class="titulo"><i>Easter Egg Malo de The Final Reich</i></h2>
                             <div class="col-md-12 mb-3">
-                                <iframe width="350" height="300" src="https://www.youtube.com/embed/Yzv3GB0aiLs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe width="300" height="250" src="https://www.youtube.com/embed/Yzv3GB0aiLs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                             <h2 class="titulo"><i>Easter Egg Bueno de The Final Reich</i></h2>
                             <div class="col-md-12 mb-3">
-                                <iframe width="350" height="300" src="https://www.youtube.com/embed/Tg67oH25eo0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe width="300" height="250" src="https://www.youtube.com/embed/Tg67oH25eo0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                             <h2 class="titulo"><i>Easter Egg de The Darkest Shore</i></h2>
                             <div class="col-md-12 mb-3">
-                                <iframe width="350" height="300" src="https://www.youtube.com/embed/24I8baaf9eg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe width="300" height="250" src="https://www.youtube.com/embed/24I8baaf9eg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                             <h2 class="titulo"><i>Easter Egg de The Shadowed Throne</i></h2>
                             <div class="col-md-12 mb-3">
-                                <iframe width="350" height="300" src="https://www.youtube.com/embed/qbolKS56_lk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe width="300" height="250" src="https://www.youtube.com/embed/qbolKS56_lk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                             <h2 class="titulo"><i>Easter Eggs de The Tortured Path</i></h2>
                             <div class="col-md-12 mb-3">
-                                <iframe width="350" height="300" src="https://www.youtube.com/embed/lZYv0l6yQyE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe width="300" height="250" src="https://www.youtube.com/embed/lZYv0l6yQyE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                             <h2 class="titulo"><i>Easter Egg de The Frozen Dawn</i></h2>
                             <div class="col-md-12 mb-3">
-                                <iframe width="350" height="300" src="https://www.youtube.com/embed/ccGX0-HKBJs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe width="300" height="250" src="https://www.youtube.com/embed/ccGX0-HKBJs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                         </div>
                     </div>

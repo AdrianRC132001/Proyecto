@@ -69,43 +69,43 @@
                         <div class="row margen">
                             <h2 class="titulo"><i>Easter Egg de Tranzit (Richtofen)</i></h2>
                             <div class="col-md-12 mb-3">
-                                <iframe width="350" height="300" src="https://www.youtube.com/embed/5vgMO90FSAY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe width="300" height="250" src="https://www.youtube.com/embed/5vgMO90FSAY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                             <h2 class="titulo"><i>Easter Egg de Tranzit (Maxis)</i></h2>
                             <div class="col-md-12 mb-3">
-                                <iframe width="350" height="300" src="https://www.youtube.com/embed/9NozrPVRjeA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe width="300" height="250" src="https://www.youtube.com/embed/9NozrPVRjeA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                             <h2 class="titulo"><i>Easter Egg de Nuketown Zombies</i></h2>
                             <div class="col-md-12 mb-3">
-                                <iframe width="350" height="300" src="https://www.youtube.com/embed/NKG2AHF2WQg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe width="300" height="250" src="https://www.youtube.com/embed/NKG2AHF2WQg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                             <h2 class="titulo"><i>Easter Egg de Die Rise (Richtofen)</i></h2>
                             <div class="col-md-12 mb-3">
-                                <iframe width="350" height="300" src="https://www.youtube.com/embed/uJIq-LMEVLE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe width="300" height="250" src="https://www.youtube.com/embed/uJIq-LMEVLE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                             <h2 class="titulo"><i>Easter Egg de Die Rise (Maxis)</i></h2>
                             <div class="col-md-12 mb-3">
-                                <iframe width="350" height="300" src="https://www.youtube.com/embed/UFQcWbtjjk0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe width="300" height="250" src="https://www.youtube.com/embed/UFQcWbtjjk0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                             <h2 class="titulo"><i>Easter Egg de Mob of the Dead (Continuar Ciclo)</i></h2>
                             <div class="col-md-12 mb-3">
-                                <iframe width="350" height="300" src="https://www.youtube.com/embed/9EF3Prhh1ws" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe width="300" height="250" src="https://www.youtube.com/embed/9EF3Prhh1ws" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                             <h2 class="titulo"><i>Easter Egg de Mob of the Dead (Concluir Ciclo)</i></h2>
                             <div class="col-md-12 mb-3">
-                                <iframe width="350" height="300" src="https://www.youtube.com/embed/60PX5mk-BEo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe width="300" height="250" src="https://www.youtube.com/embed/60PX5mk-BEo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                             <h2 class="titulo"><i>Easter Egg de Buried (Richtofen)</i></h2>
                             <div class="col-md-12 mb-3">
-                                <iframe width="350" height="300" src="https://www.youtube.com/embed/fhccte0XIug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe width="300" height="250" src="https://www.youtube.com/embed/fhccte0XIug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                             <h2 class="titulo"><i>Easter Egg de Buried (Maxis)</i></h2>
                             <div class="col-md-12 mb-3">
-                                <iframe width="350" height="300" src="https://www.youtube.com/embed/MdpAjDTFTVY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe width="300" height="250" src="https://www.youtube.com/embed/MdpAjDTFTVY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                             <h2 class="titulo"><i>Easter Egg de Origins</i></h2>
                             <div class="col-md-12 mb-3">
-                                <iframe width="350" height="300" src="https://www.youtube.com/embed/VJkdnSuGyVc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe width="300" height="250" src="https://www.youtube.com/embed/VJkdnSuGyVc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                         </div>
                     </div>

@@ -94,7 +94,7 @@
                                             <tbody class="bg-dark text-center text-danger">
                                                 <tr>
                                                     <td><?php echo $productoCarrito['NombreProducto']?></td>
-                                                    <td><a class="btn btn-danger" href="RestarCantidad.php?idProductoCarrito=<?php echo $productoCarrito['idItem'];?>"><i class="fas fa-minus"></i></a>&nbsp;<?php echo $productoCarrito['Cantidad']; ?>&nbsp;<a class="btn btn-success" href="SumarCantidad.php?idProductoCarrito=<?php echo $productoCarrito['idItem'];?>"><i class="fas fa-plus"></i></a></td>
+                                                    <td><a class="btn btn-danger" href="RestarCantidad.php?idProductoCarrito=<?php echo $productoCarrito['idItem'];?>&cantidad=<?php echo $productoCarrito['Cantidad'];?>"><i class="fas fa-minus"></i></a>&nbsp;<?php echo $productoCarrito['Cantidad']; ?>&nbsp;<a class="btn btn-success" href="SumarCantidad.php?idProductoCarrito=<?php echo $productoCarrito['idItem'];?>"><i class="fas fa-plus"></i></a></td>
                                                     <td><?php echo $productoCarrito['StockProducto']?></td>
                                                     <td><?php echo $productoCarrito['PrecioProducto']?>€</td>
                                                     <td><a class="btn btn-danger" href="BorrarProductoCarrito.php?idProductoCarrito=<?php echo $productoCarrito['idItem'];?>" value="Eliminar" name="borrarProductoCarrito"><i class="fas fa-trash-alt"></i>&nbsp;Eliminar</a></td>
@@ -104,11 +104,13 @@
                                         }
                                     ?>
                                     <tr class="text-center bg-primary">
-                                        <td><a class="btn btn-success col-md-12" href="#"><i class="fas fa-cart-arrow-down"></i>&nbsp;Comprar</a></td>
+                                        <?php
+                                            $consulta = mysqli_fetch_assoc(precioTotal($conexion, $idCesta));
+                                        ?>
+                                        <td><a class="btn btn-success col-md-12" href="PayPal.php?total=<?php echo $consulta['sum(PrecioProducto * Cantidad)'];?>"><i class="fas fa-cart-arrow-down"></i>&nbsp;Comprar</a></td>
                                         <td style="font-size:1.1rem;"><b>Precio total</b></td>
                                         <td style="font-size:1.1rem;"><b>--></b></td>
                                         <?php
-                                            $consulta = mysqli_fetch_assoc(precioTotal($conexion, $idCesta));
                                             if($consulta['sum(PrecioProducto * Cantidad)'] == NULL)
                                             {
                                                 echo '<td style="font-size:1.1rem;">0.00€</td>';

@@ -1,9 +1,11 @@
+/*Estilos para el fondo de la página web.*/
 .fondo
 {
 	background-image: url("../img/Fondo.jpg");
   	background-size: cover;
   	background-position: right bottom;
 }
+/*Estilos para el loader.*/
 .lds-roller
 {
     display: inline-block;
@@ -138,12 +140,14 @@
     left: -0.5%;
     font-size: 19px;
 }
+/*Estilos para la cabecera.*/
 .navbar
 {
     background-color:red;
     font-family: 'Krona One', sans-serif;
     font-size: 1rem;
 }
+/*Estilos para el logotipo de la cabecera.*/
 .logo
 {
     border-radius: 0.2503128911138924vh;
@@ -153,6 +157,7 @@
 {
     transform: scale(1.1);
 }
+/*Estilos para el pie de página.*/
 .pieDePagina
 {
     padding: 50px 0;
@@ -246,16 +251,18 @@
     font-size: 13px;
     margin-bottom: 0;
 }
-.enlaceDesactivado
-{
-    pointer-events: none;
-    cursor: default;
-}
 .listaFooter
 {
     margin-left: 10px;
     font-size: 85%;
 }
+/*Estilos para los links no funcionales.*/
+.enlaceDesactivado
+{
+    pointer-events: none;
+    cursor: default;
+}
+/*Estilos para los iconos del pie de página.*/
 .icono-mail
 {
     background-color:red;
@@ -276,10 +283,12 @@
 {
     background-color:#d12d8e;
 }
+/*Estilo para los textos de color rojo.*/
 .rojo
 {
     color:red;
 }
+/*Estilos para el menú del usuario.*/
 .marco
 {
     background-color:red;
@@ -302,25 +311,30 @@
     transform: scale(1.1);
     color:darkred;
 }
+/*Estilos para el contenedor que contiene el contenido principal de la página web.*/
 .contenedor
 {
     border-radius: 10px;
     background-color:rgba(0, 0, 0, 0.75);
 }
+/*Estilos para los mensajes de error.*/
 .amarillo
 {
     color:yellow;
 }
+/*Estilo para los márgenes entre los contenidos.*/
 .margen
 {
     padding: 2%;
 }
+/*Estilos para los títulos.*/
 .titulo
 {
     color:red;
     text-align: center;
     font-family: 'Creepster', cursive;
 }
+/*Estilos para los links.*/
 .link
 {
     color:red;
@@ -329,6 +343,7 @@
 {
     color:darkred;
 }
+/*Estilos para los botones que cargan las tablas del panel de administración.*/
 .tab
 {
 	overflow: hidden;
@@ -364,11 +379,13 @@
 	border: 1px solid red;
 	border-top: none;
 }
+/*Estilos para los mensajes de error al introducir datos en la base de datos.*/
 .error
 {
     color:yellow;
     text-align: center;
 }
+/*Estilos para las ventanas emergentes.*/
 .modal-header
 {
     font-family: 'Creepster', cursive;
@@ -379,11 +396,13 @@
 {
     color:white;
 }
+/*Estilos para las tablas.*/
 .tabla
 {
     color:red;
     text-align: center;
 }
+/*Estilos para las imágenes modificables.*/
 .fotoPerfil
 {
     width: 100%;
@@ -425,6 +444,7 @@
     margin-left: auto;
     margin-right: auto;
 }
+/*Estilos para los títulos del perfil.*/
 .tituloPerfil
 {
     color:red;
@@ -435,18 +455,21 @@
     color:red;
     font-size: 2.25vh;
 }
+/*Estilos para las acciones con 3 botones.*/
 .botonesUsuarios
 {
     display: grid;
     grid-template-columns: auto auto auto;
     grid-gap: 0.5rem;
 }
+/*Estilos para las acciones con 2 botones.*/
 .botonesProductos
 {
     display: grid;
     grid-template-columns: auto auto;
     grid-gap: 0.5rem;
 }
+/*Estilos para las imágenes.*/
 .foto
 {
     width: 100%;
@@ -462,11 +485,13 @@
     border-radius: 60vh;
     border: solid black 2px;
 }
+/*Estilos para el mensaje que avisa de que se le ha enviado un correo al usuario.*/
 .correoEnviado
 {
     color:green;
     text-align: center;
 }
+/*Estilos para los controles de los carruseles.*/
 .carousel-control-prev-icon
 {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ff0000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;

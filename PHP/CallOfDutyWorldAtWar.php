@@ -69,19 +69,19 @@
                         <div class="row margen">
                             <h2 class="titulo"><i>Easter Egg de Nacht der Untoten</i></h2>
                             <div class="col-md-12 mb-3">
-                                <iframe width="350" height="300" src="https://www.youtube.com/embed/8linO6mCUnU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe width="300" height="250" src="https://www.youtube.com/embed/8linO6mCUnU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                             <h2 class="titulo"><i>Easter Egg de Verrückt</i></h2>
                             <div class="col-md-12 mb-3">
-                                <iframe width="350" height="300" src="https://www.youtube.com/embed/VAjHFXMs_Cw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe width="300" height="250" src="https://www.youtube.com/embed/VAjHFXMs_Cw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                             <h2 class="titulo"><i>Easter Egg de Shi No Numa</i></h2>
                             <div class="col-md-12 mb-3">
-                                <iframe width="350" height="300" src="https://www.youtube.com/embed/ypuHiaNiRPA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe width="300" height="250" src="https://www.youtube.com/embed/ypuHiaNiRPA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                             <h2 class="titulo"><i>Easter Egg de Der Riese</i></h2>
                             <div class="col-md-12 mb-3">
-                                <iframe width="350" height="300" src="https://www.youtube.com/embed/F1Nqh9fZJlY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe width="300" height="250" src="https://www.youtube.com/embed/F1Nqh9fZJlY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                         </div>
                     </div>

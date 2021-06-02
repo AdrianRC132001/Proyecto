@@ -1,7 +1,16 @@
 <?php
     require "BD/ConectorBD.php";
     require "BD/DAOItem.php";
+    require "BD/DAOPlataforma.php";
+    require "BD/DAOVideojuego.php";
+    require "BD/DAOMerchandising.php";
+    require "BD/DAOUsuario.php";
     session_start();
+    $rol = $_SESSION['Rol'];
+    if(($rol != "admin") && ($rol != "usuario"))
+    {
+        header("Location: Home.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="es-ES">
@@ -47,7 +56,7 @@
 						<a class="nav-link" href="Videojuegos.php">Videojuegos<span class="sr-only">Videojuegos</span></a>
 						<a class="nav-link" href="Mapas.php">Mapas<span class="sr-only">Mapas</span></a>
                         <a class="nav-link" href="Merchandising.php">Merchandising<span class="sr-only">Merchandising</span></a>
-                        <a class="nav-link active" href="EasterEggsEHistoria.php">Easter Eggs e Historia<span class="sr-only">Easter Eggs e Historia</span></a>
+                        <a class="nav-link" href="EasterEggsEHistoria.php">Easter Eggs e Historia<span class="sr-only">Easter Eggs e Historia</span></a>
                         <div class="nav-link d-block d-sm-block d-md-none">
                             <?php include_once "MenúUsuarioMóvil.php"?>
                         </div>
@@ -59,52 +68,11 @@
         <div class="container contenedor">
             <div class="row margen">
                 <div class="col-md-8">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a class="link" href="EasterEggsEHistoria.php">Easter Eggs e Historia</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Call of Duty Black Ops IIII</li>
-                        </ol>
-                    </nav>
-                    <div class="container">
-                        <div class="row margen">
-                            <h2 class="titulo"><i>Easter Egg de Voyage of Despair</i></h2>
-                            <div class="col-md-12 mb-3">
-                                <iframe width="300" height="250" src="https://www.youtube.com/embed/XM0GN8iGonY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                            <h2 class="titulo"><i>Easter Egg de IX</i></h2>
-                            <div class="col-md-12 mb-3">
-                                <iframe width="300" height="250" src="https://www.youtube.com/embed/hZQBmtvvZvs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                            <h2 class="titulo"><i>Easter Egg de Blood of the Dead</i></h2>
-                            <div class="col-md-12 mb-3">
-                                <iframe width="300" height="250" src="https://www.youtube.com/embed/I_v-eTZiVZQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                            <h2 class="titulo"><i>Easter Egg de Classified</i></h2>
-                            <div class="col-md-12 mb-3">
-                                <iframe width="300" height="250" src="https://www.youtube.com/embed/Bw3_PtF4hUo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                            <h2 class="titulo"><i>Easter Egg de Dead of the Night</i></h2>
-                            <div class="col-md-12 mb-3">
-                                <iframe width="300" height="250" src="https://www.youtube.com/embed/zo-3hzaKEpM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                            <h2 class="titulo"><i>Easter Egg de Ancient Evil</i></h2>
-                            <div class="col-md-12 mb-3">
-                                <iframe width="300" height="250" src="https://www.youtube.com/embed/Al64z32JNRY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                            <h2 class="titulo"><i>Easter Egg de Alpha Omega</i></h2>
-                            <div class="col-md-12 mb-3">
-                                <iframe width="300" height="250" src="https://www.youtube.com/embed/lOmm18LzMXs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                            <h2 class="titulo"><i>Easter Egg de Tag der Toten</i></h2>
-                            <div class="col-md-12 mb-3">
-                                <iframe width="300" height="250" src="https://www.youtube.com/embed/t4HkbW58pHw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                            <h2 class="titulo"><i>Easter Egg Secreto de Tag der Toten</i></h2>
-                            <div class="col-md-12 mb-3">
-                                <iframe width="300" height="250" src="https://www.youtube.com/embed/uldM98nCs3I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                    </div>
+                    <h1 class="titulo"><i>Métodos de pago</i></h1>
+                    <?php
+                        $total = $_GET["total"];
+                    ?>
+                    <div id="paypal-button-container"></div>
                 </div>
                 <div class="col-md-3 marco d-none d-sm-none d-md-block">
                     <?php include_once "MenúUsuario.php"?>
@@ -123,5 +91,32 @@
         <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
         <!--Script para el footer.-->
 		<script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" data-auto-a11y="true"></script>
+        <script src="https://www.paypal.com/sdk/js?client-id=test&currency=EUR"></script>
+        <script>
+            //Render the PayPal button into #paypal-button-container.
+            paypal.Buttons(
+            {
+                //Set up the transaction.
+                createOrder: function(data, actions)
+                {
+                    return actions.order.create(
+                    {
+                        purchase_units: [{
+                            amount: {
+                                value: '<?php echo $total ?>'
+                            }
+                        }]
+                    });
+                },
+                //Finalize the transaction.
+                onApprove: function(data, actions)
+                {
+                    return actions.order.capture().then(function(details)
+                    {
+                        window.location="VaciarCarritoPayPal.php";
+                    });
+                }
+            }).render('#paypal-button-container');
+        </script>
 	</body>
 </html>

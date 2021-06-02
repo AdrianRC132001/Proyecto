@@ -69,23 +69,23 @@
                         <div class="row margen">
                             <h2 class="titulo"><i>Easter Egg de Point of Contact</i></h2>
                             <div class="col-md-12 mb-3">
-                                <iframe width="350" height="300" src="https://www.youtube.com/embed/7sURl24c208" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe width="300" height="250" src="https://www.youtube.com/embed/7sURl24c208" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                             <h2 class="titulo"><i>Easter Egg de Nightfall</i></h2>
                             <div class="col-md-12 mb-3">
-                                <iframe width="350" height="300" src="https://www.youtube.com/embed/oSJK45chk00" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe width="300" height="250" src="https://www.youtube.com/embed/oSJK45chk00" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                             <h2 class="titulo"><i>Easter Egg de Mayday</i></h2>
                             <div class="col-md-12 mb-3">
-                                <iframe width="350" height="300" src="https://www.youtube.com/embed/kHzE0AyYcZk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe width="300" height="250" src="https://www.youtube.com/embed/kHzE0AyYcZk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                             <h2 class="titulo"><i>Easter Egg de Awakening</i></h2>
                             <div class="col-md-12 mb-3">
-                                <iframe width="350" height="300" src="https://www.youtube.com/embed/vYpFpLmC7PE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe width="300" height="250" src="https://www.youtube.com/embed/vYpFpLmC7PE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                             <h2 class="titulo"><i>Easter Egg de Exodus</i></h2>
                             <div class="col-md-12 mb-3">
-                                <iframe width="350" height="300" src="https://www.youtube.com/embed/Yq2nMw300f4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe width="300" height="250" src="https://www.youtube.com/embed/Yq2nMw300f4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                         </div>
                     </div>

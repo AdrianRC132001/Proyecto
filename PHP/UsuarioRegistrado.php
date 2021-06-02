@@ -75,36 +75,45 @@
                         $provincia = $_POST["provincia"];
                         $descripcion = $_POST["descripcion"];
                         $direccion = $_POST["direccion"];
+                        $fechaNacimiento = $_POST["fechaNacimiento"];
                         $foto = addslashes(file_get_contents($_FILES['foto']['tmp_name']));
                         $rol = "usuario";
-                        //Creamos la conexión a la BD.
-                        $conexion = conectar(true);
-                        $consultaNick = consultaNick($conexion, $nick);
-                        $consultaEMail = consultaEMail($conexion, $eMail);
-                        $consultaTelefono = consultaTelefono($conexion, $telefono);
-                        $consultaDNI = consultaDNI($conexion, $dni);
-                        if(mysqli_num_rows($consultaNick) != 0)
+                        $recaptcha = $_POST['g-recaptcha-response'];
+                        if(!$recaptcha)
                         {
-                            header("Location: Register.php?error=nickExiste");
-                        }
-                        else if(mysqli_num_rows($consultaEMail) != 0)
-                        {
-                            header("Location: Register.php?error=eMailExiste");
-                        }
-                        else if(mysqli_num_rows($consultaTelefono) != 0)
-                        {
-                            header("Location: Register.php?error=telefonoExiste");
-                        }
-                        else if(mysqli_num_rows($consultaDNI) != 0)
-                        {
-                            header("Location: Register.php?error=dniExiste");
+                            header("Location: Register.php?error=captcha");
                         }
                         else
                         {
-                            //Lanzamos la consulta.
-                            $consulta = insertarUsuario($conexion, $nick, $password, $nombre, $apellido1, $apellido2, $telefono, $eMail, $cp, $provincia, $ca, $rol, $dni, $foto, $descripcion, $direccion, $fechaNacimiento);
-                            $ultimoIDRegistrado = mysqli_insert_id($conexion);
-                            $insetarCarrito = insertarCarrito($conexion, $ultimoIDRegistrado, $ultimoIDRegistrado);
+                            //Creamos la conexión a la BD.
+                            $conexion = conectar(true);
+                            $consultaNick = consultaNick($conexion, $nick);
+                            $consultaEMail = consultaEMail($conexion, $eMail);
+                            $consultaTelefono = consultaTelefono($conexion, $telefono);
+                            $consultaDNI = consultaDNI($conexion, $dni);
+                            if(mysqli_num_rows($consultaNick) != 0)
+                            {
+                                header("Location: Register.php?error=nickExiste");
+                            }
+                            else if(mysqli_num_rows($consultaEMail) != 0)
+                            {
+                                header("Location: Register.php?error=eMailExiste");
+                            }
+                            else if(mysqli_num_rows($consultaTelefono) != 0)
+                            {
+                                header("Location: Register.php?error=telefonoExiste");
+                            }
+                            else if(mysqli_num_rows($consultaDNI) != 0)
+                            {
+                                header("Location: Register.php?error=dniExiste");
+                            }
+                            else
+                            {
+                                //Lanzamos la consulta.
+                                $consulta = insertarUsuario($conexion, $nick, $password, $nombre, $apellido1, $apellido2, $telefono, $eMail, $cp, $provincia, $ca, $rol, $dni, $foto, $descripcion, $direccion, $fechaNacimiento);
+                                $ultimoIDRegistrado = mysqli_insert_id($conexion);
+                                $insetarCarrito = insertarCarrito($conexion, $ultimoIDRegistrado, $ultimoIDRegistrado);
+                            }
                         }
                     ?>
                 </div>

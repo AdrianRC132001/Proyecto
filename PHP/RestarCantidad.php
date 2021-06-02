@@ -6,7 +6,16 @@
     require "BD/DAOMerchandising.php";
     require "BD/DAOUsuario.php";
     $idItem = $_GET["idProductoCarrito"];
+    $cantidad = $_GET["cantidad"];
     $conexion = conectar(true);
-    restarCantidad($conexion, $idItem);
-    header('Location: Carrito.php');
+    if($cantidad == 1)
+    {
+        borrarProductoCarrito($conexion, $idItem);
+        header('Location: Carrito.php');
+    }
+    else
+    {
+        restarCantidad($conexion, $idItem);
+        header('Location: Carrito.php');
+    }
 ?>

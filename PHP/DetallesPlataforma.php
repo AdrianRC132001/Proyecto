@@ -72,10 +72,10 @@
                                 <div class="thumbnail">
                                     <h1 class="titulo"><i><?php echo $mostrar['Nombre']?></i></h1>
                                     <br>
-                                    <img src="data:image/jpeg;base64,<?php echo base64_encode($mostrar['Logo']);?>" class="img-responsive" width="400px" height="200px" alt="Logo">
+                                    <img src="data:image/jpeg;base64,<?php echo base64_encode($mostrar['Logo']);?>" class="img-responsive" width="350px" height="175px" alt="Logo">
                                     <br>
                                     <br>
-                                    <img src="data:image/jpeg;base64,<?php echo base64_encode($mostrar['Imagen']);?>" class="img-responsive" width="400px" height="400px" alt="Plataforma">
+                                    <img src="data:image/jpeg;base64,<?php echo base64_encode($mostrar['Imagen']);?>" class="img-responsive" width="350px" height="350px" alt="Plataforma">
                                     <br>
                                     <br>
                                     <h5><p class="rojo"><b>Precio: </b><?php echo $mostrar['Precio']?>€</p></h5>

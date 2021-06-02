@@ -72,7 +72,7 @@
                                 <div class="thumbnail">
                                     <h1 class="titulo"><i><?php echo $mostrar['Nombre']?></i></h1>
                                     <br>
-                                    <img src="data:image/jpeg;base64,<?php echo base64_encode($mostrar['Imagen']);?>" class="img-responsive" width="400px" height="400px" alt="Producto">
+                                    <img src="data:image/jpeg;base64,<?php echo base64_encode($mostrar['Imagen']);?>" class="img-responsive" width="350px" height="350px" alt="Producto">
                                     <br>
                                     <br>
                                     <h5><p class="rojo"><b>Precio: </b><?php echo $mostrar['Precio']?>€</p></h5>
@@ -113,7 +113,7 @@
                                         <h1 class="titulo"><i class="fas fa-comments"></i>&nbsp;Comentarios:</h1>
                                         <form id="comentariosMerchandising">
                                             <textarea class="form-control" name="comentarioMerchandising" id="comentarioMerchandising" cols="30" rows="10" placeholder="Introduzca aquí su comentario..."></textarea>
-                                            <button class="btn btn-success col-md-12" name="enviar" data-idMerchandising=' . $_GET["idMerchandising"] . '" data-idUsuario="' . $_SESSION["idUsuario"] . '"><i class="fas fa-share"></i>&nbsp;Enviar</button>
+                                            <button class="btn btn-success col-md-12" name="enviar" data-rol=' . $_SESSION["Rol"] . ' data-idMerchandising=' . $_GET["idMerchandising"] . '" data-idUsuario="' . $_SESSION["idUsuario"] . '"><i class="fas fa-share"></i>&nbsp;Enviar</button>
                                             <br>
                                             <br>
                                             <div id="mostrarComentariosMerchandising"></div>
@@ -128,7 +128,7 @@
                                         <h1 class="titulo"><i class="fas fa-comments"></i>&nbsp;Comentarios:</h1>
                                         <form id="comentariosMerchandising">
                                             <textarea class="form-control" name="comentarioMerchandising" id="comentarioMerchandising" cols="30" rows="10" style="display:none"></textarea>
-                                            <button class="btn btn-success col-md-12" name="enviar" data-idMerchandising=' . $_GET["idMerchandising"] . '" data-idUsuario="' . $_SESSION["idUsuario"] . '" style="display:none"><i class="fas fa-share"></i>&nbsp;Enviar</button>
+                                            <button class="btn btn-success col-md-12" name="enviar" data-rol=' . $_SESSION["Rol"] . ' data-idMerchandising=' . $_GET["idMerchandising"] . '" data-idUsuario="' . $_SESSION["idUsuario"] . '" style="display:none"><i class="fas fa-share"></i>&nbsp;Enviar</button>
                                             <br>
                                             <br>
                                             <div id="mostrarComentariosMerchandising"></div>
@@ -171,6 +171,7 @@
                 function mostrarComentarioMerchandising()
                 {
                     let idMerchandising = $('button[name=enviar]').attr('data-idMerchandising');
+                    let rol = $('button[name=enviar]').attr('data-rol');
                     $.ajax(
                     {
                         url:'MostrarComentarioMerchandising.php',
@@ -179,18 +180,43 @@
                         success:function numero(response)
                         {
                             let comentarios = JSON.parse(response); 
-                            let template = '';
+                            let textarea = '';
                             comentarios.forEach(comentarios => {
                             
-                                template += `
+                                textarea += `
                                     <br>
                                     <h2 class="titulo">${comentarios.Nick}:</h2>
                                     <textarea class='form-control' cols="30" rows="10" disabled>${comentarios.Comentario}</textarea>
                                     <br>
                                 `
+                                if(rol == "admin")
+                                {
+                                    textarea += `
+                                        <button name="borrar" id="borrar" class="btn btn-danger col-md-12 borrar" data-id='${comentarios.idComentario}'><i class="fas fa-trash-alt"></i>&nbsp;Eliminar</button>
+                                        <br>
+                                        <br>
+                                    `
+                                }
+                                else if($('button[name=enviar]').attr('data-idUsuario') == comentarios.idUsuario)
+                                {
+                                    textarea += `
+                                        <button name="borrar" id="borrar" class="btn btn-danger col-md-12 borrar" data-id='${comentarios.idComentario}'><i class="fas fa-trash-alt"></i>&nbsp;Eliminar</button>
+                                        <br>
+                                        <br>
+                                    `
+                                }
                             });
-                            $('#mostrarComentariosMerchandising').html(template);
+                            $('#mostrarComentariosMerchandising').html(textarea);
                         }
+                    })
+                    $(document).on('click', '.borrar', function(e)
+                    {
+                        let idComentario = $(this).attr('data-id');
+                        $.post('BorrarComentarioMerchandising.php', {'idComentario':idComentario}, function(response)
+                        {
+                            mostrarComentarioMerchandising();
+                        });
+                        e.preventDefault();
                     })
                 }
             })

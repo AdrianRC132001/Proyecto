@@ -17,7 +17,7 @@
     {
         $nombre = "Call of Duty Zombies Full Guide";
         $titulo = "Correo para cambiar su contraseña en Call of Duty Zombies Full Guide";
-        $url = "localhost/Proyecto/PHP/CambiarContraseña.php";
+        $url = "35.180.225.224/Proyecto/PHP/CambiarContraseña.php";
         $texto = "Pulse aquí para cambiar su contraseña.";
         $mensaje = "<a href='$url?nick=$nick'>$texto</a>";
         require_once "PHPMailer/PHPMailer.php";

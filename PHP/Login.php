@@ -87,6 +87,14 @@
                                 }
                             ?>
                         </p>
+                        <p>
+                            <?php
+                                if(isset($_GET['error']) && $_GET['error'] == "captcha")
+                                {
+                                    echo '<h4 class="error"><i class="fas fa-exclamation-triangle"></i>&nbsp;' . "Debe marcar el captcha.</h4>";
+                                }
+                            ?>
+                        </p>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label class="rojo">Nick:</label>
@@ -107,6 +115,8 @@
                                 <span class="amarillo" id="errorMensaje">Por favor, rellene el formulario correctamente.</span>
                             </div>
                         </div>
+                        <br>
+                        <div class="g-recaptcha col-md-6" data-sitekey="6Lcj6AUbAAAAAAeBJnVbNpAy-ZqhrECyHSmKubfI"></div>
                         <br>
                         <div class="form-group">
                             <button class="btn btn-danger btn-block" type="submit" name="boton" value="Login" id="boton">Login</button>
@@ -132,5 +142,6 @@
         <!--Script para el footer.-->
 		<script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" data-auto-a11y="true"></script>
         <script src="../JavaScript/Login.js"></script>
+        <script src="https://www.google.com/recaptcha/api.js"></script>
 	</body>
 </html>

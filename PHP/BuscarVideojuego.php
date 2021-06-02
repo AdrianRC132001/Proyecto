@@ -87,7 +87,7 @@
                         <div class="table-responsive">
                             <div class="container contenedor">
                                 <div class="row margen">
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 mb-2">
                                         <a href="InsertarVideojuego.php" class="btn btn-warning"><i class="fas fa-plus"></i>&nbsp;Nuevo videojuego</a>
                                     </div>
                                     <div class="col-md-4">

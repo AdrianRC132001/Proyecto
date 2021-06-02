@@ -72,10 +72,10 @@
                                 <div class="thumbnail">
                                     <h1 class="titulo"><i><?php echo $mostrar['Título']?></i></h1>
                                     <br>
-                                    <img src="data:image/jpeg;base64,<?php echo base64_encode($mostrar['Logo']);?>" class="img-responsive" width="400px" height="200px" alt="Logo">
+                                    <img src="data:image/jpeg;base64,<?php echo base64_encode($mostrar['Logo']);?>" class="img-responsive" width="350px" height="175px" alt="Logo">
                                     <br>
                                     <br>
-                                    <img src="data:image/jpeg;base64,<?php echo base64_encode($mostrar['Imagen']);?>" class="img-responsive" width="400px" height="400px" alt="Portada">
+                                    <img src="data:image/jpeg;base64,<?php echo base64_encode($mostrar['Imagen']);?>" class="img-responsive" width="350px" height="350px" alt="Portada">
                                     <br>
                                     <br>
                                     <h5><p class="rojo"><b>Precio: </b><?php echo $mostrar['Precio']?>€</p></h5>
@@ -120,7 +120,7 @@
                                         <h1 class="titulo"><i class="fas fa-comments"></i>&nbsp;Comentarios:</h1>
                                         <form id="comentariosVideojuego">
                                             <textarea class="form-control" name="comentarioVideojuego" id="comentarioVideojuego" cols="30" rows="10" placeholder="Introduzca aquí su comentario..."></textarea>
-                                            <button class="btn btn-success col-md-12" name="enviar" data-idVideojuego=' . $_GET["idVideojuego"] . '" data-idUsuario="' . $_SESSION["idUsuario"] . '"><i class="fas fa-share"></i>&nbsp;Enviar</button>
+                                            <button class="btn btn-success col-md-12" name="enviar" data-rol=' . $_SESSION["Rol"] . ' data-idVideojuego=' . $_GET["idVideojuego"] . '" data-idUsuario="' . $_SESSION["idUsuario"] . '"><i class="fas fa-share"></i>&nbsp;Enviar</button>
                                             <br>
                                             <br>
                                             <div id="mostrarComentariosVideojuego"></div>
@@ -135,7 +135,7 @@
                                         <h1 class="titulo"><i class="fas fa-comments"></i>&nbsp;Comentarios:</h1>
                                         <form id="comentariosVideojuego">
                                             <textarea class="form-control" name="comentarioVideojuego" id="comentarioVideojuego" cols="30" rows="10" style="display:none"></textarea>
-                                            <button class="btn btn-success col-md-12" name="enviar" data-idVideojuego=' . $_GET["idVideojuego"] . '" data-idUsuario="' . $_SESSION["idUsuario"] . '" style="display:none"><i class="fas fa-share"></i>&nbsp;Enviar</button>
+                                            <button class="btn btn-success col-md-12" name="enviar" data-rol=' . $_SESSION["Rol"] . ' data-idVideojuego=' . $_GET["idVideojuego"] . '" data-idUsuario="' . $_SESSION["idUsuario"] . '" style="display:none"><i class="fas fa-share"></i>&nbsp;Enviar</button>
                                             <br>
                                             <br>
                                             <div id="mostrarComentariosVideojuego"></div>
@@ -178,6 +178,7 @@
                 function mostrarComentarioVideojuego()
                 {
                     let idVideojuego = $('button[name=enviar]').attr('data-idVideojuego');
+                    let rol = $('button[name=enviar]').attr('data-rol');
                     $.ajax(
                     {
                         url:'MostrarComentarioVideojuego.php',
@@ -186,18 +187,43 @@
                         success:function numero(response)
                         {
                             let comentarios = JSON.parse(response); 
-                            let template = '';
+                            let textarea = '';
                             comentarios.forEach(comentarios => {
                             
-                                template += `
+                                textarea += `
                                     <br>
                                     <h2 class="titulo">${comentarios.Nick}:</h2>
                                     <textarea class='form-control' cols="30" rows="10" disabled>${comentarios.Comentario}</textarea>
                                     <br>
                                 `
+                                if(rol == "admin")
+                                {
+                                    textarea += `
+                                        <button name="borrar" id="borrar" class="btn btn-danger col-md-12 borrar" data-id='${comentarios.idComentario}'><i class="fas fa-trash-alt"></i>&nbsp;Eliminar</button>
+                                        <br>
+                                        <br>
+                                    `
+                                }
+                                else if($('button[name=enviar]').attr('data-idUsuario') == comentarios.idUsuario)
+                                {
+                                    textarea += `
+                                        <button name="borrar" id="borrar" class="btn btn-danger col-md-12 borrar" data-id='${comentarios.idComentario}'><i class="fas fa-trash-alt"></i>&nbsp;Eliminar</button>
+                                        <br>
+                                        <br>
+                                    `
+                                }
                             });
-                            $('#mostrarComentariosVideojuego').html(template);
+                            $('#mostrarComentariosVideojuego').html(textarea);
                         }
+                    })
+                    $(document).on('click', '.borrar', function(e)
+                    {
+                        let idComentario = $(this).attr('data-id');
+                        $.post('BorrarComentarioVideojuego.php', {'idComentario':idComentario}, function(response)
+                        {
+                            mostrarComentarioVideojuego();
+                        });
+                        e.preventDefault();
                     })
                 }
             })

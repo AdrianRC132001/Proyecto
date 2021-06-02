@@ -4,27 +4,35 @@
 	//Recogemos los valores del formulario.
 	$nick = $_POST["nick"];
 	$password = $_POST["password"];
-	//Creamos la conexión a la BD.
-	$conexion = conectar(true);
-	//Lanzamos la consulta.
-	$consulta = consultaLogin($conexion, $nick, $password);
-	if(mysqli_num_rows($consulta) == 1)
+	$recaptcha = $_POST['g-recaptcha-response'];
+	if(!$recaptcha)
 	{
-		$fila = mysqli_fetch_assoc($consulta);
-		//Creo la sesión del usuario.
-		crearSesion($fila);
-		header("Location: Home.php");
+		header("Location: Login.php?error=captcha");
 	}
 	else
 	{
-		$consulta = consultaNick($conexion, $nick);
+		//Creamos la conexión a la BD.
+		$conexion = conectar(true);
+		//Lanzamos la consulta.
+		$consulta = consultaLogin($conexion, $nick, $password);
 		if(mysqli_num_rows($consulta) == 1)
 		{
-			header("Location: Login.php?error=contraseñaIncorrecta");
+			$fila = mysqli_fetch_assoc($consulta);
+			//Creo la sesión del usuario.
+			crearSesion($fila);
+			header("Location: Home.php");
 		}
 		else
 		{
-			header("Location: Login.php?error=usuarioNoExiste");
+			$consulta = consultaNick($conexion, $nick);
+			if(mysqli_num_rows($consulta) == 1)
+			{
+				header("Location: Login.php?error=contraseñaIncorrecta");
+			}
+			else
+			{
+				header("Location: Login.php?error=usuarioNoExiste");
+			}
 		}
 	}
 ?>
