@@ -76,13 +76,13 @@
                                             <p></p>
                                             <img class="card-img margen" src="data:image/jpeg;base64,<?php echo base64_encode($mostrar['Imagen']);?>" alt="Producto" style="height:200px;">
                                             <p></p>
+                                            <p class="card-text"><b>Precio: </b><?php echo $mostrar['Precio']?>€</p>
+                                            <p class="card-text"><b>Stock: </b><?php echo $mostrar['Stock']?> unidades</p>
                                             <?php
                                                 $media = mediaMerchandising($conexion, $mostrar["idMerchandising"]);
                                                 $mediaMerchandising = mysqli_fetch_assoc($media);
                                                 echo "<p class='card-text'>Puntuación media de los usuarios: <i class='fas fa-star'></i>&nbsp;" . $mediaMerchandising["format(avg(Puntuación),1)"] . "</p>";
                                             ?>
-                                            <p class="card-text"><b>Precio: </b><?php echo $mostrar['Precio']?>€</p>
-                                            <p class="card-text"><b>Stock: </b><?php echo $mostrar['Stock']?> unidades</p>
                                             <?php
                                                 if(($rol == "admin") || ($rol == "usuario"))
                                                 {
