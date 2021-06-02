@@ -91,13 +91,10 @@
                                     <?php
                                         if(($rol == "admin") || ($rol == "usuario"))
                                         {
-                                            echo '<div id="rateYo" data-rateyo-rating="' . $mostrarPuntuacion["Puntuación"] . '"></div>';
-                                        }
-                                        else
-                                        {
-                                            echo '<div id="rateYo" data-rateyo-rating="' . $mostrarPuntuacion["Puntuación"] . '" style="display: none;"></div>';
+                                            echo '<div class="mb-3"><a href="CarritoPlataforma.php?idPlataforma=' . $mostrar['idPlataforma'] . '" class="btn btn-success"><i class="fas fa-cart-plus"></i>&nbsp;Añadir al carrito</a></div>';
                                         }
                                     ?>
+                                    <div id="rateYo" data-rateyo-rating="<?php echo $mostrarPuntuacion["Puntuación"] ?>"></div>
                                     <br>
                                     <h5><p class="rojo"><b>Precio: </b><?php echo $mostrar['Precio']?>€</p></h5>
                                     <h5><p class="rojo"><b>Stock: </b><?php echo $mostrar['Stock']?> unidades</p></h5>

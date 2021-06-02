@@ -85,16 +85,7 @@
                                         echo "<br>";
                                     ?>
                                     <br>
-                                    <?php
-                                        if(($rol == "admin") || ($rol == "usuario"))
-                                        {
-                                            echo '<div id="rateYo" data-rateyo-rating="' . $mostrarPuntuacion["Puntuación"] . '"></div>';
-                                        }
-                                        else
-                                        {
-                                            echo '<div id="rateYo" data-rateyo-rating="' . $mostrarPuntuacion["Puntuación"] . '" style="display: none;"></div>';
-                                        }
-                                    ?>
+                                    <div id="rateYo" data-rateyo-rating="<?php echo $mostrarPuntuacion["Puntuación"] ?>"></div>
                                     <br>
                                     <h5><p class="rojo"><b>Precio: </b><?php echo $mostrar['Precio']?>€</p></h5>
                                     <h5><p class="rojo"><b>Stock: </b><?php echo $mostrar['Stock']?> copias</p></h5>
