@@ -26,6 +26,8 @@
         <!--Links para el footer.-->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+        <!--Link para el sistema de valoración.-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
         <script src="../JavaScript/Loader.js"></script>
 	</head>
 	<!--Cuerpo del código.-->
